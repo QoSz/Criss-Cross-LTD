@@ -27,10 +27,10 @@ export default function Navbar() {
                             <span className="sr-only">Shopping cart</span>
                         </Button>
                         <Button variant="ghost" asChild className="h-10">
-                            <Link href="/login">Login</Link>
+                            <Link href="/auth/login">Login</Link>
                         </Button>
                         <Button asChild className="h-10">
-                            <Link href="/signup">Sign Up</Link>
+                            <Link href="/auth/signup">Sign Up</Link>
                         </Button>
                     </div>
                     <MobileMenu />
