@@ -1,4 +1,40 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'placehold.co',
+                pathname: '/**',
+            },
+        ],
+        dangerouslyAllowSVG: true,
+        contentDispositionType: 'attachment',
+    },
+    webpack: (config, { isServer }) => {
+        // Optimize chunk splitting
+        config.optimization = {
+            ...config.optimization,
+            splitChunks: {
+                chunks: 'all',
+                cacheGroups: {
+                    default: false,
+                    vendors: false,
+                    commons: {
+                        name: 'commons',
+                        chunks: 'all',
+                        minChunks: 2,
+                    },
+                },
+            },
+        }
+        return config
+    },
+    // Add experimental features to help with hydration
+    experimental: {
+        optimizeCss: true,
+        scrollRestoration: true,
+    },
+};
 
 export default nextConfig;

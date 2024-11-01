@@ -6,7 +6,7 @@ export function useLoadingSubmit<T>(
     onSuccess?: (data: T) => void,
     onError?: (error: Error) => void
 ) {
-    const { setIsLoading } = useLoading()
+    const { setIsLoading, isLoading } = useLoading()
     const [error, setError] = useState<string | null>(null)
 
     const handleSubmit = async () => {
@@ -26,5 +26,5 @@ export function useLoadingSubmit<T>(
         }
     }
 
-    return { handleSubmit, error }
+    return { handleSubmit, error, isLoading }
 }

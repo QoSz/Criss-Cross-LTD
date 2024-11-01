@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useSupabase } from '@/components/SupabaseProvider'
+import { useLoadingSubmit } from '@/hooks/useLoadingSubmit'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -13,27 +14,33 @@ import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/
 export default function LoginForm() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [error, setError] = useState<string | null>(null)
-    const [isLoading, setIsLoading] = useState(false)
     const router = useRouter()
     const supabase = useSupabase()
 
-    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    const { handleSubmit, error } = useLoadingSubmit(
+        async () => {
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email,
+                password,
+            })
+
+            if (error) {
+                throw error
+            }
+
+            if (data.user && !data.user.email_confirmed_at) {
+                throw new Error('Please verify your email address before logging in.')
+            }
+
+            router.refresh() // Trigger a re-render
+            router.push('/') // Redirect to home page after successful login
+        },
+        () => { }
+    )
+
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        setIsLoading(true)
-        setError(null)
-
-        const { error } = await supabase.auth.signInWithPassword({
-            email,
-            password,
-        })
-
-        if (error) {
-            setError(error.message)
-            setIsLoading(false)
-        } else {
-            router.push('/dashboard') // Redirect to dashboard or home page after successful login
-        }
+        handleSubmit()
     }
 
     return (
@@ -42,7 +49,7 @@ export default function LoginForm() {
                 <CardDescription>Welcome back! Please log in to your account.</CardDescription>
             </CardHeader>
             <CardContent>
-                <form onSubmit={handleLogin} className="space-y-4">
+                <form onSubmit={onSubmit} className="space-y-4">
                     <div>
                         <Label htmlFor="email">Email</Label>
                         <Input
@@ -72,13 +79,13 @@ export default function LoginForm() {
                             <AlertDescription>{error}</AlertDescription>
                         </Alert>
                     )}
-                    <Button type="submit" className="w-full" disabled={isLoading}>
-                        {isLoading ? 'Logging in...' : 'Log In'}
+                    <Button type="submit" className="w-full">
+                        Log In
                     </Button>
                 </form>
                 <div className="mt-4 text-center">
                     <Link href="/auth/forgot-password" className="text-sm text-blue-600 hover:underline">
-                        Forgot password?
+                        Forgot Password?
                     </Link>
                 </div>
                 <div className="mt-4 text-center">

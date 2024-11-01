@@ -1,4 +1,3 @@
-// src/middleware.ts
 import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
@@ -11,21 +10,12 @@ export async function middleware(req: NextRequest) {
         data: { session },
     } = await supabase.auth.getSession()
 
-    // Admin routes protection
-    if (req.nextUrl.pathname.startsWith('/admin')) {
+    // Protect the profile route
+    if (req.nextUrl.pathname.startsWith('/profile')) {
         if (!session) {
-            // If no session, redirect to login
             return NextResponse.redirect(new URL('/auth/login', req.url))
         }
-
-        // Get user's role from Supabase
-        const { data: { user } } = await supabase.auth.getUser()
-        const { data: profile } = await supabase.from('profiles').select('role').single()
-
-        // If user is not an admin, redirect to home page
-        if (!profile || profile.role !== 'admin') {
-            return NextResponse.redirect(new URL('/', req.url))
-        }
+        return res
     }
 
     // Auth routes (login/signup/forgot-password)
@@ -42,10 +32,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-    matcher: [
-        '/admin/:path*',
-        '/auth/login',
-        '/auth/signup',
-        '/auth/forgot-password'
-    ]
+    matcher: ['/profile', '/auth/login', '/auth/signup', '/auth/forgot-password']
 }

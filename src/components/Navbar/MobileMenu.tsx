@@ -1,4 +1,3 @@
-// src/components/Navbar/MobileMenu.tsx
 'use client'
 
 import { useState } from 'react'
@@ -15,13 +14,15 @@ import {
 } from '@/components/ui/sheet'
 import { Menu, Moon, Sun, ShoppingCart, User } from 'lucide-react'
 import { User as SupabaseUser } from '@supabase/supabase-js'
+import { Badge } from "@/components/ui/badge"
 
 interface MobileMenuProps {
     user: SupabaseUser | null
     onSignOut: () => Promise<void>
+    cartItemsCount: number
 }
 
-export default function MobileMenu({ user, onSignOut }: MobileMenuProps) {
+export default function MobileMenu({ user, onSignOut, cartItemsCount }: MobileMenuProps) {
     const { setTheme, theme } = useTheme()
     const [isOpen, setIsOpen] = useState(false)
 
@@ -53,6 +54,11 @@ export default function MobileMenu({ user, onSignOut }: MobileMenuProps) {
                         <Link href="/cart" className="flex items-center py-2 px-4 hover:bg-accent rounded-md">
                             <ShoppingCart className="h-4 w-4 mr-2" />
                             Cart
+                            {cartItemsCount > 0 && (
+                                <Badge variant="destructive" className="ml-2 px-2 py-1 text-xs">
+                                    {cartItemsCount}
+                                </Badge>
+                            )}
                         </Link>
                     </SheetClose>
 

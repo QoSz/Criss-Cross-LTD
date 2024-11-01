@@ -1,15 +1,17 @@
-import { Button } from "@/components/ui/button"
+import ProductGrid from '@/components/ProductGrid'
+import { Suspense } from 'react'
+import { getCategories } from '@/lib/getCategories'
 
-export default function Home() {
+export default async function Home() {
+  const categories = await getCategories()
+
   return (
     <div className="container mx-auto px-4 py-12">
       <h1 className="text-4xl font-bold mb-8 text-center">Welcome to Criss Cross LTD</h1>
-      <p className="text-xl mb-8 text-center">Discover our amazing products and services.</p>
-      <div className="flex justify-center">
-        <Button asChild>
-          <a href="/products">Shop Now</a>
-        </Button>
-      </div>
+      <p className="text-xl mb-8 text-center">A place to find the essentials for your everyday needs.</p>
+      <Suspense fallback={<div className="text-center">Loading products...</div>}>
+        <ProductGrid initialCategories={categories} />
+      </Suspense>
     </div>
   )
 }

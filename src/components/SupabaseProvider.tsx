@@ -1,50 +1,51 @@
 'use client'
 
 import { createContext, useContext, useState, useEffect } from 'react'
-import { createClient, SupabaseClient, User } from '@supabase/supabase-js'
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import type { SupabaseClient, User } from '@supabase/auth-helpers-nextjs'
+import { Database } from '@/lib/database.types'
 
-const SupabaseContext = createContext<SupabaseClient | null>(null)
-
-export const useSupabase = () => {
-    const context = useContext(SupabaseContext)
-    if (!context) {
-        throw new Error('useSupabase must be used within a SupabaseProvider')
-    }
-    return context
+type SupabaseContext = {
+    supabase: SupabaseClient<Database>
 }
 
+const Context = createContext<SupabaseContext | undefined>(undefined)
+
 export function SupabaseProvider({ children }: { children: React.ReactNode }) {
-    const [supabase] = useState(() => createClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    ))
+    const [supabase] = useState(() => createClientComponentClient<Database>())
 
     useEffect(() => {
         const { data: { subscription } } = supabase.auth.onAuthStateChange(() => { })
+
         return () => {
             subscription.unsubscribe()
         }
     }, [supabase])
 
     return (
-        <SupabaseContext.Provider value={supabase}>
+        <Context.Provider value={{ supabase }}>
             {children}
-        </SupabaseContext.Provider>
+        </Context.Provider>
     )
 }
 
-// Updated hook for easier access to auth state
+export const useSupabase = () => {
+    const context = useContext(Context)
+    if (context === undefined) {
+        throw new Error('useSupabase must be used inside SupabaseProvider')
+    }
+    return context.supabase
+}
+
 export function useSupabaseAuth() {
     const supabase = useSupabase()
     const [user, setUser] = useState<User | null>(null)
 
     useEffect(() => {
-        // Set the initial user state
         supabase.auth.getUser().then(({ data: { user } }) => {
             setUser(user)
         })
 
-        // Listen for auth state changes
         const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
             setUser(session?.user ?? null)
         })

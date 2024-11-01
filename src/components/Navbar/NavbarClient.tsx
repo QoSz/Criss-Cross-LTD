@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { useLoading } from '@/components/LoadingProvider'
 import { User as SupabaseUser } from '@supabase/supabase-js'
+import { Badge } from "@/components/ui/badge"
+import { useCart } from '@/contexts/CartContext'
 
 interface NavbarClientProps {
     initialUser: SupabaseUser | null
@@ -25,8 +27,11 @@ export default function NavbarClient({ initialUser }: NavbarClientProps) {
     const { user, supabase } = useSupabaseAuth()
     const router = useRouter()
     const { setIsLoading } = useLoading()
+    const { cart } = useCart()
 
     const currentUser = user ?? initialUser
+
+    const cartItemsCount = cart.reduce((total, item) => total + item.quantity, 0)
 
     const handleSignOut = async () => {
         try {
@@ -65,6 +70,11 @@ export default function NavbarClient({ initialUser }: NavbarClientProps) {
                             <Link href="/cart">
                                 <ShoppingCart className="h-[1.5rem] w-[1.5rem]" />
                                 <span className="sr-only">Shopping cart</span>
+                                {cartItemsCount > 0 && (
+                                    <Badge variant="destructive" className="absolute -top-2 -right-2 px-2 py-1 text-xs">
+                                        {cartItemsCount}
+                                    </Badge>
+                                )}
                             </Link>
                         </Button>
 
@@ -105,7 +115,7 @@ export default function NavbarClient({ initialUser }: NavbarClientProps) {
                     </div>
 
                     {/* Mobile Menu */}
-                    <MobileMenu user={currentUser} onSignOut={handleSignOut} />
+                    <MobileMenu user={currentUser} onSignOut={handleSignOut} cartItemsCount={cartItemsCount} />
                 </div>
             </nav>
         </header>

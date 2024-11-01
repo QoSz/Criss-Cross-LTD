@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSupabase } from '@/components/SupabaseProvider'
+import { useLoadingSubmit } from '@/hooks/useLoadingSubmit'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -16,11 +17,59 @@ export default function SignUpForm() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-    const [error, setError] = useState<string | null>(null)
-    const [isLoading, setIsLoading] = useState(false)
+    const [phoneNumber, setPhoneNumber] = useState('')
     const [passwordStrength, setPasswordStrength] = useState(0)
     const router = useRouter()
     const supabase = useSupabase()
+
+    const { handleSubmit, error, isLoading } = useLoadingSubmit(
+        async () => {
+            if (!validateEmail(email)) {
+                throw new Error('Please enter a valid email address')
+            }
+
+            if (password !== confirmPassword) {
+                throw new Error('Passwords do not match')
+            }
+
+            if (passwordStrength < 75) {
+                throw new Error('Password is not strong enough')
+            }
+
+            const { data, error } = await supabase.auth.signUp({
+                email,
+                password,
+                options: {
+                    data: {
+                        first_name: firstName,
+                        last_name: lastName,
+                        phone_number: phoneNumber,
+                    },
+                    emailRedirectTo: `${window.location.origin}/auth/callback`,
+                },
+            })
+
+            if (error) throw error
+
+            if (data.user) {
+                const { error: upsertError } = await supabase.from('profiles').upsert({
+                    id: data.user.id,
+                    first_name: firstName,
+                    last_name: lastName,
+                    email: email,
+                    phone_number: phoneNumber,
+                    updated_at: new Date().toISOString(),
+                })
+
+                if (upsertError) throw upsertError
+            }
+
+            router.push('/auth/signup-success')
+        },
+        () => {
+            console.log('Sign up successful')
+        }
+    )
 
     const validateEmail = (email: string) => {
         const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -40,47 +89,9 @@ export default function SignUpForm() {
         setPasswordStrength(calculatePasswordStrength(password))
     }, [password])
 
-    const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        setIsLoading(true)
-        setError(null)
-
-        if (!validateEmail(email)) {
-            setError('Please enter a valid email address')
-            setIsLoading(false)
-            return
-        }
-
-        if (password !== confirmPassword) {
-            setError('Passwords do not match')
-            setIsLoading(false)
-            return
-        }
-
-        if (passwordStrength < 75) {
-            setError('Password is not strong enough')
-            setIsLoading(false)
-            return
-        }
-
-        const { error } = await supabase.auth.signUp({
-            email,
-            password,
-            options: {
-                data: {
-                    first_name: firstName,
-                    last_name: lastName,
-                },
-                emailRedirectTo: `${window.location.origin}/auth/callback`,
-            },
-        })
-
-        if (error) {
-            setError(error.message)
-            setIsLoading(false)
-        } else {
-            router.push('/auth/signup-success')
-        }
+        handleSubmit()
     }
 
     return (
@@ -89,7 +100,7 @@ export default function SignUpForm() {
                 <CardDescription>Sign up to start shopping with Criss Cross LTD</CardDescription>
             </CardHeader>
             <CardContent>
-                <form onSubmit={handleSignUp} className="space-y-4">
+                <form onSubmit={onSubmit} className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                         <div>
                             <Label htmlFor="firstName">First Name</Label>
@@ -100,6 +111,7 @@ export default function SignUpForm() {
                                 onChange={(e) => setFirstName(e.target.value)}
                                 required
                                 aria-required="true"
+                                disabled={isLoading}
                             />
                         </div>
                         <div>
@@ -111,6 +123,7 @@ export default function SignUpForm() {
                                 onChange={(e) => setLastName(e.target.value)}
                                 required
                                 aria-required="true"
+                                disabled={isLoading}
                             />
                         </div>
                     </div>
@@ -124,6 +137,18 @@ export default function SignUpForm() {
                             onChange={(e) => setEmail(e.target.value)}
                             required
                             aria-required="true"
+                            disabled={isLoading}
+                        />
+                    </div>
+                    <div>
+                        <Label htmlFor="phoneNumber">Phone Number</Label>
+                        <Input
+                            id="phoneNumber"
+                            type="tel"
+                            placeholder="+1234567890"
+                            value={phoneNumber}
+                            onChange={(e) => setPhoneNumber(e.target.value)}
+                            disabled={isLoading}
                         />
                     </div>
                     <div>
@@ -136,6 +161,7 @@ export default function SignUpForm() {
                             onChange={(e) => setPassword(e.target.value)}
                             required
                             aria-required="true"
+                            disabled={isLoading}
                         />
                         <Progress value={passwordStrength} className="mt-2" aria-label="Password strength" />
                         <p id="passwordRequirements" className="text-sm text-gray-500 mt-1">
@@ -152,6 +178,7 @@ export default function SignUpForm() {
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             required
                             aria-required="true"
+                            disabled={isLoading}
                         />
                     </div>
                     {error && (
@@ -160,7 +187,7 @@ export default function SignUpForm() {
                         </Alert>
                     )}
                     <Button type="submit" className="w-full" disabled={isLoading}>
-                        {isLoading ? 'Signing up...' : 'Sign Up'}
+                        {isLoading ? 'Signing Up...' : 'Sign Up'}
                     </Button>
                 </form>
             </CardContent>

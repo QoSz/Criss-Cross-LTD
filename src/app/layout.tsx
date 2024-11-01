@@ -1,4 +1,3 @@
-// src/app/layout.tsx
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
@@ -9,6 +8,8 @@ import Footer from '@/components/Footer'
 import { Suspense } from 'react'
 import LoadingProvider from '@/components/LoadingProvider'
 import Loading from './loading'
+import { ScrollToTopButton } from '@/components/ScrollToTopButton'
+import { CartProvider } from '@/contexts/CartContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -36,26 +37,29 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         <SupabaseProvider>
-          <LoadingProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="light"
-              enableSystem
-              disableTransitionOnChange
-            >
-              <div className="flex flex-col min-h-screen">
-                <Navbar />
-                <main className="flex-grow">
-                  <Suspense fallback={<Loading />}>
-                    {children}
-                  </Suspense>
-                </main>
-                <Footer />
-              </div>
-            </ThemeProvider>
-          </LoadingProvider>
+          <CartProvider>
+            <LoadingProvider>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="light"
+                enableSystem
+                disableTransitionOnChange
+              >
+                <div className="flex flex-col min-h-screen">
+                  <Navbar />
+                  <main className="flex-grow">
+                    <Suspense fallback={<Loading />}>
+                      {children}
+                    </Suspense>
+                  </main>
+                  <Footer />
+                  <ScrollToTopButton />
+                </div>
+              </ThemeProvider>
+            </LoadingProvider>
+          </CartProvider>
         </SupabaseProvider>
       </body>
     </html>

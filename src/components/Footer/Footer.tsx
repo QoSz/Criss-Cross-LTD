@@ -6,12 +6,12 @@ export default function Footer() {
         <footer className="bg-background text-foreground border-t" aria-labelledby="footer-heading">
             <h2 id="footer-heading" className="sr-only">Footer</h2>
             <div className="container mx-auto px-4 py-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div>
-                        <h3 className="text-lg font-semibold mb-4">About Criss Cross LTD</h3>
-                        <p className="mb-4">Criss Cross LTD is your trusted partner for innovative solutions in [brief description of services]. We're committed to excellence and customer satisfaction.</p>
+                <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
+                    <div className="md:col-span-3">
+                        <h1 className="text-2xl font-bold mb-4"><Link href="/">Criss Cross LTD</Link></h1>
+                        <p className="mb-4">Criss Cross LTD is your trusted partner in FMCG wholesale, offering high-quality products with competitive pricing and reliable delivery. Committed to excellence and customer satisfaction, we prioritise meeting the needs of every client.</p>
                     </div>
-                    <nav aria-label="Footer Navigation">
+                    <nav className="md:col-span-1" aria-label="Footer Navigation">
                         <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
                         <ul className="space-y-2">
                             <li><Link href="/" className="hover:underline">Home</Link></li>
@@ -21,7 +21,7 @@ export default function Footer() {
                             <li><Link href="/about" className="hover:underline">About Us</Link></li>
                         </ul>
                     </nav>
-                    <div>
+                    <div className="md:col-span-2">
                         <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
                         <address className="not-italic">
                             <p className="flex items-center mb-2">
