@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from "@/components/theme-provider"
 import { SupabaseProvider } from '@/components/SupabaseProvider'
+import { AuthProvider } from '@/contexts/AuthContext'
 import { Navbar } from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { Suspense } from 'react'
@@ -10,6 +11,8 @@ import LoadingProvider from '@/components/LoadingProvider'
 import Loading from './loading'
 import { ScrollToTopButton } from '@/components/ScrollToTopButton'
 import { CartProvider } from '@/contexts/CartContext'
+import { Toaster } from "@/components/ui/toaster"
+import QueryProvider from '@/providers/QueryProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -39,27 +42,32 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
         <SupabaseProvider>
-          <CartProvider>
-            <LoadingProvider>
-              <ThemeProvider
-                attribute="class"
-                defaultTheme="light"
-                enableSystem
-                disableTransitionOnChange
-              >
-                <div className="flex flex-col min-h-screen">
-                  <Navbar />
-                  <main className="flex-grow">
-                    <Suspense fallback={<Loading />}>
-                      {children}
-                    </Suspense>
-                  </main>
-                  <Footer />
-                  <ScrollToTopButton />
-                </div>
-              </ThemeProvider>
-            </LoadingProvider>
-          </CartProvider>
+          <AuthProvider>
+            <QueryProvider>
+              <CartProvider>
+                <LoadingProvider>
+                  <ThemeProvider
+                    attribute="class"
+                    defaultTheme="light"
+                    enableSystem
+                    disableTransitionOnChange
+                  >
+                    <div className="flex flex-col min-h-screen">
+                      <Navbar />
+                      <Toaster />
+                      <main className="flex-grow">
+                        <Suspense fallback={<Loading />}>
+                          {children}
+                        </Suspense>
+                      </main>
+                      <Footer />
+                      <ScrollToTopButton />
+                    </div>
+                  </ThemeProvider>
+                </LoadingProvider>
+              </CartProvider>
+            </QueryProvider>
+          </AuthProvider>
         </SupabaseProvider>
       </body>
     </html>

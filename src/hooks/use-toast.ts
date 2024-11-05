@@ -8,8 +8,9 @@ import type {
   ToastProps,
 } from "@/components/ui/toast"
 
-const TOAST_LIMIT = 1
-const TOAST_REMOVE_DELAY = 1000000
+const TOAST_LIMIT = 3
+const TOAST_REMOVE_DELAY = 5000 // 5 seconds
+const TOAST_SHOW_DELAY = 100 // 100ms delay between toasts
 
 type ToasterToast = ToastProps & {
   id: string
@@ -79,7 +80,12 @@ export const reducer = (state: State, action: Action): State => {
     case "ADD_TOAST":
       return {
         ...state,
-        toasts: [action.toast, ...state.toasts].slice(0, TOAST_LIMIT),
+        toasts: [action.toast, ...state.toasts]
+          .slice(0, TOAST_LIMIT)
+          .map((toast, index) => ({
+            ...toast,
+            style: { ...toast.style, delay: index * TOAST_SHOW_DELAY }
+          })),
       }
 
     case "UPDATE_TOAST":

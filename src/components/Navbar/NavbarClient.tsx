@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
-import { ShoppingCart, User } from 'lucide-react'
+import { ShoppingCart, User, PackageSearch, Phone, LayoutDashboard } from 'lucide-react'
 import ThemeSwitcher from './ThemeSwitcher'
 import MobileMenu from './MobileMenu'
 import { useSupabaseAuth } from '@/components/SupabaseProvider'
@@ -24,7 +24,7 @@ interface NavbarClientProps {
 }
 
 export default function NavbarClient({ initialUser }: NavbarClientProps) {
-    const { user, supabase } = useSupabaseAuth()
+    const { user, supabase, userRole } = useSupabaseAuth()
     const router = useRouter()
     const { setIsLoading } = useLoading()
     const { cart } = useCart()
@@ -57,9 +57,28 @@ export default function NavbarClient({ initialUser }: NavbarClientProps) {
                         <Link href="/" className="text-2xl font-bold">
                             Criss Cross LTD
                         </Link>
-                        <Button variant="ghost" asChild className="hidden md:inline-flex">
-                            <Link href="/contact">Contact</Link>
+                        <Button
+                            variant="ghost"
+                            asChild
+                            className="hidden md:inline-flex bg-gray-200 hover:bg-gray-300 text-gray-900"
+                        >
+                            <Link href="/contact" className="flex items-center">
+                                <Phone className="h-4 w-4 mr-1" />
+                                Contact
+                            </Link>
                         </Button>
+                        {userRole === 'admin' && (
+                            <Button
+                                variant="ghost"
+                                asChild
+                                className="hidden md:inline-flex bg-gray-200 hover:bg-gray-300 text-gray-900"
+                            >
+                                <Link href="/admin" className="flex items-center">
+                                    <LayoutDashboard className="h-4 w-4 mr-1" />
+                                    Admin Dashboard
+                                </Link>
+                            </Button>
+                        )}
                     </div>
 
                     {/* Desktop Navigation */}
@@ -88,10 +107,16 @@ export default function NavbarClient({ initialUser }: NavbarClientProps) {
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="end">
                                     <DropdownMenuItem asChild>
-                                        <Link href="/profile">Profile</Link>
+                                        <Link href="/profile" className="flex items-center">
+                                            <User className="h-4 w-4 mr-2" />
+                                            Profile
+                                        </Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem asChild>
-                                        <Link href="/orders">Orders</Link>
+                                        <Link href="/orders" className="flex items-center">
+                                            <PackageSearch className="h-4 w-4 mr-2" />
+                                            Orders
+                                        </Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem
@@ -115,7 +140,12 @@ export default function NavbarClient({ initialUser }: NavbarClientProps) {
                     </div>
 
                     {/* Mobile Menu */}
-                    <MobileMenu user={currentUser} onSignOut={handleSignOut} cartItemsCount={cartItemsCount} />
+                    <MobileMenu 
+                        user={currentUser} 
+                        onSignOut={handleSignOut} 
+                        cartItemsCount={cartItemsCount}
+                        userRole={userRole}
+                    />
                 </div>
             </nav>
         </header>

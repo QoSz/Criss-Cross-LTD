@@ -10,6 +10,26 @@ export async function middleware(req: NextRequest) {
         data: { session },
     } = await supabase.auth.getSession()
 
+    // Protect admin routes
+    if (req.nextUrl.pathname.startsWith('/admin')) {
+        if (!session) {
+            return NextResponse.redirect(new URL('/auth/login', req.url))
+        }
+
+        // Check if user has admin role
+        const { data: profile } = await supabase
+            .from('profiles')
+            .select('role')
+            .eq('id', session.user.id)
+            .single()
+
+        if (!profile || profile.role !== 'admin') {
+            return NextResponse.redirect(new URL('/', req.url))
+        }
+
+        return res
+    }
+
     // Protect the profile route
     if (req.nextUrl.pathname.startsWith('/profile')) {
         if (!session) {
@@ -32,5 +52,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/profile', '/auth/login', '/auth/signup', '/auth/forgot-password']
+    matcher: ['/profile', '/admin/:path*', '/auth/login', '/auth/signup', '/auth/forgot-password']
 }

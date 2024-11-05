@@ -12,7 +12,7 @@ import {
     SheetTitle,
     SheetDescription
 } from '@/components/ui/sheet'
-import { Menu, Moon, Sun, ShoppingCart, User } from 'lucide-react'
+import { Menu, Moon, Sun, ShoppingCart, User, PackageSearch, Phone, LayoutDashboard } from 'lucide-react'
 import { User as SupabaseUser } from '@supabase/supabase-js'
 import { Badge } from "@/components/ui/badge"
 
@@ -20,9 +20,11 @@ interface MobileMenuProps {
     user: SupabaseUser | null
     onSignOut: () => Promise<void>
     cartItemsCount: number
+    userRole?: string | null
+    isLoading?: boolean
 }
 
-export default function MobileMenu({ user, onSignOut, cartItemsCount }: MobileMenuProps) {
+export default function MobileMenu({ user, onSignOut, cartItemsCount, userRole, isLoading }: MobileMenuProps) {
     const { setTheme, theme } = useTheme()
     const [isOpen, setIsOpen] = useState(false)
 
@@ -46,10 +48,19 @@ export default function MobileMenu({ user, onSignOut, cartItemsCount }: MobileMe
                 </SheetDescription>
                 <nav className="flex flex-col space-y-4 mt-4">
                     <SheetClose asChild>
-                        <Link href="/contact" className="block py-2 px-4 hover:bg-accent rounded-md">
+                        <Link href="/contact" className="flex items-center py-2 px-4 hover:bg-accent rounded-md">
+                            <Phone className="h-4 w-4 mr-2" />
                             Contact
                         </Link>
                     </SheetClose>
+                    {(!isLoading && userRole === 'admin') && (
+                        <SheetClose asChild>
+                            <Link href="/admin" className="flex items-center py-2 px-4 hover:bg-accent rounded-md">
+                                <LayoutDashboard className="h-4 w-4 mr-2" />
+                                Admin Dashboard
+                            </Link>
+                        </SheetClose>
+                    )}
                     <SheetClose asChild>
                         <Link href="/cart" className="flex items-center py-2 px-4 hover:bg-accent rounded-md">
                             <ShoppingCart className="h-4 w-4 mr-2" />
@@ -71,7 +82,8 @@ export default function MobileMenu({ user, onSignOut, cartItemsCount }: MobileMe
                                 </Link>
                             </SheetClose>
                             <SheetClose asChild>
-                                <Link href="/orders" className="block py-2 px-4 hover:bg-accent rounded-md">
+                                <Link href="/orders" className="flex items-center py-2 px-4 hover:bg-accent rounded-md">
+                                    <PackageSearch className="h-4 w-4 mr-2" />
                                     Orders
                                 </Link>
                             </SheetClose>

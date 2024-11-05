@@ -75,7 +75,6 @@ export interface Database {
                     quantity: number
                     created_at: string
                     updated_at: string
-                    status: string  // Add this line
                 }
                 Insert: {
                     id?: number
@@ -84,7 +83,6 @@ export interface Database {
                     quantity?: number
                     created_at?: string
                     updated_at?: string
-                    status?: string  // Add this line
                 }
                 Update: {
                     id?: number
@@ -93,7 +91,35 @@ export interface Database {
                     quantity?: number
                     created_at?: string
                     updated_at?: string
-                    status?: string  // Add this line
+                }
+            }
+            orders: {
+                Row: {
+                    id: number
+                    user_id: string
+                    product_id: string
+                    product_name: string
+                    product_img: string
+                    quantity: number
+                    created_at: string
+                }
+                Insert: {
+                    id?: number
+                    user_id: string
+                    product_id: string
+                    product_name: string
+                    product_img: string
+                    quantity: number
+                    created_at?: string
+                }
+                Update: {
+                    id?: number
+                    user_id?: string
+                    product_id?: string
+                    product_name?: string
+                    product_img?: string
+                    quantity?: number
+                    created_at?: string
                 }
             }
         }

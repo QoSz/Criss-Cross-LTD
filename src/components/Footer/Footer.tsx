@@ -25,15 +25,15 @@ export default function Footer() {
                         <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
                         <address className="not-italic">
                             <p className="flex items-center mb-2">
-                                <MapPin className="h-5 w-5 mr-2" aria-hidden="true" />
+                                <MapPin className="h-5 w-5 mr-2 flex-shrink-0" aria-hidden="true" />
                                 <span>Criss Cross Ltd, Mombasa Road, Nairobi, Kenya</span>
                             </p>
                             <p className="flex items-center mb-2">
-                                <Mail className="h-5 w-5 mr-2" aria-hidden="true" />
+                                <Mail className="h-5 w-5 mr-2 flex-shrink-0" aria-hidden="true" />
                                 <a href="mailto:info@crisscross.co.ke" className="hover:underline">info@crisscross.co.ke</a>
                             </p>
                             <p className="flex items-center mb-2">
-                                <Phone className="h-5 w-5 mr-2" aria-hidden="true" />
+                                <Phone className="h-5 w-5 mr-2 flex-shrink-0" aria-hidden="true" />
                                 <a href="tel:+254707451536" className="hover:underline">+254 707 451 536</a>
                             </p>
                         </address>

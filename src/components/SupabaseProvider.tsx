@@ -40,18 +40,46 @@ export const useSupabase = () => {
 export function useSupabaseAuth() {
     const supabase = useSupabase()
     const [user, setUser] = useState<User | null>(null)
+    const [userRole, setUserRole] = useState<string | null>(null)
 
     useEffect(() => {
-        supabase.auth.getUser().then(({ data: { user } }) => {
+        const fetchUserAndProfile = async () => {
+            const { data: { user } } = await supabase.auth.getUser()
             setUser(user)
-        })
 
-        const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+            if (user) {
+                const { data: profile } = await supabase
+                    .from('profiles')
+                    .select('role')
+                    .eq('id', user.id)
+                    .single()
+                
+                setUserRole(profile?.role ?? null)
+            } else {
+                setUserRole(null)
+            }
+        }
+
+        fetchUserAndProfile()
+
+        const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
             setUser(session?.user ?? null)
+            
+            if (session?.user) {
+                const { data: profile } = await supabase
+                    .from('profiles')
+                    .select('role')
+                    .eq('id', session.user.id)
+                    .single()
+                
+                setUserRole(profile?.role ?? null)
+            } else {
+                setUserRole(null)
+            }
         })
 
         return () => subscription.unsubscribe()
     }, [supabase])
 
-    return { user, supabase }
+    return { user, supabase, userRole }
 }

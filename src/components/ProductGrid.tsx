@@ -12,6 +12,8 @@ import { ChevronDown, X } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import Image from 'next/image'
 import { Database } from '@/lib/database.types'
+import { useCart } from '@/contexts/CartContext'
+import { useToast } from '@/hooks/use-toast'
 
 type Product = Database['public']['Tables']['products']['Row']
 
@@ -28,11 +30,16 @@ export default function ProductGrid({ initialCategories }: ProductGridProps) {
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
     const supabase = useSupabase()
+    const { addToCart } = useCart()
+    const { toast } = useToast()
 
     const isFilterActive = searchQuery !== '' || !selectedCategories.includes('All') || selectedCategories.length > 1 || sortOrder !== 'asc'
 
     useEffect(() => {
+        let isMounted = true;
+
         async function fetchProducts() {
+            setIsLoading(true)
             try {
                 const { data: productsData, error: productsError } = await supabase
                     .from('products')
@@ -41,16 +48,23 @@ export default function ProductGrid({ initialCategories }: ProductGridProps) {
 
                 if (productsError) throw productsError
 
-                setProducts(productsData as Product[])
+                if (isMounted) {
+                    setProducts(productsData as Product[])
+                    setIsLoading(false)
+                }
             } catch (error) {
-                setError('Failed to fetch products. Please try again later.')
-                console.error('Error fetching data:', error)
-            } finally {
-                setIsLoading(false)
+                if (isMounted) {
+                    setError('Failed to fetch products. Please try again later.')
+                    console.error('Error fetching data:', error)
+                    setIsLoading(false)
+                }
             }
         }
 
         fetchProducts()
+        return () => {
+            isMounted = false
+        }
     }, [supabase, sortOrder])
 
     const handleCategoryChange = (category: string) => {
@@ -75,6 +89,21 @@ export default function ProductGrid({ initialCategories }: ProductGridProps) {
         (selectedCategories.includes('All') || selectedCategories.includes(product.category || '')) &&
         (searchQuery === '' || product.product_name.toLowerCase().includes(searchQuery.toLowerCase()))
     )
+
+    const handleAddToCart = (product: Product) => {
+        addToCart({
+            id: product.id,
+            product_name: product.product_name,
+            product_img: product.product_img,
+            quantity: 1
+        })
+        
+        toast({
+            title: "Added to cart",
+            description: `${product.product_name} has been added to your cart.`,
+            duration: 2000,
+        })
+    }
 
     if (isLoading) return <div className="text-center">Loading products...</div>
     if (error) return <div className="text-center text-red-500">{error}</div>
@@ -146,7 +175,10 @@ export default function ProductGrid({ initialCategories }: ProductGridProps) {
                             <h2 className="mt-2 text-lg font-semibold text-center">{product.product_name}</h2>
                         </CardContent>
                         <CardFooter className="mt-auto">
-                            <Button className="w-full" onClick={() => console.log(`Add ${product.product_name} to cart`)}>
+                            <Button
+                                className="w-full"
+                                onClick={() => handleAddToCart(product)}
+                            >
                                 Add to Cart
                             </Button>
                         </CardFooter>

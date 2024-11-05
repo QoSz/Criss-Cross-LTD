@@ -12,7 +12,6 @@ const nextConfig = {
         contentDispositionType: 'attachment',
     },
     webpack: (config, { isServer }) => {
-        // Optimize chunk splitting
         config.optimization = {
             ...config.optimization,
             splitChunks: {
@@ -29,11 +28,6 @@ const nextConfig = {
             },
         }
         return config
-    },
-    // Add experimental features to help with hydration
-    experimental: {
-        optimizeCss: true,
-        scrollRestoration: true,
     },
 };
 

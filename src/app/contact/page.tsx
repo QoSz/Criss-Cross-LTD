@@ -21,7 +21,7 @@ export default function ContactPage() {
             <h1 className="text-4xl font-bold mb-8 text-center">Contact Us</h1>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
                 <div className="space-y-6">
-                    <Card>
+                    <Card className="transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
                         <CardContent className="flex items-center p-6">
                             <MapPin className="h-6 w-6 text-red-500 mr-4" />
                             <div>
@@ -30,7 +30,7 @@ export default function ContactPage() {
                             </div>
                         </CardContent>
                     </Card>
-                    <Card>
+                    <Card className="transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
                         <CardContent className="flex items-center p-6">
                             <Mail className="h-6 w-6 text-blue-500 mr-4" />
                             <div>
@@ -41,7 +41,7 @@ export default function ContactPage() {
                             </div>
                         </CardContent>
                     </Card>
-                    <Card>
+                    <Card className="transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
                         <CardContent className="flex items-center p-6">
                             <Phone className="h-6 w-6 text-green-500 mr-4" />
                             <div>
@@ -52,7 +52,7 @@ export default function ContactPage() {
                             </div>
                         </CardContent>
                     </Card>
-                    <Card>
+                    <Card className="transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
                         <CardContent className="p-6">
                             <h2 className="font-semibold text-lg mb-2">Connect With Us</h2>
                             <p className="mb-4">Follow us for updates, offers, and more.</p>
