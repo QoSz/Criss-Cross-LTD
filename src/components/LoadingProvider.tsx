@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 import { Loader2 } from "lucide-react"
 
 type LoadingContextType = {
@@ -24,6 +24,44 @@ export default function LoadingProvider({
     children: React.ReactNode
 }) {
     const [isLoading, setIsLoading] = useState(false)
+
+    // Approach A: Handle visibility changes
+    useEffect(() => {
+        const handleVisibilityChange = () => {
+            // Log the visibility state change
+            console.log('Visibility state changed:', {
+                state: document.visibilityState,
+                timestamp: new Date().toISOString(),
+                wasLoading: isLoading
+            })
+
+            if (document.visibilityState === 'visible') {
+                // If the page becomes visible and was loading, reset it
+                setIsLoading(false)
+                console.info('Loading state reset due to tab becoming visible')
+            } else if (document.visibilityState === 'hidden') {
+                console.info('Tab/Window hidden - current loading state:', isLoading)
+            }
+        }
+
+        document.addEventListener('visibilitychange', handleVisibilityChange)
+        return () => {
+            document.removeEventListener('visibilitychange', handleVisibilityChange)
+        }
+    }, [isLoading]) // Added isLoading to dependencies to access current state
+
+    // Approach B: Timeout-based error boundary
+    useEffect(() => {
+        if (isLoading) {
+            console.log('Loading state activated:', new Date().toISOString())
+            const timeoutId = setTimeout(() => {
+                console.warn('Loading state was forced to reset after timeout')
+                setIsLoading(false)
+            }, 10000) // 10 second timeout
+
+            return () => clearTimeout(timeoutId)
+        }
+    }, [isLoading])
 
     return (
         <LoadingContext.Provider value={{ isLoading, setIsLoading }}>

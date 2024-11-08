@@ -1,29 +1,18 @@
-'use client'
-
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-import { useSupabaseAuth } from '@/components/SupabaseProvider'
-import { useLoading } from '@/components/LoadingProvider'
+import { Metadata } from 'next'
+import { ProtectedRoute } from '@/components/ProtectedRoute'
 import ProfileForm from './ProfileForm'
 
+export const metadata: Metadata = {
+    title: 'Profile | Criss Cross LTD',
+    description: 'Manage your profile settings.',
+}
+
 export default function ProfilePage() {
-    const { user } = useSupabaseAuth()
-    const { isLoading } = useLoading()
-    const router = useRouter()
-
-    useEffect(() => {
-        if (!user && !isLoading) {
-            router.push('/auth/login')
-        }
-    }, [user, isLoading, router])
-
-    if (isLoading) {
-        return <div className="container mx-auto px-4 py-8">Loading...</div>
-    }
-
     return (
-        <div className="container mx-auto px-4 py-8">
-            <ProfileForm />
-        </div>
+        <ProtectedRoute>
+            <div className="container mx-auto px-4 py-8">
+                <ProfileForm />
+            </div>
+        </ProtectedRoute>
     )
 }

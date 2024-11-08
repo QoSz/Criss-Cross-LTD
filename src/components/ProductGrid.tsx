@@ -14,7 +14,6 @@ import Image from 'next/image'
 import { Database } from '@/lib/database.types'
 import { useCart } from '@/contexts/CartContext'
 import { useToast } from '@/hooks/use-toast'
-import { useLoading } from '@/components/LoadingProvider'
 
 type Product = Database['public']['Tables']['products']['Row']
 
@@ -29,7 +28,7 @@ export default function ProductGrid({ initialCategories }: ProductGridProps) {
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc')
     const [searchQuery, setSearchQuery] = useState<string>('')
     const [error, setError] = useState<string | null>(null)
-    const { setIsLoading } = useLoading()
+    const [isLoading, setIsLoading] = useState(false)
     const supabase = useSupabase()
     const { addToCart } = useCart()
     const { toast } = useToast()
@@ -68,7 +67,7 @@ export default function ProductGrid({ initialCategories }: ProductGridProps) {
         return () => {
             isMounted = false
         }
-    }, [supabase, sortOrder, setIsLoading])
+    }, [supabase, sortOrder])
 
     const handleCategoryChange = (category: string) => {
         setSelectedCategories(prev => {
@@ -109,6 +108,7 @@ export default function ProductGrid({ initialCategories }: ProductGridProps) {
     }
 
     if (error) return <div className="text-center text-red-500">{error}</div>
+    if (isLoading) return <div className="text-center">Loading products...</div>
 
     return (
         <div>
