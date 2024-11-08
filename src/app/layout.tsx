@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from "@/components/theme-provider"
 import { SupabaseProvider } from '@/components/SupabaseProvider'
-import { AuthProvider } from '@/contexts/AuthContext'
 import { Navbar } from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { Suspense } from 'react'
@@ -31,6 +30,11 @@ export const metadata: Metadata = {
     description: 'Shop with Criss Cross LTD for a wide range of high-quality products. Best deals and excellent customer service guaranteed.',
   },
   metadataBase: new URL('https://www.crisscross.co.ke'),
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' }
+    ],
+  },
 }
 
 export default function RootLayout({
@@ -41,34 +45,32 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
-        <SupabaseProvider>
-          <AuthProvider>
+        <LoadingProvider>
+          <SupabaseProvider>
             <QueryProvider>
               <CartProvider>
-                <LoadingProvider>
-                  <ThemeProvider
-                    attribute="class"
-                    defaultTheme="light"
-                    enableSystem
-                    disableTransitionOnChange
-                  >
-                    <div className="flex flex-col min-h-screen">
-                      <Navbar />
-                      <Toaster />
-                      <main className="flex-grow">
-                        <Suspense fallback={<Loading />}>
-                          {children}
-                        </Suspense>
-                      </main>
-                      <Footer />
-                      <ScrollToTopButton />
-                    </div>
-                  </ThemeProvider>
-                </LoadingProvider>
+                <ThemeProvider
+                  attribute="class"
+                  defaultTheme="light"
+                  enableSystem
+                  disableTransitionOnChange
+                >
+                  <div className="flex flex-col min-h-screen">
+                    <Navbar />
+                    <Toaster />
+                    <main className="flex-grow">
+                      <Suspense fallback={<Loading />}>
+                        {children}
+                      </Suspense>
+                    </main>
+                    <Footer />
+                    <ScrollToTopButton />
+                  </div>
+                </ThemeProvider>
               </CartProvider>
             </QueryProvider>
-          </AuthProvider>
-        </SupabaseProvider>
+          </SupabaseProvider>
+        </LoadingProvider>
       </body>
     </html>
   )

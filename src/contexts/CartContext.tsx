@@ -1,7 +1,7 @@
 'use client'
 
 import React, { createContext, useContext, useState, useEffect } from 'react'
-import { useSupabase } from '@/components/SupabaseProvider'
+import { useSupabaseAuth } from '@/components/SupabaseProvider'
 
 type CartItem = {
     id: string
@@ -29,13 +29,11 @@ export const useCart = () => {
 }
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const { user, supabase } = useSupabaseAuth()
     const [cart, setCart] = useState<CartItem[]>([])
-    const supabase = useSupabase()
 
     useEffect(() => {
         const loadCart = async () => {
-            const { data: { user } } = await supabase.auth.getUser()
-            
             // Load local cart first (for potential merging)
             const storedCart = localStorage.getItem('cart')
             const localCart: CartItem[] = storedCart ? JSON.parse(storedCart) : []
@@ -81,25 +79,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
             }
         }
         loadCart()
-
-        // Set up auth state change listener
-        const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
-            if (event === 'SIGNED_OUT') {
-                localStorage.removeItem('cart')
-                setCart([])
-            } else if (event === 'SIGNED_IN') {
-                // Will trigger loadCart() through the useEffect dependency
-                loadCart()
-            }
-        })
-
-        return () => {
-            authListener.subscription.unsubscribe()
-        }
-    }, [supabase])
+    }, [user, supabase])
 
     const saveCart = async (newCart: CartItem[]) => {
-        const { data: { user } } = await supabase.auth.getUser()
         if (user) {
             // Get the current cart items from the database
             const { data: currentDbCart } = await supabase
@@ -162,7 +144,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
 
     const clearCart = async () => {
-        const { data: { user } } = await supabase.auth.getUser()
         if (user) {
             await supabase
                 .from('shopping_cart')

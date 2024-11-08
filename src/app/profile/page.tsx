@@ -1,27 +1,21 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { useSupabase } from '@/components/SupabaseProvider'
+import { useSupabaseAuth } from '@/components/SupabaseProvider'
+import { useLoading } from '@/components/LoadingProvider'
 import ProfileForm from './ProfileForm'
 
 export default function ProfilePage() {
-    const [isLoading, setIsLoading] = useState(true)
+    const { user } = useSupabaseAuth()
+    const { isLoading } = useLoading()
     const router = useRouter()
-    const supabase = useSupabase()
 
     useEffect(() => {
-        const checkSession = async () => {
-            const { data: { session } } = await supabase.auth.getSession()
-            if (!session) {
-                router.push('/auth/login')
-            } else {
-                setIsLoading(false)
-            }
+        if (!user && !isLoading) {
+            router.push('/auth/login')
         }
-
-        checkSession()
-    }, [supabase, router])
+    }, [user, isLoading, router])
 
     if (isLoading) {
         return <div className="container mx-auto px-4 py-8">Loading...</div>

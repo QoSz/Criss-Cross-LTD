@@ -1,12 +1,23 @@
 import { cache } from 'react'
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 import { Database } from '@/lib/database.types'
 
 export const revalidate = 3600 // revalidate every hour
 
 export const getCategories = cache(async () => {
-    const supabase = createServerComponentClient<Database>({ cookies })
+    const cookieStore = cookies()
+    const supabase = createServerClient<Database>(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        {
+            cookies: {
+                get(name: string) {
+                    return cookieStore.get(name)?.value
+                },
+            },
+        }
+    )
 
     const { data: categoriesData, error: categoriesError } = await supabase
         .from('products')

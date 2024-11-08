@@ -14,6 +14,7 @@ import Image from 'next/image'
 import { Database } from '@/lib/database.types'
 import { useCart } from '@/contexts/CartContext'
 import { useToast } from '@/hooks/use-toast'
+import { useLoading } from '@/components/LoadingProvider'
 
 type Product = Database['public']['Tables']['products']['Row']
 
@@ -27,8 +28,8 @@ export default function ProductGrid({ initialCategories }: ProductGridProps) {
     const [selectedCategories, setSelectedCategories] = useState<string[]>(['All'])
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc')
     const [searchQuery, setSearchQuery] = useState<string>('')
-    const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
+    const { setIsLoading } = useLoading()
     const supabase = useSupabase()
     const { addToCart } = useCart()
     const { toast } = useToast()
@@ -39,8 +40,8 @@ export default function ProductGrid({ initialCategories }: ProductGridProps) {
         let isMounted = true;
 
         async function fetchProducts() {
-            setIsLoading(true)
             try {
+                setIsLoading(true)
                 const { data: productsData, error: productsError } = await supabase
                     .from('products')
                     .select('id, product_name, product_img, category')
@@ -50,12 +51,14 @@ export default function ProductGrid({ initialCategories }: ProductGridProps) {
 
                 if (isMounted) {
                     setProducts(productsData as Product[])
-                    setIsLoading(false)
                 }
             } catch (error) {
                 if (isMounted) {
                     setError('Failed to fetch products. Please try again later.')
                     console.error('Error fetching data:', error)
+                }
+            } finally {
+                if (isMounted) {
                     setIsLoading(false)
                 }
             }
@@ -65,7 +68,7 @@ export default function ProductGrid({ initialCategories }: ProductGridProps) {
         return () => {
             isMounted = false
         }
-    }, [supabase, sortOrder])
+    }, [supabase, sortOrder, setIsLoading])
 
     const handleCategoryChange = (category: string) => {
         setSelectedCategories(prev => {
@@ -105,7 +108,6 @@ export default function ProductGrid({ initialCategories }: ProductGridProps) {
         })
     }
 
-    if (isLoading) return <div className="text-center">Loading products...</div>
     if (error) return <div className="text-center text-red-500">{error}</div>
 
     return (

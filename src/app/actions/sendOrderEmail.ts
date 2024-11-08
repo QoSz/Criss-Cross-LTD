@@ -1,6 +1,6 @@
 'use server'
 
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
 type OrderItem = {
@@ -16,9 +16,20 @@ type CustomerProfile = {
 }
 
 export async function sendOrderEmail(userId: string, orderItems: OrderItem[]) {
-    try {
-        const supabase = createServerComponentClient({ cookies })
+    const cookieStore = cookies()
+    const supabase = createServerClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        {
+            cookies: {
+                get(name: string) {
+                    return cookieStore.get(name)?.value
+                },
+            },
+        }
+    )
 
+    try {
         // Fetch customer profile
         const { data: profile, error: profileError } = await supabase
             .from('profiles')

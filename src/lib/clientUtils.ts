@@ -1,8 +1,11 @@
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createBrowserClient } from '@supabase/ssr'
 import { Database } from '@/lib/database.types'
 
 export async function fetchCategoriesClient() {
-    const supabase = createClientComponentClient<Database>()
+    const supabase = createBrowserClient<Database>(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    )
     
     const { data: categoriesData, error: categoriesError } = await supabase
         .from('products')

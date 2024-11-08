@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useSupabase } from '@/components/SupabaseProvider'
+import { useSupabaseAuth } from '@/components/SupabaseProvider'
 import { useLoadingSubmit } from '@/hooks/useLoadingSubmit'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -20,11 +20,10 @@ interface Profile {
 
 export default function ProfileForm() {
     const [profile, setProfile] = useState<Profile | null>(null)
-    const supabase = useSupabase()
+    const { supabase, user } = useSupabaseAuth()
 
     useEffect(() => {
         async function loadProfile() {
-            const { data: { user } } = await supabase.auth.getUser()
             if (user) {
                 const { data, error } = await supabase
                     .from('profiles')
@@ -38,7 +37,7 @@ export default function ProfileForm() {
         }
 
         loadProfile()
-    }, [supabase])
+    }, [supabase, user])
 
     const { handleSubmit, error, isLoading } = useLoadingSubmit(
         async () => {
