@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react'
 import { Loader2 } from "lucide-react"
 
 type LoadingContextType = {
@@ -18,55 +18,105 @@ export function useLoading() {
     return context
 }
 
+const LOADING_TIMEOUT = 10000 // 10 seconds maximum loading time
+const VISIBILITY_DELAY = 150 // 150ms delay for visibility changes
+
+// Debug utility
+const debug = {
+    log: (action: string, data?: any) => {
+        if (process.env.NODE_ENV === 'development') {
+            console.log(`[Loading State] ${action}`, {
+                timestamp: new Date().toISOString(),
+                visibility: document.visibilityState,
+                ...data
+            })
+        }
+    }
+}
+
 export default function LoadingProvider({
     children
 }: {
     children: React.ReactNode
 }) {
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoadingState] = useState(false)
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+    const visibilityTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-    // Approach A: Handle visibility changes
+    // Memoized setIsLoading function with debug logging
+    const setIsLoading = useCallback((loading: boolean) => {
+        debug.log(`Setting loading state to ${loading}`)
+        setIsLoadingState(loading)
+    }, [])
+
     useEffect(() => {
+        if (!isLoading) {
+            debug.log('Loading state cleared')
+            return
+        }
+
+        debug.log('Loading state activated')
+
+        // Clear any existing timeouts
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current)
+        }
+        if (visibilityTimeoutRef.current) {
+            clearTimeout(visibilityTimeoutRef.current)
+        }
+
+        // Safety timeout to prevent infinite loading
+        timeoutRef.current = setTimeout(() => {
+            debug.log('Safety timeout triggered')
+            setIsLoadingState(false)
+            console.warn('Loading state was forcefully cleared after timeout')
+        }, LOADING_TIMEOUT)
+
+        // Visibility change handler
         const handleVisibilityChange = () => {
-            // Log the visibility state change
-            console.log('Visibility state changed:', {
-                state: document.visibilityState,
-                timestamp: new Date().toISOString(),
-                wasLoading: isLoading
+            debug.log('Visibility changed', { 
+                newState: document.visibilityState 
             })
 
             if (document.visibilityState === 'visible') {
-                // If the page becomes visible and was loading, reset it
-                setIsLoading(false)
-                console.info('Loading state reset due to tab becoming visible')
-            } else if (document.visibilityState === 'hidden') {
-                console.info('Tab/Window hidden - current loading state:', isLoading)
+                visibilityTimeoutRef.current = setTimeout(() => {
+                    debug.log('Clearing loading state after visibility change')
+                    setIsLoadingState(false)
+                }, VISIBILITY_DELAY)
             }
         }
 
+        // Add visibility change listener
         document.addEventListener('visibilitychange', handleVisibilityChange)
+
+        // Cleanup function
         return () => {
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current)
+            }
+            if (visibilityTimeoutRef.current) {
+                clearTimeout(visibilityTimeoutRef.current)
+            }
             document.removeEventListener('visibilitychange', handleVisibilityChange)
-        }
-    }, [isLoading]) // Added isLoading to dependencies to access current state
-
-    // Approach B: Timeout-based error boundary
-    useEffect(() => {
-        if (isLoading) {
-            console.log('Loading state activated:', new Date().toISOString())
-            const timeoutId = setTimeout(() => {
-                console.warn('Loading state was forced to reset after timeout')
-                setIsLoading(false)
-            }, 10000) // 10 second timeout
-
-            return () => clearTimeout(timeoutId)
+            debug.log('Cleaning up loading effect')
         }
     }, [isLoading])
 
+    // Memoized context value
+    const contextValue = {
+        isLoading,
+        setIsLoading
+    }
+
     return (
-        <LoadingContext.Provider value={{ isLoading, setIsLoading }}>
+        <LoadingContext.Provider value={contextValue}>
             {isLoading && (
-                <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center">
+                <div 
+                    className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center"
+                    role="alert"
+                    aria-busy="true"
+                    aria-label="Loading content"
+                >
                     <div className="flex flex-col items-center gap-2">
                         <Loader2 className="h-8 w-8 animate-spin text-primary" />
                         <p className="text-sm text-muted-foreground">Loading...</p>

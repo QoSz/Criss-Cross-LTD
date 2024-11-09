@@ -1,7 +1,8 @@
 import { ShoppingCart } from './ShoppingCart'
 
 export const metadata = {
-    title: 'Shopping Cart',
+    title: 'Shopping Cart | Your Store Name',
+    description: 'View and manage your shopping cart items',
 }
 
 export default function CartPage() {

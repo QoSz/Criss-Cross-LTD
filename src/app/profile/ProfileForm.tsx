@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from 'react'
 import { useSupabaseAuth } from '@/components/SupabaseProvider'
-import { useLoadingSubmit } from '@/hooks/useLoadingSubmit'
+import { useLoading } from '@/components/LoadingProvider'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { useToast } from "@/hooks/use-toast"
+import { Loader2 } from "lucide-react"
 
 interface Profile {
     id: string
@@ -20,29 +22,48 @@ interface Profile {
 
 export default function ProfileForm() {
     const [profile, setProfile] = useState<Profile | null>(null)
+    const [error, setError] = useState<string | null>(null)
     const { supabase, user } = useSupabaseAuth()
+    const { setIsLoading, isLoading } = useLoading()
+    const { toast } = useToast()
+    const [isInitialLoading, setIsInitialLoading] = useState(true)
 
     useEffect(() => {
         async function loadProfile() {
             if (user) {
-                const { data, error } = await supabase
-                    .from('profiles')
-                    .select('*')
-                    .eq('id', user.id)
-                    .single()
+                try {
+                    const { data, error } = await supabase
+                        .from('profiles')
+                        .select('*')
+                        .eq('id', user.id)
+                        .single()
 
-                if (data) setProfile(data)
-                if (error) console.error('Error fetching profile:', error)
+                    if (error) throw error
+                    if (data) setProfile(data)
+                } catch (error) {
+                    console.error('Error fetching profile:', error)
+                    toast({
+                        title: "Error",
+                        description: "Failed to load profile data",
+                        variant: "destructive",
+                    })
+                } finally {
+                    setIsInitialLoading(false)
+                }
             }
         }
 
         loadProfile()
-    }, [supabase, user])
+    }, [supabase, user, toast])
 
-    const { handleSubmit, error, isLoading } = useLoadingSubmit(
-        async () => {
-            if (!profile) throw new Error('No profile data')
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        if (!profile) return
 
+        setError(null)
+        setIsLoading(true)
+
+        try {
             const { data: { user } } = await supabase.auth.getUser()
             if (!user) throw new Error('No authenticated user')
 
@@ -56,18 +77,34 @@ export default function ProfileForm() {
                 .eq('id', user.id)
 
             if (error) throw error
-        },
-        () => {
-            console.log('Profile updated successfully')
-        }
-    )
 
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        handleSubmit()
+            toast({
+                title: "Success",
+                description: "Profile updated successfully",
+            })
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'An error occurred')
+            toast({
+                title: "Error",
+                description: "Failed to update profile",
+                variant: "destructive",
+            })
+        } finally {
+            setTimeout(() => {
+                setIsLoading(false)
+            }, 500)
+        }
     }
 
-    if (!profile) return <div>Loading...</div>
+    if (isInitialLoading) {
+        return (
+            <div className="flex justify-center items-center min-h-[200px]">
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            </div>
+        )
+    }
+
+    if (!profile) return null
 
     return (
         <Card className="max-w-2xl mx-auto">
@@ -76,7 +113,7 @@ export default function ProfileForm() {
                 <CardDescription>Update your personal information</CardDescription>
             </CardHeader>
             <CardContent>
-                <form onSubmit={onSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                         <div>
                             <Label htmlFor="firstName">First Name</Label>

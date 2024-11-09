@@ -3,7 +3,7 @@ import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 import { Database } from '@/lib/database.types'
 
-export const revalidate = 3600 // revalidate every hour
+export const revalidate = 3600
 
 export const getCategories = cache(async () => {
     const cookieStore = cookies()
@@ -12,9 +12,12 @@ export const getCategories = cache(async () => {
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
         {
             cookies: {
-                get(name: string) {
-                    return cookieStore.get(name)?.value
-                },
+                getAll: () => cookieStore.getAll(),
+                setAll: (cookies) => {
+                    cookies.map((cookie) => {
+                        cookieStore.set(cookie.name, cookie.value)
+                    })
+                }
             },
         }
     )

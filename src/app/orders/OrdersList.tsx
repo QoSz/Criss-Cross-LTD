@@ -4,22 +4,26 @@ import { useEffect, useState } from 'react'
 import { useSupabaseAuth } from '@/components/SupabaseProvider'
 import { Card, CardContent } from '@/components/ui/card'
 import { useToast } from '@/hooks/use-toast'
+import { useLoading } from '@/components/LoadingProvider'
+import { Loader2 } from 'lucide-react'
 import Image from 'next/image'
 import { format } from 'date-fns'
 import type { Order } from './types'
 
 export function OrdersList() {
     const [orders, setOrders] = useState<Order[]>([])
-    const [isLoading, setIsLoading] = useState(true)
+    const [isInitialLoading, setIsInitialLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
     const { user, supabase } = useSupabaseAuth()
     const { toast } = useToast()
+    const { setIsLoading } = useLoading()
 
     useEffect(() => {
         async function fetchOrders() {
             if (!user) return
 
             try {
+                setIsInitialLoading(true)
                 const { data, error } = await supabase
                     .from('orders')
                     .select('*')
@@ -37,15 +41,34 @@ export function OrdersList() {
                     variant: "destructive",
                 })
             } finally {
-                setIsLoading(false)
+                setTimeout(() => {
+                    setIsInitialLoading(false)
+                }, 500)
             }
         }
 
         fetchOrders()
     }, [user, supabase, toast])
 
-    if (isLoading) return <div>Loading orders...</div>
-    if (error) return <div className="text-red-500">{error}</div>
+    // Show loading spinner during initial load
+    if (isInitialLoading) {
+        return (
+            <div className="flex justify-center items-center min-h-[200px]">
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            </div>
+        )
+    }
+
+    if (error) {
+        return (
+            <Card>
+                <CardContent className="pt-6">
+                    <p className="text-center text-red-500">{error}</p>
+                </CardContent>
+            </Card>
+        )
+    }
+
     if (orders.length === 0) {
         return (
             <Card>

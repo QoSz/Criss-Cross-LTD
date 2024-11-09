@@ -5,15 +5,15 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { useLoading } from '@/components/LoadingProvider'
 
 export default function ContactForm() {
-    const [isSubmitting, setIsSubmitting] = useState(false)
     const [submitSuccess, setSubmitSuccess] = useState(false)
     const [submitError, setSubmitError] = useState('')
+    const { setIsLoading } = useLoading()
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        setIsSubmitting(true)
         setSubmitSuccess(false)
         setSubmitError('')
 
@@ -21,7 +21,8 @@ export default function ContactForm() {
         const formData = new FormData(form)
 
         try {
-            const response = await fetch('https://formspree.io/f/mzzbzorq', { // Replace with your Formspree endpoint
+            setIsLoading(true)
+            const response = await fetch('https://formspree.io/f/mzzbzorq', {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -38,7 +39,9 @@ export default function ContactForm() {
         } catch (error) {
             setSubmitError('There was a problem submitting your form. Please try again.')
         } finally {
-            setIsSubmitting(false)
+            setTimeout(() => {
+                setIsLoading(false)
+            }, 500)
         }
     }
 
@@ -77,8 +80,8 @@ export default function ContactForm() {
                         </div>
                         {submitError && <p className="text-red-600" role="alert">{submitError}</p>}
                         <div className="flex justify-center md:justify-start">
-                            <Button type="submit" disabled={isSubmitting} className="w-full md:w-auto">
-                                {isSubmitting ? 'Sending...' : 'Send Message'}
+                            <Button type="submit" className="w-full md:w-auto">
+                                Send Message
                             </Button>
                         </div>
                     </form>

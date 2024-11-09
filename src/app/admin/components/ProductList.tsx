@@ -2,7 +2,7 @@
 
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useState, useEffect } from 'react'
-import { useSupabase } from '@/components/SupabaseProvider'
+import { useSupabaseAuth } from '@/components/SupabaseProvider'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { useToast } from "@/hooks/use-toast"
@@ -20,6 +20,8 @@ import {
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 import ProductForm from './ProductForm'
+import { useLoading } from '@/components/LoadingProvider'
+import { Loader2 } from 'lucide-react'
 
 type Product = Database['public']['Tables']['products']['Row']
 
@@ -30,36 +32,40 @@ interface ProductListProps {
 export default function ProductList({ onProductUpdate }: ProductListProps) {
     const [editingProduct, setEditingProduct] = useState<Product | null>(null)
     const [deleteProductId, setDeleteProductId] = useState<string | null>(null)
-    const supabase = useSupabase()
+    const { supabase, user, userRole } = useSupabaseAuth()
     const { toast } = useToast()
     const queryClient = useQueryClient()
+    const { setIsLoading } = useLoading()
 
-    const { data: products, isLoading, error, refetch } = useQuery({
-        queryKey: ['products'],
+    const { data: products = [], error: queryError, isLoading: isQueryLoading } = useQuery({
+        queryKey: ['admin-products'],
         queryFn: async () => {
+            if (!user || userRole !== 'admin') {
+                throw new Error('Unauthorized')
+            }
+
             const { data, error } = await supabase
                 .from('products')
                 .select('*')
-                .order('category')
-                .order('product_name')
-
+                .order('updated_at', { ascending: false })
+            
             if (error) throw error
-            return data
+            return data || []
         },
-        retry: 2,
-        refetchOnWindowFocus: true,
+        enabled: !!user && userRole === 'admin',
+        retry: 1
     })
 
     // Handle error outside the useQuery options
     useEffect(() => {
-        if (error) {
+        if (queryError) {
             toast({
                 title: "Error",
                 description: "Failed to fetch products",
                 variant: "destructive",
             })
         }
-    }, [error])
+    }, [queryError, toast])
 
     // Cleanup effect
     useEffect(() => {
@@ -73,6 +79,7 @@ export default function ProductList({ onProductUpdate }: ProductListProps) {
         if (!deleteProductId) return
 
         try {
+            setIsLoading(true)
             const { error } = await supabase
                 .from('products')
                 .delete()
@@ -80,9 +87,7 @@ export default function ProductList({ onProductUpdate }: ProductListProps) {
 
             if (error) throw error
 
-            // Invalidate and refetch
             queryClient.invalidateQueries({ queryKey: ['products'] })
-
             toast({
                 title: "Success",
                 description: "Product deleted successfully",
@@ -94,17 +99,27 @@ export default function ProductList({ onProductUpdate }: ProductListProps) {
                 variant: "destructive",
             })
         } finally {
+            setTimeout(() => {
+                setIsLoading(false)
+            }, 500)
             setDeleteProductId(null)
         }
     }
 
     // Add this function to handle manual refetch
     const handleRefresh = async () => {
-        await refetch()
+        await queryClient.invalidateQueries({ queryKey: ['products'] })
     }
 
-    if (isLoading) return <div>Loading products...</div>
-    if (error) return <div className="text-red-500">Failed to load products</div>
+    if (isQueryLoading) {
+        return (
+            <div className="flex justify-center items-center min-h-[200px]">
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            </div>
+        )
+    }
+
+    if (queryError) return <div className="text-red-500">Failed to load products</div>
     if (!products) return null
 
     // Group products by category

@@ -1,28 +1,41 @@
 import { useLoading } from '@/components/LoadingProvider'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-export function useLoadingSubmit<T>(
+export function useLoadingSubmit<T, E extends Error = Error>(
     submitFn: () => Promise<T>,
     onSuccess?: (data: T) => void,
-    onError?: (error: Error) => void
+    onError?: (error: E) => void
 ) {
     const { setIsLoading, isLoading } = useLoading()
     const [error, setError] = useState<string | null>(null)
+    const [mounted, setMounted] = useState(true)
+
+    useEffect(() => {
+        return () => {
+            setMounted(false)
+        }
+    }, [])
 
     const handleSubmit = async () => {
         try {
             setIsLoading(true)
             setError(null)
             const data = await submitFn()
-            onSuccess?.(data)
+            if (mounted) {
+                onSuccess?.(data)
+            }
             return data
         } catch (err) {
-            const error = err as Error
-            setError(error.message)
-            onError?.(error)
+            const error = err as E
+            if (mounted) {
+                setError(error.message)
+                onError?.(error)
+            }
             throw error
         } finally {
-            setIsLoading(false)
+            if (mounted) {
+                setIsLoading(false)
+            }
         }
     }
 

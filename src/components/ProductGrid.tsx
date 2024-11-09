@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { useSupabase } from '@/components/SupabaseProvider'
+import { useState } from 'react'
+import { useSupabaseAuth } from '@/components/SupabaseProvider'
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -14,6 +14,8 @@ import Image from 'next/image'
 import { Database } from '@/lib/database.types'
 import { useCart } from '@/contexts/CartContext'
 import { useToast } from '@/hooks/use-toast'
+import { useQuery } from '@tanstack/react-query'
+import { Loader2 } from "lucide-react"
 
 type Product = Database['public']['Tables']['products']['Row']
 
@@ -21,53 +23,54 @@ interface ProductGridProps {
     initialCategories: string[]
 }
 
+// Debug utility for ProductGrid
+const debug = {
+    log: (action: string, data?: any) => {
+        if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
+            console.log(`[ProductGrid] ${action}`, {
+                timestamp: new Date().toISOString(),
+                visibility: typeof document !== 'undefined' ? document.visibilityState : 'unknown',
+                ...data
+            })
+        }
+    }
+}
+
 export default function ProductGrid({ initialCategories }: ProductGridProps) {
-    const [products, setProducts] = useState<Product[]>([])
     const [categories] = useState<string[]>(initialCategories)
     const [selectedCategories, setSelectedCategories] = useState<string[]>(['All'])
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc')
     const [searchQuery, setSearchQuery] = useState<string>('')
-    const [error, setError] = useState<string | null>(null)
-    const [isLoading, setIsLoading] = useState(false)
-    const supabase = useSupabase()
+    const { supabase, user } = useSupabaseAuth()
     const { addToCart } = useCart()
     const { toast } = useToast()
 
-    const isFilterActive = searchQuery !== '' || !selectedCategories.includes('All') || selectedCategories.length > 1 || sortOrder !== 'asc'
-
-    useEffect(() => {
-        let isMounted = true;
-
-        async function fetchProducts() {
+    // Add debug logs to useQuery
+    const { data: products, isLoading, error, refetch } = useQuery({
+        queryKey: ['products'],
+        queryFn: async () => {
+            debug.log('Fetching products', { userId: user?.id })
             try {
-                setIsLoading(true)
-                const { data: productsData, error: productsError } = await supabase
+                const { data, error } = await supabase
                     .from('products')
-                    .select('id, product_name, product_img, category')
-                    .order('product_name', { ascending: sortOrder === 'asc' })
-
-                if (productsError) throw productsError
-
-                if (isMounted) {
-                    setProducts(productsData as Product[])
+                    .select('*')
+                
+                if (error) {
+                    debug.log('Product fetch error', { error })
+                    throw error
                 }
+                
+                debug.log('Products fetched successfully', { 
+                    count: data?.length,
+                    firstProduct: data?.[0]?.id 
+                })
+                return data as Product[]
             } catch (error) {
-                if (isMounted) {
-                    setError('Failed to fetch products. Please try again later.')
-                    console.error('Error fetching data:', error)
-                }
-            } finally {
-                if (isMounted) {
-                    setIsLoading(false)
-                }
+                debug.log('Product fetch exception', { error })
+                throw error
             }
         }
-
-        fetchProducts()
-        return () => {
-            isMounted = false
-        }
-    }, [supabase, sortOrder])
+    })
 
     const handleCategoryChange = (category: string) => {
         setSelectedCategories(prev => {
@@ -87,28 +90,39 @@ export default function ProductGrid({ initialCategories }: ProductGridProps) {
         setSortOrder('asc')
     }
 
-    const filteredProducts = products.filter(product =>
+    const filteredProducts = products?.filter(product =>
         (selectedCategories.includes('All') || selectedCategories.includes(product.category || '')) &&
         (searchQuery === '' || product.product_name.toLowerCase().includes(searchQuery.toLowerCase()))
-    )
+    ) || []
 
-    const handleAddToCart = (product: Product) => {
-        addToCart({
-            id: product.id,
-            product_name: product.product_name,
-            product_img: product.product_img,
-            quantity: 1
+    const handleAddToCart = async (product: Product) => {
+        debug.log('Adding to cart', { 
+            productId: product.id,
+            userId: user?.id 
         })
-        
-        toast({
-            title: "Added to cart",
-            description: `${product.product_name} has been added to your cart.`,
-            duration: 2000,
-        })
+        try {
+            await addToCart({
+                id: product.id,
+                product_name: product.product_name,
+                product_img: product.product_img
+            })
+            debug.log('Added to cart successfully', { productId: product.id })
+        } catch (error) {
+            debug.log('Add to cart error', { error, productId: product.id })
+        }
     }
 
-    if (error) return <div className="text-center text-red-500">{error}</div>
-    if (isLoading) return <div className="text-center">Loading products...</div>
+    const isFilterActive = searchQuery !== '' || !selectedCategories.includes('All') || selectedCategories.length > 1 || sortOrder !== 'asc'
+
+    if (error) {
+        debug.log('Rendering error state', { error })
+        return <div>Error loading products. Please try again later.</div>
+    }
+
+    if (isLoading) {
+        debug.log('Rendering loading state')
+        return <Loader2 className="h-8 w-8 animate-spin" />
+    }
 
     return (
         <div>

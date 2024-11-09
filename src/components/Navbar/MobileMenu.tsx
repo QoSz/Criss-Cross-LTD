@@ -20,11 +20,10 @@ interface MobileMenuProps {
     user: SupabaseUser | null
     onSignOut: () => Promise<void>
     cartItemsCount: number
-    userRole?: string | null
-    isLoading?: boolean
+    userRole: string | null
 }
 
-export default function MobileMenu({ user, onSignOut, cartItemsCount, userRole, isLoading }: MobileMenuProps) {
+export default function MobileMenu({ user, onSignOut, cartItemsCount, userRole }: MobileMenuProps) {
     const { setTheme, theme } = useTheme()
     const [isOpen, setIsOpen] = useState(false)
 
@@ -53,7 +52,7 @@ export default function MobileMenu({ user, onSignOut, cartItemsCount, userRole, 
                             Contact
                         </Link>
                     </SheetClose>
-                    {(!isLoading && userRole === 'admin') && (
+                    {userRole === 'admin' && (
                         <SheetClose asChild>
                             <Link href="/admin" className="flex items-center py-2 px-4 hover:bg-accent rounded-md">
                                 <LayoutDashboard className="h-4 w-4 mr-2" />

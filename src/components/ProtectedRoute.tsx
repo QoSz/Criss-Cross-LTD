@@ -12,18 +12,24 @@ interface ProtectedRouteProps {
 
 export function ProtectedRoute({ children, adminOnly = false }: ProtectedRouteProps) {
     const { user, userRole } = useSupabaseAuth()
-    const { isLoading } = useLoading()
+    const { isLoading, setIsLoading } = useLoading()
     const router = useRouter()
 
     useEffect(() => {
-        if (!isLoading) {
+        setIsLoading(true)
+        
+        const checkAuth = async () => {
             if (!user) {
                 router.push('/auth/login')
             } else if (adminOnly && userRole !== 'admin') {
+                console.log('Access denied: User role:', userRole)
                 router.push('/')
             }
+            setIsLoading(false)
         }
-    }, [user, userRole, isLoading, router, adminOnly])
+
+        checkAuth()
+    }, [user, userRole, router, adminOnly, setIsLoading])
 
     if (isLoading) {
         return <div className="container mx-auto px-4 py-8">Loading...</div>

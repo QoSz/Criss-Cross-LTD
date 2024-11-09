@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useSupabase } from '@/components/SupabaseProvider'
+import { useSupabaseAuth } from '@/components/SupabaseProvider'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -14,6 +14,7 @@ import { useToast } from "@/hooks/use-toast"
 import { Database } from '@/lib/database.types'
 import { fetchCategoriesClient } from '@/lib/clientUtils'
 import { useQueryClient } from '@tanstack/react-query'
+import { useLoading } from '@/components/LoadingProvider'
 
 type Product = Database['public']['Tables']['products']['Row']
 
@@ -28,25 +29,43 @@ export default function ProductForm({ product, onSuccess, onCancel }: ProductFor
     const [description, setDescription] = useState(product?.product_description || '')
     const [category, setCategory] = useState(product?.category || '')
     const [imageUrl, setImageUrl] = useState(product?.product_img || '')
-    const [isLoading, setIsLoading] = useState(false)
-    const [error, setError] = useState<string | null>(null)
     const [categories, setCategories] = useState<string[]>([])
     const [categoryInputType, setCategoryInputType] = useState<'select' | 'new'>('select')
-    const supabase = useSupabase()
+    const { supabase, user, userRole } = useSupabaseAuth()
     const { toast } = useToast()
     const queryClient = useQueryClient()
+    const [error, setError] = useState<string | null>(null)
+    const { setIsLoading, isLoading } = useLoading()
 
     useEffect(() => {
+        if (!user || userRole !== 'admin') {
+            toast({
+                title: "Unauthorized",
+                description: "You must be an admin to perform this action",
+                variant: "destructive",
+            })
+            onCancel?.()
+            return
+        }
+
         async function loadCategories() {
             const fetchedCategories = await fetchCategoriesClient()
             setCategories(fetchedCategories)
         }
         loadCategories()
-    }, [])
+    }, [user, userRole, onCancel, toast])
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        setIsLoading(true)
+        if (!user || userRole !== 'admin') {
+            toast({
+                title: "Unauthorized",
+                description: "You must be an admin to perform this action",
+                variant: "destructive",
+            })
+            return
+        }
+
         setError(null)
 
         try {
@@ -60,14 +79,12 @@ export default function ProductForm({ product, onSuccess, onCancel }: ProductFor
 
             let result;
             if (product) {
-                // Update existing product
                 result = await supabase
                     .from('products')
                     .update(productData)
                     .eq('id', product.id)
                     .select()
             } else {
-                // Add new product
                 result = await supabase
                     .from('products')
                     .insert([productData])
@@ -76,7 +93,6 @@ export default function ProductForm({ product, onSuccess, onCancel }: ProductFor
 
             if (result.error) throw result.error
 
-            // Reset form and notify parent
             if (!product) {
                 setProductName('')
                 setDescription('')
@@ -84,7 +100,6 @@ export default function ProductForm({ product, onSuccess, onCancel }: ProductFor
                 setImageUrl('')
             }
 
-            // Ensure the cache is properly invalidated
             queryClient.invalidateQueries({ queryKey: ['products'] })
             onSuccess()
 
@@ -101,7 +116,9 @@ export default function ProductForm({ product, onSuccess, onCancel }: ProductFor
                 variant: "destructive",
             })
         } finally {
-            setIsLoading(false)
+            setTimeout(() => {
+                setError(null)
+            }, 500)
         }
     }
 
@@ -119,7 +136,6 @@ export default function ProductForm({ product, onSuccess, onCancel }: ProductFor
                             value={productName}
                             onChange={(e) => setProductName(e.target.value)}
                             required
-                            disabled={isLoading}
                         />
                     </div>
 
@@ -129,7 +145,6 @@ export default function ProductForm({ product, onSuccess, onCancel }: ProductFor
                             id="description"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
-                            disabled={isLoading}
                         />
                     </div>
 
@@ -155,7 +170,6 @@ export default function ProductForm({ product, onSuccess, onCancel }: ProductFor
                             <Select
                                 value={category}
                                 onValueChange={setCategory}
-                                disabled={isLoading}
                             >
                                 <SelectTrigger>
                                     <SelectValue placeholder="Select category" />
@@ -173,7 +187,6 @@ export default function ProductForm({ product, onSuccess, onCancel }: ProductFor
                                 placeholder="Enter new category"
                                 value={category}
                                 onChange={(e) => setCategory(e.target.value)}
-                                disabled={isLoading}
                             />
                         )}
                     </div>
@@ -186,7 +199,6 @@ export default function ProductForm({ product, onSuccess, onCancel }: ProductFor
                             value={imageUrl}
                             onChange={(e) => setImageUrl(e.target.value)}
                             required
-                            disabled={isLoading}
                         />
                     </div>
 
@@ -207,8 +219,11 @@ export default function ProductForm({ product, onSuccess, onCancel }: ProductFor
                                 Cancel
                             </Button>
                         )}
-                        <Button type="submit" disabled={isLoading}>
-                            {isLoading ? 'Saving...' : (product ? 'Update Product' : 'Add Product')}
+                        <Button 
+                            type="submit" 
+                            disabled={isLoading || Boolean(error)}
+                        >
+                            {product ? 'Update Product' : 'Add Product'}
                         </Button>
                     </div>
                 </form>

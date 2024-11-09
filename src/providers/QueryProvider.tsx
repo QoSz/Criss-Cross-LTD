@@ -10,7 +10,14 @@ export default function QueryProvider({ children }: { children: React.ReactNode 
                 staleTime: 300000, // 5 minutes
                 gcTime: 3600000,   // 1 hour
                 retry: 2,
-                refetchOnWindowFocus: false
+                refetchOnWindowFocus: true,
+                refetchOnMount: true,
+                refetchOnReconnect: true,
+                retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
+            },
+            mutations: {
+                retry: 2,
+                retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
             }
         },
     }))

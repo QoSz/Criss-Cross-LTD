@@ -15,34 +15,33 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { useLoading } from '@/components/LoadingProvider'
-import { User as SupabaseUser } from '@supabase/supabase-js'
 import { Badge } from "@/components/ui/badge"
 import { useCart } from '@/contexts/CartContext'
 
-interface NavbarClientProps {
-    initialUser: SupabaseUser | null
-}
-
-export default function NavbarClient({ initialUser }: NavbarClientProps) {
+export default function NavbarClient() {
     const { user, supabase, userRole } = useSupabaseAuth()
     const router = useRouter()
     const { setIsLoading } = useLoading()
     const { cart } = useCart()
-
-    const currentUser = user ?? initialUser
 
     const cartItemsCount = cart.reduce((total, item) => total + item.quantity, 0)
 
     const handleSignOut = async () => {
         try {
             setIsLoading(true)
-            await supabase.auth.signOut()
+            const { error } = await supabase.auth.signOut()
+            if (error) throw error
+            
+            // Only proceed with navigation if sign-out was successful
             router.push('/')
             router.refresh()
         } catch (error) {
             console.error('Error signing out:', error)
         } finally {
-            setIsLoading(false)
+            // Ensure loading state is always cleared
+            setTimeout(() => {
+                setIsLoading(false)
+            }, 500) // Small delay to prevent flash
         }
     }
 
@@ -97,7 +96,7 @@ export default function NavbarClient({ initialUser }: NavbarClientProps) {
                             </Link>
                         </Button>
 
-                        {currentUser ? (
+                        {user ? (
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <Button variant="ghost" size="icon">
@@ -141,7 +140,7 @@ export default function NavbarClient({ initialUser }: NavbarClientProps) {
 
                     {/* Mobile Menu */}
                     <MobileMenu 
-                        user={currentUser} 
+                        user={user} 
                         onSignOut={handleSignOut} 
                         cartItemsCount={cartItemsCount}
                         userRole={userRole}
