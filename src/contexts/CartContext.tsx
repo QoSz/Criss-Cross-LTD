@@ -1,9 +1,11 @@
 'use client'
 
-import React, { createContext, useContext } from 'react'
+import React, { createContext, useContext, useEffect, useRef } from 'react'
 import { useSupabaseAuth } from '@/components/SupabaseProvider'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useLoading } from '@/components/LoadingProvider'
+import { debounce } from 'lodash'
+
 
 // Database Table Types
 type ShoppingCartTable = {
@@ -12,15 +14,6 @@ type ShoppingCartTable = {
     product_id: string
     quantity: number
     created_at: string
-    updated_at: string
-}
-
-type ProductTable = {
-    id: string
-    product_name: string
-    product_description: string
-    product_img: string
-    category: string
     updated_at: string
 }
 
@@ -102,6 +95,41 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         staleTime: 1000 * 60 * 5, // 5 minutes
     })
 
+    // Merge local storage cart with database cart on login
+    useEffect(() => {
+        const mergeLocalStorageCart = async () => {
+            if (user) {
+                const storedCart = localStorage.getItem('cart')
+                if (storedCart) {
+                    const localCart: CartItem[] = JSON.parse(storedCart)
+                    const mergedCart = [...cart]
+
+                    localCart.forEach(localItem => {
+                        const existingItem = mergedCart.find(item => item.id === localItem.id)
+                        if (existingItem) {
+                            existingItem.quantity += localItem.quantity
+                        } else {
+                            mergedCart.push(localItem)
+                        }
+                    })
+
+                    await saveCart(mergedCart)
+                    localStorage.removeItem('cart')
+                }
+            }
+        }
+
+        mergeLocalStorageCart()
+    }, [user])
+
+    // Clear cart and local storage on logout
+    useEffect(() => {
+        if (!user) {
+            localStorage.removeItem('cart')
+            queryClient.setQueryData(['cart', null], [])
+        }
+    }, [user])
+
     // Save cart changes with proper typing
     const saveCart = async (newCart: CartItem[]) => {
         if (!user) {
@@ -140,12 +168,16 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         await saveCart(updatedCart)
     }
 
+    const debouncedSaveCart = useRef(debounce((newCart: CartItem[]) => {
+        saveCart(newCart)
+    }, 300)).current
+
     const updateQuantity = async (id: string, quantity: number) => {
         if (quantity < 1) return
         const updatedCart = cart.map(item =>
             item.id === id ? { ...item, quantity } : item
         )
-        await saveCart(updatedCart)
+        debouncedSaveCart(updatedCart)
     }
 
     const clearCart = async () => {

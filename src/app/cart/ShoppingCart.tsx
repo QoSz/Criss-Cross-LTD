@@ -24,12 +24,37 @@ export function ShoppingCart() {
     const { user, supabase } = useSupabaseAuth()
     const { setIsLoading } = useLoading()
     const [localCart, setLocalCart] = useState(cart)
+    const [customerInfo, setCustomerInfo] = useState({ name: '', email: '', phone: '' })
     const { toast } = useToast()
     const router = useRouter()
 
     useEffect(() => {
         setLocalCart(cart)
     }, [cart])
+
+    useEffect(() => {
+        const fetchCustomerInfo = async () => {
+            if (user) {
+                const { data, error } = await supabase
+                    .from('profiles')
+                    .select('first_name, last_name, email, phone_number')
+                    .eq('id', user.id)
+                    .single()
+
+                if (error) {
+                    console.error('Error fetching customer info:', error)
+                } else if (data) {
+                    setCustomerInfo({
+                        name: `${data.first_name || ''} ${data.last_name || ''}`.trim(),
+                        email: data.email,
+                        phone: data.phone_number || ''
+                    })
+                }
+            }
+        }
+
+        fetchCustomerInfo()
+    }, [user, supabase])
 
     const handleSubmitOrder = async () => {
         if (!user) {
@@ -52,11 +77,34 @@ export function ShoppingCart() {
                 quantity: item.quantity,
             }))
 
-            const { error: orderError } = await supabase
+            const orderPromise = supabase
                 .from('orders')
                 .insert(ordersData)
 
-            if (orderError) throw orderError
+            // Prepare order details for email
+            const orderDetails = localCart.map(item => `${item.product_name} x ${item.quantity}`).join('\n')
+
+            // Send email via Formspree
+            const formData = new FormData()
+            formData.append('name', customerInfo.name)
+            formData.append('email', customerInfo.email)
+            formData.append('phone', customerInfo.phone)
+            formData.append('order', orderDetails)
+            formData.append('subject', `A new order from ${customerInfo.name}`)
+
+            const emailPromise = fetch('https://formspree.io/f/mzzbzorq', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+
+            const [orderResponse, emailResponse] = await Promise.all([orderPromise, emailPromise])
+
+            if (orderResponse.error || !emailResponse.ok) {
+                throw new Error('Failed to place order or send email')
+            }
 
             await clearCart()
             toast({

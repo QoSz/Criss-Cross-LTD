@@ -54,38 +54,30 @@ const debug = {
     }
 }
 
-// Create and validate Supabase client
-let supabase: SupabaseClient<Database>
+// Create a singleton instance
+let supabaseInstance: SupabaseClient<Database> | null = null
 
-try {
-    debug.log('Client', 'Validating environment variables')
-    validateEnvironment()
-    
-    debug.log('Client', 'Creating Supabase client')
-    supabase = createBrowserClient<Database>(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    )
-
-    // Test the client connection
-    const testConnection = async () => {
+const getSupabaseClient = () => {
+    if (!supabaseInstance) {
         try {
-            debug.log('Client', 'Testing connection')
-            const { error } = await supabase.from('profiles').select('id').limit(1)
-            if (error) throw error
-            debug.log('Client', 'Connection test successful')
+            debug.log('Client', 'Validating environment variables')
+            validateEnvironment()
+            
+            debug.log('Client', 'Creating Supabase client')
+            supabaseInstance = createBrowserClient<Database>(
+                process.env.NEXT_PUBLIC_SUPABASE_URL!,
+                process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+            )
         } catch (error) {
-            debug.error('Client', 'Connection test failed', error)
+            debug.error('Client', 'Initialization failed', error)
             throw error
         }
     }
-
-    // Execute connection test
-    testConnection()
-} catch (error) {
-    debug.error('Client', 'Initialization failed', error)
-    throw error
+    return supabaseInstance
 }
+
+// Initialize the client
+const supabase = getSupabaseClient()
 
 type SupabaseContext = {
     supabase: SupabaseClient<Database>
@@ -113,7 +105,24 @@ export function SupabaseProvider({ children }: { children: React.ReactNode }) {
         error: null as Error | null
     })
 
-    // Add fetchUserRole function
+    // Test connection on mount
+    useEffect(() => {
+        const testConnection = async () => {
+            try {
+                debug.log('Client', 'Testing connection')
+                const { error } = await supabase.from('profiles').select('id').limit(1)
+                if (error) throw error
+                debug.log('Client', 'Connection test successful')
+            } catch (error) {
+                debug.error('Client', 'Connection test failed', error)
+                clientHealth.current.error = error as Error
+                clientHealth.current.initialized = false
+            }
+        }
+        
+        testConnection()
+    }, [])
+
     const fetchUserRole = async (userId: string): Promise<string | null> => {
         try {
             debug.log('Role', `Fetching role for user: ${userId}`)
