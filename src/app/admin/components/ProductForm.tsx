@@ -55,6 +55,15 @@ export default function ProductForm({ product, onSuccess, onCancel }: ProductFor
         loadCategories()
     }, [user, userRole, onCancel, toast])
 
+    useEffect(() => {
+        if (product) {
+            setProductName(product.product_name || '')
+            setDescription(product.product_description || '')
+            setCategory(product.category || '')
+            setImageUrl(product.product_img || '')
+        }
+    }, [product])
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (!user || userRole !== 'admin') {
@@ -100,7 +109,7 @@ export default function ProductForm({ product, onSuccess, onCancel }: ProductFor
                 setImageUrl('')
             }
 
-            queryClient.invalidateQueries({ queryKey: ['products'] })
+            queryClient.invalidateQueries({ queryKey: ['admin-products'] })
             onSuccess()
 
             toast({

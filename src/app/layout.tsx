@@ -12,6 +12,7 @@ import { ScrollToTopButton } from '@/components/ScrollToTopButton'
 import { CartProvider } from '@/contexts/CartContext'
 import { Toaster } from "@/components/ui/toaster"
 import QueryProvider from '@/providers/QueryProvider'
+import AutoRefresh from '@/components/AutoRefresh'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -65,6 +66,7 @@ export default function RootLayout({
                     </main>
                     <Footer />
                     <ScrollToTopButton />
+                    <AutoRefresh />
                   </div>
                 </ThemeProvider>
               </CartProvider>

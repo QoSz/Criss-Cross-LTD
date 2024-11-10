@@ -127,7 +127,10 @@ export interface Database {
             [_ in never]: never
         }
         Functions: {
-            [_ in never]: never
+            get_unique_categories: {
+                Args: Record<string, never>
+                Returns: { category: string }[]
+            }
         }
         Enums: {
             [_ in never]: never

@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useSupabase } from '@/components/SupabaseProvider'
-import { useLoadingSubmit } from '@/hooks/useLoadingSubmit'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -14,29 +13,36 @@ import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/
 export default function LoginForm() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState<string | null>(null)
+    const [isLoading, setIsLoading] = useState(false) // Local loading state
     const router = useRouter()
     const supabase = useSupabase()
 
-    const { handleSubmit, error } = useLoadingSubmit(
-        async () => {
-            const { data, error } = await supabase.auth.signInWithPassword({
-                email,
-                password,
-            })
+    const handleSubmit = async () => {
+        setIsLoading(true) // Set loading state to true
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email,
+            password,
+        })
 
-            if (error) {
-                throw error
-            }
+        if (error) {
+            // Use a generic error message
+            setError('Invalid email or password. Please try again or sign up if you do not have an account.')
+            setIsLoading(false) // Reset loading state on error
+            return
+        }
 
-            if (data.user && !data.user.email_confirmed_at) {
-                throw new Error('Please verify your email address before logging in.')
-            }
+        if (data.user && !data.user.email_confirmed_at) {
+            setError('Please verify your email address before logging in.')
+            setIsLoading(false) // Reset loading state on error
+            return
+        }
 
-            router.refresh() // Trigger a re-render
-            router.push('/') // Redirect to home page after successful login
-        },
-        () => { }
-    )
+        setError(null) // Clear error on successful login
+        setIsLoading(false) // Reset loading state on success
+        router.refresh() // Trigger a re-render
+        router.push('/') // Redirect to home page after successful login
+    }
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -79,8 +85,8 @@ export default function LoginForm() {
                             <AlertDescription>{error}</AlertDescription>
                         </Alert>
                     )}
-                    <Button type="submit" className="w-full">
-                        Log In
+                    <Button type="submit" className="w-full" disabled={isLoading}>
+                        {isLoading ? 'Logging in...' : 'Log In'}
                     </Button>
                 </form>
                 <div className="mt-4 text-center">

@@ -20,7 +20,7 @@ export default function AdminDashboard() {
     }, [user, userRole, router])
 
     const handleProductUpdate = () => {
-        queryClient.invalidateQueries({ queryKey: ['products'] })
+        queryClient.invalidateQueries({ queryKey: ['admin-products'] })
     }
 
     if (!user || userRole !== 'admin') {

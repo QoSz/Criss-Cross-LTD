@@ -1,7 +1,7 @@
 'use client'
 
 import { useQuery, useQueryClient } from '@tanstack/react-query'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useSupabaseAuth } from '@/components/SupabaseProvider'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -36,6 +36,8 @@ export default function ProductList({ onProductUpdate }: ProductListProps) {
     const { toast } = useToast()
     const queryClient = useQueryClient()
     const { setIsLoading } = useLoading()
+
+    const productFormRef = useRef<HTMLDivElement | null>(null)
 
     const { data: products = [], error: queryError, isLoading: isQueryLoading } = useQuery({
         queryKey: ['admin-products'],
@@ -75,6 +77,13 @@ export default function ProductList({ onProductUpdate }: ProductListProps) {
         }
     }, [])
 
+    // Scroll to the ProductForm when editingProduct changes
+    useEffect(() => {
+        if (editingProduct) {
+            productFormRef.current?.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [editingProduct]);
+
     const handleDelete = async () => {
         if (!deleteProductId) return
 
@@ -87,7 +96,8 @@ export default function ProductList({ onProductUpdate }: ProductListProps) {
 
             if (error) throw error
 
-            queryClient.invalidateQueries({ queryKey: ['products'] })
+            queryClient.invalidateQueries({ queryKey: ['admin-products'] })
+            onProductUpdate()
             toast({
                 title: "Success",
                 description: "Product deleted successfully",
@@ -135,7 +145,7 @@ export default function ProductList({ onProductUpdate }: ProductListProps) {
     return (
         <div className="space-y-6">
             {editingProduct && (
-                <div className="mb-6">
+                <div className="mb-6" ref={productFormRef}>
                     <ProductForm
                         product={editingProduct}
                         onSuccess={() => {
@@ -171,7 +181,9 @@ export default function ProductList({ onProductUpdate }: ProductListProps) {
                                         <Button
                                             variant="outline"
                                             size="sm"
-                                            onClick={() => setEditingProduct(product)}
+                                            onClick={() => {
+                                                setEditingProduct(product)
+                                            }}
                                         >
                                             <Edit className="h-4 w-4" />
                                         </Button>

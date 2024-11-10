@@ -22,15 +22,15 @@ export const getCategories = cache(async () => {
         }
     )
 
-    const { data: categoriesData, error: categoriesError } = await supabase
-        .from('products')
-        .select('category')
+    try {
+        const { data, error } = await supabase.rpc('get_unique_categories')
+        
+        if (error) throw error
 
-    if (categoriesError) {
-        console.error('Error fetching categories:', categoriesError)
-        return []
+        const categories = data?.map(row => row.category) ?? []
+        return ['All', ...categories]
+    } catch (error) {
+        console.error('Error fetching categories:', error)
+        throw new Error('Failed to fetch categories')
     }
-
-    const uniqueCategories = Array.from(new Set(categoriesData.map(item => item.category).filter(Boolean) as string[]))
-    return ['All', ...uniqueCategories]
 })
