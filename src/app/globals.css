@@ -73,6 +73,15 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-to-b from-gray-100/70 to-gray-100/30 text-foreground dark:bg-gradient-to-b dark:from-gray-900/70 dark:to-gray-900/30;
   }
+}
+
+/* Change the highlight color */
+::selection {
+  background-color: rgba(255, 100, 100, 0.3); /* Subtle red with some transparency */
+}
+
+.border-gradient-to-r {
+  border-image: linear-gradient(to right, var(--tw-gradient-from), var(--tw-gradient-to)) 1;
 }

@@ -2,44 +2,54 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { MenuIcon, Phone, User } from "lucide-react"
+import { MenuIcon, Phone, User, Truck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <header className="sticky top-0 z-50 w-full border-b border-blue-200/40 bg-blue-50/30 backdrop-blur-sm supports-[backdrop-filter]:bg-blue-50/60 dark:bg-gray-900/30 dark:border-gray-800/40">
             <div className="flex h-20 items-center justify-between px-4 w-full">
                 <div className="flex items-center">
                     <Link href="/" className="flex items-center">
                         <img src="/criss-cross.svg" alt="Criss Cross LTD" className="h-[60px]" />
-                        <span className="ml-2 font-bold text-2xl bg-gradient-to-b from-blue-700 to-blue-400 bg-clip-text text-transparent">Criss Cross LTD</span>
+                        <span className="ml-2 font-bold text-2xl bg-gradient-to-b from-blue-700 to-blue-400 bg-clip-text text-transparent dark:from-blue-400 dark:to-blue-600">Criss Cross LTD</span>
                     </Link>
+                    <Link 
+                        href="/" 
+                        className="group relative flex items-center space-x-2 text-muted-foreground/80 ml-4 hidden md:inline-flex dark:text-gray-400 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:text-blue-600 dark:hover:text-blue-400 after:hover:w-full"
+                    >
+                        <Truck className="h-4 w-4" />
+                        <span>Deliveries</span>
+                    </Link>
+                    <Link 
+                        href="/" 
+                        className="group relative flex items-center space-x-2 text-muted-foreground/80 ml-4 hidden md:inline-flex dark:text-gray-400 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:text-blue-600 dark:hover:text-blue-400 after:hover:w-full"
+                    >
+                        <User className="h-4 w-4" />
+                        <span>About Us</span>
+                    </Link>
+                </div>
+                <nav className="hidden md:flex items-center space-x-6 text-base font-medium relative">
                     <Button
                         asChild
-                        className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white ml-4 hidden md:inline-flex"
+                        className="bg-gradient-to-r from-blue-600 to-purple-600 text-white dark:from-blue-600 dark:to-purple-500 hover:opacity-80 transition-opacity duration-200"
                     >
                         <Link 
                             href="/contact" 
                             className="flex items-center space-x-2"
                         >
-                            <span>Contact</span>
                             <Phone className="h-4 w-4" />
+                            <span>Contact</span>
                         </Link>
                     </Button>
-                </div>
-                <nav className="hidden md:flex items-center space-x-6 text-base font-medium relative">
-                    <Link 
-                        href="/about" 
-                        className="flex items-center space-x-2 hover:text-primary font-medium"
-                    >
-                        <span>About Us</span>
-                        <User className="h-4 w-4" />
-                    </Link>
+                    <ThemeToggle />
                 </nav>
                 <div className="flex items-center md:hidden">
+                    <ThemeToggle />
                     <Sheet open={isOpen} onOpenChange={setIsOpen}>
                         <SheetTrigger asChild>
                             <Button
@@ -50,7 +60,10 @@ export function Navbar() {
                                 <span className="sr-only">Toggle Menu</span>
                             </Button>
                         </SheetTrigger>
-                        <SheetContent side="right" className="pr-0">
+                        <SheetContent 
+                            side="right" 
+                            className="pr-0 dark:bg-gray-900 bg-white/70 backdrop-blur-sm supports-[backdrop-filter]:bg-white/90 dark:bg-gray-900/30"
+                        >
                             <SheetTitle className="sr-only">
                                 Navigation Menu
                             </SheetTitle>
@@ -63,19 +76,35 @@ export function Navbar() {
                                 onClick={() => setIsOpen(false)}
                             >
                                 <img src="/criss-cross.svg" alt="Criss Cross LTD" className="h-[60px]" />
-                                <span className="ml-2 font-bold text-2xl bg-gradient-to-b from-blue-700 to-blue-400 bg-clip-text text-transparent">Criss Cross LTD</span>
+                                <span className="ml-2 font-bold text-2xl bg-gradient-to-b from-blue-700 to-blue-400 bg-clip-text text-transparent dark:from-blue-400 dark:to-blue-600">Criss Cross LTD</span>
                             </Link>
                             <nav className="flex flex-col space-y-3">
+                                <Link 
+                                    href="/" 
+                                    className="group relative flex items-center space-x-2 text-muted-foreground/80 hover:text-blue-600 dark:hover:text-blue-400 dark:text-gray-400 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 dark:after:bg-blue-400 hover:after:w-full"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    <Truck className="h-4 w-4" />
+                                    <span>Deliveries</span>
+                                </Link>
+                                <Link 
+                                    href="/" 
+                                    className="group relative flex items-center space-x-2 text-muted-foreground/80 hover:text-blue-600 dark:hover:text-blue-400 dark:text-gray-400 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 dark:after:bg-blue-400 hover:after:w-full"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    <User className="h-4 w-4" />
+                                    <span>About Us</span>
+                                </Link>
                                 <Button 
                                     asChild
-                                    className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white justify-start self-start"
+                                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white justify-start self-start dark:from-blue-600 dark:to-purple-500 hover:opacity-80 transition-opacity duration-200"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     <Link 
                                         href="/contact"
                                         className="flex items-center space-x-2"
                                     >
-                                        <Phone className="h-4 w-4 mr-2" />
+                                        <Phone className="h-4 w-4" />
                                         <span>Contact</span>
                                     </Link>
                                 </Button>
