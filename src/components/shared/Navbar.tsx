@@ -5,7 +5,6 @@ import Link from "next/link"
 import { MenuIcon, Phone, User, Truck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet"
-import { ThemeToggle } from "@/components/theme-toggle"
 import Image from "next/image"
 
 export function Navbar() {
@@ -47,10 +46,8 @@ export function Navbar() {
                             <span>Contact</span>
                         </Link>
                     </Button>
-                    <ThemeToggle />
                 </nav>
                 <div className="flex items-center md:hidden">
-                    <ThemeToggle />
                     <Sheet open={isOpen} onOpenChange={setIsOpen}>
                         <SheetTrigger asChild>
                             <Button
