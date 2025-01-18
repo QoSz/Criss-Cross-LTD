@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Phone, Mail, MapPin } from "lucide-react"
+import Image from 'next/image'
 
 export function Footer() {
     return (
@@ -9,7 +10,7 @@ export function Footer() {
                     {/* Company Info */}
                     <div className="space-y-4">
                         <Link href="/" className="flex items-center">
-                            <img src="/criss-cross.svg" alt="Criss Cross LTD" className="h-[50px]" />
+                            <Image src="/criss-cross.svg" alt="Criss Cross LTD" className="h-[50px]" width={50} height={50} />
                             <span className="ml-2 font-bold text-xl bg-gradient-to-b from-blue-700 to-blue-400 bg-clip-text text-transparent dark:from-blue-400 dark:to-blue-600">
                                 Criss Cross LTD
                             </span>
@@ -23,17 +24,17 @@ export function Footer() {
                     <div className="space-y-4">
                         <h3 className="font-semibold text-foreground/90 dark:text-gray-200">Contact Us</h3>
                         <div className="space-y-3">
-                            <a href="tel:+44123456789" className="flex items-center space-x-2 text-muted-foreground/80 dark:text-gray-400 hover:text-primary text-sm">
+                            <a href="tel:+254707451536" className="flex items-center space-x-2 text-muted-foreground/80 dark:text-gray-400 hover:text-primary text-sm">
                                 <Phone className="h-4 w-4" />
-                                <span>+44 123 456 789</span>
+                                <span>+254 707 451 536</span>
                             </a>
-                            <a href="mailto:info@crisscross.com" className="flex items-center space-x-2 text-muted-foreground/80 dark:text-gray-400 hover:text-primary text-sm">
+                            <a href="mailto:info@crisscross.co.ke" className="flex items-center space-x-2 text-muted-foreground/80 dark:text-gray-400 hover:text-primary text-sm">
                                 <Mail className="h-4 w-4" />
-                                <span>info@crisscross.com</span>
+                                <span>info@crisscross.co.ke</span>
                             </a>
                             <div className="flex items-center space-x-2 text-muted-foreground/80 dark:text-gray-400 text-sm">
                                 <MapPin className="h-4 w-4" />
-                                <span>123 Delivery Street, London, UK</span>
+                                <span>Duldul Godown, Phase 2, Mombasa Road, Nairobi</span>
                             </div>
                         </div>
                     </div>

@@ -112,7 +112,7 @@ const ContactPage = () => {
           <Card className="p-6 rounded-[1.618rem] transition-all duration-300 hover:shadow-lg dark:hover:shadow-gray-800/50">
             <h3 className="text-xl font-semibold mb-4">Connect With Us</h3>
             <p className="text-muted-foreground mb-4">
-              Let's build something amazing together. Reach out for collaborations, support, career opportunities, or just to say hello!
+              Let&apos;s build something amazing together. Reach out for collaborations, support, career opportunities, or just to say hello!
             </p>
             <div className="flex gap-4">
               <Button 
@@ -120,7 +120,7 @@ const ContactPage = () => {
                 size="icon" 
                 className="rounded-full hover:bg-[#1877F2]/10 hover:text-[#1877F2] transition-colors dark:hover:bg-[#1877F2]/20 dark:hover:text-[#1877F2]"
               >
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                <a href="/" target="_blank" rel="noopener noreferrer">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -142,7 +142,7 @@ const ContactPage = () => {
                 size="icon" 
                 className="rounded-full hover:bg-[#E4405F]/10 hover:text-[#E4405F] transition-colors dark:hover:bg-[#E4405F]/20 dark:hover:text-[#E4405F]"
               >
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                <a href="/" target="_blank" rel="noopener noreferrer">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -221,7 +221,7 @@ const ContactPage = () => {
               <Input
                 id="subject"
                 name="subject"
-                placeholder="What's this about?"
+                placeholder="What&apos;s this about?"
                 required
                 className="rounded-lg"
               />

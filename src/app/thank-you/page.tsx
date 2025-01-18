@@ -11,7 +11,7 @@ export default function ThankYouPage() {
           Thank You!
         </h1>
         <p className="text-muted-foreground mb-8">
-          Your message has been received. We'll get back to you as soon as possible.
+          Your message has been received. We&apos;ll get back to you as soon as possible.
         </p>
         <Button 
           asChild

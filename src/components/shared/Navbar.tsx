@@ -6,6 +6,7 @@ import { MenuIcon, Phone, User, Truck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet"
 import { ThemeToggle } from "@/components/theme-toggle"
+import Image from "next/image"
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
@@ -15,7 +16,7 @@ export function Navbar() {
             <div className="flex h-20 items-center justify-between px-4 w-full">
                 <div className="flex items-center">
                     <Link href="/" className="flex items-center">
-                        <img src="/criss-cross.svg" alt="Criss Cross LTD" className="h-[60px]" />
+                        <Image src="/criss-cross.svg" alt="Criss Cross LTD" width={60} height={60} />
                         <span className="ml-2 font-bold text-2xl bg-gradient-to-b from-blue-700 to-blue-400 bg-clip-text text-transparent dark:from-blue-400 dark:to-blue-600">Criss Cross LTD</span>
                     </Link>
                     <Link 
@@ -75,7 +76,7 @@ export function Navbar() {
                                 className="flex items-center mb-4"
                                 onClick={() => setIsOpen(false)}
                             >
-                                <img src="/criss-cross.svg" alt="Criss Cross LTD" className="h-[60px]" />
+                                <Image src="/criss-cross.svg" alt="Criss Cross LTD" width={60} height={60} />
                                 <span className="ml-2 font-bold text-2xl bg-gradient-to-b from-blue-700 to-blue-400 bg-clip-text text-transparent dark:from-blue-400 dark:to-blue-600">Criss Cross LTD</span>
                             </Link>
                             <nav className="flex flex-col space-y-3">
