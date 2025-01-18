@@ -21,8 +21,10 @@ const Hero = () => {
             </h1>
             
             <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
-              Criss Cross LTD delivers premium FMCG products at competitive wholesale prices. 
-              Streamline your supply chain with our comprehensive selection and reliable service.
+              Criss Cross Ltd delivers FMCG products at competitive wholesale prices, offering a comprehensive 
+              selection and reliable service to streamline supply chains efficiently. 
+              With established distribution lines across the greater Nairobi area, we ensure timely and dependable 
+              delivery to meet our clients&apos; needs.
             </p>
             
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
