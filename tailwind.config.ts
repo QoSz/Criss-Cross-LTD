@@ -1,4 +1,19 @@
 import type { Config } from "tailwindcss";
+// Use require for flattenColorPalette since it doesn't have proper types
+const flattenColorPalette = require("tailwindcss/lib/util/flattenColorPalette").default;
+import plugin from "tailwindcss/plugin";
+
+// This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200)
+const addVariablesForColors = plugin(({ addBase, theme }) => {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors as Record<string, string>).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars as Record<string, string>,
+  });
+});
 
 const config: Config = {
     darkMode: ["class"],
@@ -55,9 +70,22 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
+  		},
+  		animation: {
+  			aurora: 'aurora 60s linear infinite'
+  		},
+  		keyframes: {
+  			aurora: {
+  				from: {
+  					backgroundPosition: '50% 50%, 50% 50%'
+  				},
+  				to: {
+  					backgroundPosition: '350% 50%, 350% 50%'
+  				}
+  			}
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), addVariablesForColors],
 };
 export default config;

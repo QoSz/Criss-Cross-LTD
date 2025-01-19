@@ -16,7 +16,7 @@ export function Footer() {
                             </span>
                         </Link>
                         <p className="text-muted-foreground/80 dark:text-gray-400 text-sm">
-                            Providing reliable delivery services across the UK
+                            Providing reliable services across Nairobi, Kenya
                         </p>
                     </div>
 
