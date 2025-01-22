@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-// Use require for flattenColorPalette since it doesn't have proper types
 const flattenColorPalette = require("tailwindcss/lib/util/flattenColorPalette").default;
 import plugin from "tailwindcss/plugin";
 

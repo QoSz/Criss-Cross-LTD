@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 
@@ -8,6 +8,8 @@ interface Logo {
   id: number;
   name: string;
   src: string;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
 interface LogoColumnProps {
@@ -25,7 +27,7 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
 
   return (
     <motion.div
-      className="relative h-14 w-24 overflow-hidden md:h-24 md:w-48"
+      className="relative h-24 w-48 overflow-hidden md:h-36 md:w-64"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
@@ -54,13 +56,23 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
             transition: { duration: 0.3 },
           }}
         >
-          <Image
-            src={currentLogo.src}
-            alt={currentLogo.name}
-            width={140}
-            height={60}
-            className="h-auto w-auto max-h-[80%] max-w-[80%] object-contain"
-          />
+          {currentLogo.src.endsWith(".svg") ? (
+            <img
+              src={currentLogo.src}
+              alt={currentLogo.name}
+              className={`flex items-center justify-center h-auto w-auto object-contain ${currentLogo.className || ''}`}
+              style={{ ...currentLogo.style, width: '100%', height: '110px' }}
+            />
+          ) : (
+            <Image
+              src={currentLogo.src}
+              alt={currentLogo.name}
+              width={180}
+              height={90}
+              className={`h-auto w-auto max-h-[90%] max-w-[90%] object-contain ${currentLogo.className || ''}`}
+              style={currentLogo.style}
+            />
+          )}
         </motion.div>
       </AnimatePresence>
     </motion.div>

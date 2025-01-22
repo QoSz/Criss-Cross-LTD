@@ -10,10 +10,12 @@ interface CompanyLogo {
     alt: string;
     width: number;
     height: number;
+    style?: React.CSSProperties;
+    className?: string;
 }
 
-const logoWidth: number = 200;
-const logoHeight: number = 100;
+const logoWidth: number = 280;
+const logoHeight: number = 140;
 
 const companyLogos: CompanyLogo[] = [
     {
@@ -90,6 +92,14 @@ const companyLogos: CompanyLogo[] = [
     },
     {
         id: 10,
+        name: "Malbros",
+        src: "/images/companies/Malbros.png",
+        alt: "MALBROS Logo",
+        width: logoWidth,
+        height: logoHeight,
+    },
+    {
+        id: 11,
         name: "MELVINS",
         src: "/images/companies/Melvins.png",
         alt: "MELVINS Logo",
@@ -97,29 +107,43 @@ const companyLogos: CompanyLogo[] = [
         height: logoHeight,
     },
     {
-        id: 11,
+        id: 12,
+        name: "Sun Rice",
+        src: "/images/companies/Sunrice.png",
+        alt: "Sun Rice Logo",
+        width: logoWidth,
+        height: logoHeight,
+    },
+    {
+        id: 13,
         name: "Agventure",
-        src: "/images/companies/Agventure.png",
+        src: "/images/companies/Agventure.svg",
         alt: "Agventure Logo",
         width: logoWidth,
         height: logoHeight,
+        className: "bg-[#4c9e45] p-4",
     },
 ];
 
 function Companies() {
     return (
         <Card>
-            <CardContent className="pt-6">
-                <div className="text-center space-y-4 mb-12">
-                    <p className="text-sm font-medium tracking-widest text-muted-foreground">
-                        TRUSTED BY TEAMS FROM AROUND THE WORLD
+            <CardContent className="pt-6 px-4 sm:px-6 lg:px-8">
+                <div className="text-center space-y-4 mb-4 sm:mb-4">
+                    <p className="text-md font-medium tracking-widest text-muted-foreground">
+                        DISTRIBUTING PRODUCTS FOR LEADING BRANDS IN KENYA
                     </p>
-                    <h2 className="text-[3.5rem] font-bold tracking-tight leading-none">
-                        The best are already here
+                    <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tight leading-[1.1] tracking-normal bg-gradient-to-b from-blue-700 to-blue-400 text-transparent bg-clip-text dark:from-blue-400 dark:to-blue-600">
+                        Our Principal Companies
                     </h2>
                 </div>
                 <LogoCarousel
-                    logos={companyLogos}
+                    logos={companyLogos.map(logo => ({
+                        ...logo,
+                        width: logoWidth,
+                        height: logoHeight,
+                        className: `${logo.className || ''} w-[200px] h-[100px] sm:w-[250px] sm:h-[125px] md:w-[300px] md:h-[150px]`
+                    }))}
                 />
             </CardContent>
         </Card>
