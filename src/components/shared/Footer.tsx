@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Phone, Mail, MapPin } from "lucide-react"
+import { Phone, Mail, MapPin, User, Truck, Package } from "lucide-react"
 import Image from 'next/image'
 
 export function Footer() {
@@ -16,7 +16,7 @@ export function Footer() {
                             </span>
                         </Link>
                         <p className="text-muted-foreground/80 dark:text-gray-400 text-sm">
-                            Providing reliable services across Nairobi, Kenya
+                            Delivering FMCG products at competitive wholesale prices with reliable service across Nairobi.
                         </p>
                     </div>
 
@@ -43,14 +43,21 @@ export function Footer() {
                     <div className="space-y-4">
                         <h3 className="font-semibold text-foreground/90 dark:text-gray-200">Quick Links</h3>
                         <div className="space-y-3">
-                            <Link href="/" className="block text-muted-foreground/80 dark:text-gray-400 hover:text-primary text-sm">
-                                About Us
+                            <Link href="/about" className="flex items-center space-x-2 text-muted-foreground/80 dark:text-gray-400 hover:text-primary text-sm">
+                                <User className="h-4 w-4" />
+                                <span>About Us</span>
                             </Link>
-                            <Link href="/" className="block text-muted-foreground/80 dark:text-gray-400 hover:text-primary text-sm">
-                                Deliveries
+                            <Link href="/deliveries" className="flex items-center space-x-2 text-muted-foreground/80 dark:text-gray-400 hover:text-primary text-sm">
+                                <Truck className="h-4 w-4" />
+                                <span>Deliveries</span>
                             </Link>
-                            <Link href="/" className="block text-muted-foreground/80 dark:text-gray-400 hover:text-primary text-sm">
-                                Contact
+                            <Link href="/contact" className="flex items-center space-x-2 text-muted-foreground/80 dark:text-gray-400 hover:text-primary text-sm">
+                                <Phone className="h-4 w-4" />
+                                <span>Contact</span>
+                            </Link>
+                            <Link href="/products" className="flex items-center space-x-2 text-muted-foreground/80 dark:text-gray-400 hover:text-primary text-sm">
+                                <Package className="h-4 w-4" />
+                                <span>Products</span>
                             </Link>
                         </div>
                     </div>

@@ -5,24 +5,24 @@ import { ArrowRight } from "lucide-react";
 export function Explore() {
   const cards = [
     {
-      title: "Learn More About Us",
-      description: "Discover our story, values, and commitment to quality.",
+      title: "About Us",
+      description: "Discover our story, values, and commitment to great service.",
       link: "/about",
-      image: "https://picsum.photos/600/400?random=1",
-      buttonText: "Our Story",
+      image: "/images/about-us.jpg",
+      buttonText: "About Us",
     },
     {
       title: "Our Deliveries",
       description: "Learn about our fast and reliable delivery services.",
       link: "/deliveries",
-      image: "https://picsum.photos/600/400?random=2",
+      image: "/images/deliveries.jpg",
       buttonText: "Delivery Info",
     },
     {
       title: "Explore Products",
-      description: "Browse our wide range of high-quality products.",
+      description: "Browse our wide range of products.",
       link: "/products",
-      image: "https://picsum.photos/600/400?random=3",
+      image: "/images/products.jpg",
       buttonText: "View Products",
     },
   ];
@@ -44,15 +44,16 @@ export function Explore() {
                 className="object-cover"
               />
               {/* Blur Overlay */}
-              <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
+              <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
               {/* Content */}
               <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">{card.title}</h3>
+                <h3 className="text-2xl font-bold mb-2" style={{ color: '#59a8ff' }}>{card.title}</h3>
                 <p className="mb-4">{card.description}</p>
                 <Link
                   href={card.link}
-                  className="inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30 hover:bg-white/30 transition-all hover:gap-3"
-                >
+                  className="inline-flex font-bold items-center justify-center 
+                  gap-2 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full border 
+                  border-white/30 hover:bg-white/30 transition-all hover:gap-3">
                   {card.buttonText}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
