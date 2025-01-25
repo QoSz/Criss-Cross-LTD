@@ -57,11 +57,13 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
           }}
         >
           {currentLogo.src.endsWith(".svg") ? (
-            <img
+            <Image
               src={currentLogo.src}
               alt={currentLogo.name}
-              className={`flex items-center justify-center h-auto w-auto object-contain ${currentLogo.className || ''}`}
-              style={{ ...currentLogo.style, width: '100%', height: '110px' }}
+              width={180}
+              height={90}
+              className={`h-auto w-auto max-h-[90%] max-w-[90%] object-contain ${currentLogo.className || ''}`}
+              style={currentLogo.style}
             />
           ) : (
             <Image
