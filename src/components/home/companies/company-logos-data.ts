@@ -1,8 +1,3 @@
-"use client";
-
-import { LogoCarousel } from "@/components/ui/logo-carousel";
-import { Card, CardContent } from "@/components/ui/card";
-
 interface CompanyLogo {
     id: number;
     name: string;
@@ -17,7 +12,7 @@ interface CompanyLogo {
 const logoWidth: number = 280;
 const logoHeight: number = 140;
 
-const companyLogos: CompanyLogo[] = [
+export const companyLogos: CompanyLogo[] = [
     {
         id: 1,
         name: "PWANI OIL",
@@ -92,15 +87,15 @@ const companyLogos: CompanyLogo[] = [
     },
     {
         id: 10,
-        name: "Malbros",
-        src: "/images/companies/Malbros.png",
-        alt: "MALBROS Logo",
+        name: "Manji",
+        src: "/images/companies/Manji.png",
+        alt: "MANJI Logo",
         width: logoWidth,
         height: logoHeight,
     },
     {
         id: 11,
-        name: "MELVINS",
+        name: "Melvins",
         src: "/images/companies/Melvins.png",
         alt: "MELVINS Logo",
         width: logoWidth,
@@ -116,38 +111,12 @@ const companyLogos: CompanyLogo[] = [
     },
     {
         id: 13,
-        name: "Agventure",
-        src: "/images/companies/Agventure.svg",
-        alt: "Agventure Logo",
+        name: "Pure Mountain",
+        src: "/images/companies/Pure-Mountain.png",
+        alt: "Pure Mountain Logo",
         width: logoWidth,
         height: logoHeight,
-        className: "bg-[#4c9e45] p-4",
     },
 ];
 
-function Companies() {
-    return (
-        <Card>
-            <CardContent className="pt-6 px-4 sm:px-6 lg:px-8">
-                <div className="text-center space-y-4 mb-4 sm:mb-4">
-                    <p className="text-md font-medium tracking-widest text-muted-foreground">
-                        DISTRIBUTING PRODUCTS FOR LEADING BRANDS IN KENYA
-                    </p>
-                    <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tight leading-[1.1] tracking-normal bg-gradient-to-b from-blue-700 to-blue-400 text-transparent bg-clip-text dark:from-blue-400 dark:to-blue-600">
-                        Our Principal Companies
-                    </h2>
-                </div>
-                <LogoCarousel
-                    logos={companyLogos.map(logo => ({
-                        ...logo,
-                        width: logoWidth,
-                        height: logoHeight,
-                        className: `${logo.className || ''} w-[200px] h-[100px] sm:w-[250px] sm:h-[125px] md:w-[300px] md:h-[150px]`
-                    }))}
-                />
-            </CardContent>
-        </Card>
-    );
-}
-
-export { Companies };
+export type { CompanyLogo }; 

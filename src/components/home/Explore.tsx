@@ -65,3 +65,5 @@ export function Explore() {
     </section>
   );
 }
+
+export default Explore;

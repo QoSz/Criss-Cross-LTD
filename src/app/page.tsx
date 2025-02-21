@@ -1,4 +1,4 @@
-import { Companies } from "@/components/home/Companies";
+import { Companies } from "@/components/home/companies/Companies";
 import Hero from "@/components/home/Hero";
 import { Explore } from "@/components/home/Explore";
 
