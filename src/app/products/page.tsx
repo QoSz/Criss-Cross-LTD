@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/card';
 import { products, categoryTitles } from './ProductsData';
 // import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
@@ -20,20 +19,19 @@ const ProductsPage = () => {
             <h2 className="text-2xl font-bold py-8">{categoryTitle}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {productsForCategory.map((product) => (
-                <Link key={product.id} href={`/products/${product.id}`}>
-                  <Card className="cursor-pointer hover:shadow-lg transition-shadow rounded-[1.618rem] overflow-hidden h-full flex flex-col">
-                    <CardContent className="p-0 relative aspect-square">
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        className="object-contain p-4"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
-                    </CardContent>
-                    <CardContent className="p-4 flex flex-col flex-1 justify-between">
-                      <h2 className="text-xl font-semibold mb-4 line-clamp-2">{product.name}</h2>
-                      {/* <Select defaultValue="">
+                <Card className="cursor-pointer hover:shadow-lg transition-shadow rounded-[1.618rem] overflow-hidden h-full flex flex-col">
+                  <CardContent className="p-0 relative aspect-square">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-contain p-4"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </CardContent>
+                  <CardContent className="p-4 flex flex-col flex-1 justify-between">
+                    <h2 className="text-xl font-semibold mb-4 line-clamp-2">{product.name}</h2>
+                    {/* <Select defaultValue="">
                         <SelectTrigger className="w-full rounded-full">
                           <SelectValue placeholder="Select Size" />
                         </SelectTrigger>
@@ -45,9 +43,8 @@ const ProductsPage = () => {
                           ))}
                         </SelectContent>
                       </Select> */}
-                    </CardContent>
-                  </Card>
-                </Link>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>
