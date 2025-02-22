@@ -57,7 +57,7 @@ export const products: Product[] = [
       id: 'pure-mountain-megafry',
       category: 'cooking-oil',
       name: 'Pure Mountain - Mega Fry',
-      image: '/images/products/cooking-oil/MegaFrys.jpg',
+      image: '/images/products/cooking-oil/MegaFry.jpg',
       sizes: ['1 liter', '2 liter', '3 liter']
     },
     {
