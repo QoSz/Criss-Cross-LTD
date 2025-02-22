@@ -19,7 +19,10 @@ const ProductsPage = () => {
             <h2 className="text-2xl font-bold py-8">{categoryTitle}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {productsForCategory.map((product) => (
-                <Card className="cursor-pointer hover:shadow-lg transition-shadow rounded-[1.618rem] overflow-hidden h-full flex flex-col">
+                <Card 
+                  key={product.id}
+                  className="cursor-pointer hover:shadow-lg transition-shadow rounded-[1.618rem] overflow-hidden h-full flex flex-col"
+                >
                   <CardContent className="p-0 relative aspect-square">
                     <Image
                       src={product.image}
