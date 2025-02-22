@@ -8,13 +8,13 @@ const ComingSoonPage = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
 
-  // Add messages array here
-  const messages = [
+  // Memoize messages array to prevent unnecessary re-renders
+  const messages = React.useMemo(() => [
     'Coming Soon...',
     'Stay Tuned!',
     'Cooking Up Something Special!',
     'Almost There...'
-  ];
+  ], []);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -39,7 +39,7 @@ const ComingSoonPage = () => {
       }
     };
 
-    // Smoother speed calculation with base + variance
+    // Initialize timer immediately after declaration
     const baseSpeed = isDeleting ? 50 : 100;
     const variance = isDeleting ? 30 : 50;
     timer = setTimeout(tick, baseSpeed + Math.random() * variance);
@@ -54,7 +54,7 @@ const ComingSoonPage = () => {
         <span className="inline-block ml-0.5 w-[2px] h-[1.2em] bg-current opacity-70 animate-[blink_1s_ease-in-out_infinite] dark:bg-white" />
       </h1>
       <p className="text-lg text-center text-gray-600 dark:text-gray-400">
-        We're working hard to bring you something amazing!
+        We&apos;re working hard to bring you something amazing!
       </p>
     </div>
   );
