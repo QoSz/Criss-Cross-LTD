@@ -17,8 +17,6 @@ const ComingSoonPage = () => {
   ], []);
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
-
     const tick = () => {
       const fullTxt = fullText;
       const updatedText = isDeleting 
@@ -39,10 +37,10 @@ const ComingSoonPage = () => {
       }
     };
 
-    // Initialize timer immediately after declaration
+    // Changed from let to const since timer is only assigned once
     const baseSpeed = isDeleting ? 50 : 100;
     const variance = isDeleting ? 30 : 50;
-    timer = setTimeout(tick, baseSpeed + Math.random() * variance);
+    const timer = setTimeout(tick, baseSpeed + Math.random() * variance);
 
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, loopNum, fullText, messages]);
