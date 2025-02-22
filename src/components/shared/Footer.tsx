@@ -10,7 +10,14 @@ export function Footer() {
                     {/* Company Info */}
                     <div className="space-y-4">
                         <Link href="/" className="flex items-center">
-                            <Image src="/criss-cross.svg" alt="Criss Cross LTD" className="h-[50px]" width={50} height={50} />
+                            <div className="w-[50px] h-[50px] relative">
+                                <Image
+                                    src="/criss-cross.svg"
+                                    alt="Criss Cross LTD"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
                             <span className="ml-2 font-bold text-xl bg-gradient-to-b from-blue-700 to-blue-400 bg-clip-text text-transparent dark:from-blue-400 dark:to-blue-600">
                                 Criss Cross LTD
                             </span>

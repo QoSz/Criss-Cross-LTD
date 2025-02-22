@@ -1,6 +1,12 @@
 import { Companies } from "@/components/home/companies/Companies";
 import Hero from "@/components/home/Hero";
 import { Explore } from "@/components/home/Explore";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Criss Cross | Home',
+  description: 'Criss Cross is a leading FMCG company that offers a wide range of products including cooking oil, soaps, rice, sugar, water, juices, and more.',
+};
 
 export default function Home() {
   return (

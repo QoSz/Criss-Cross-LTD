@@ -1,10 +1,10 @@
 import React from 'react';
+import ComingSoonPage from '../coming-soon/page';
 
 const DeliveriesPage = () => {
   return (
     <div>
-      <h1>Deliveries</h1>
-      <p>This is the deliveries page.</p>
+      <ComingSoonPage />
     </div>
   );
 };
