@@ -26,7 +26,7 @@ const ProductCardDialog: React.FC<ProductCardDialogProps> = ({ product }) => {
             />
           </CardContent>
           <CardContent className="p-4 flex flex-col flex-1 justify-between">
-            <h2 className="text-base md:text-lg mb-4 line-clamp-2">{product.name}</h2>
+            <h2 className="text-base text-center md:text-lg line-clamp-2">{product.name}</h2>
           </CardContent>
         </Card>
       </DialogTrigger>
