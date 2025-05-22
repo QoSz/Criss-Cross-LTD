@@ -643,6 +643,18 @@ export const productsByCategory: ProductsByCategory = {
       name: 'Choco Burst',
       image: '/images/products/choco-drinks/Choco-Burst.png',
     },
+    {
+      id: 'raha-drinking-chocolate',
+      category: 'choco-drinks',
+      name: 'Drinking Chocolate',
+      image: '/images/products/choco-drinks/Raha-Drinking-Chocolate.webp',
+    },
+    {
+      id: 'raha-cocoa',
+      category: 'choco-drinks',
+      name: 'Cocoa',
+      image: '/images/products/choco-drinks/Raha-Cocoa.webp',
+    },
   ],
   'rice': [
     {
@@ -864,6 +876,319 @@ export const productsByCategory: ProductsByCategory = {
       image: '/images/products/toilet-paper/Rosy.png',
     },
   ],
+  'pure-spices': [
+    {
+      id: 'black-pepper',
+      category: 'pure-spices',
+      name: 'Black Pepper',
+      image: '/images/products/pure-spices/Black-Pepper.png',
+    },
+    {
+      id: 'cardamoms',
+      category: 'pure-spices',
+      name: 'Cardamoms',
+      image: '/images/products/pure-spices/Cardamoms.png',
+    },
+    {
+      id: 'cayenne-pepper',
+      category: 'pure-spices',
+      name: 'Cayenne Pepper',
+      image: '/images/products/pure-spices/Cayenne-Pepper.png',
+    },
+    {
+      id: 'chilli-flakes',
+      category: 'pure-spices',
+      name: 'Chilli Flakes',
+      image: '/images/products/pure-spices/Chilli-Flakes.png',
+    },
+    {
+      id: 'chillies',
+      category: 'pure-spices',
+      name: 'Chillies',
+      image: '/images/products/pure-spices/Chillies.png',
+    },
+    {
+      id: 'cinnamon',
+      category: 'pure-spices',
+      name: 'Cinnamon',
+      image: '/images/products/pure-spices/Cinnamon.png',
+    },
+    {
+      id: 'cloves',
+      category: 'pure-spices',
+      name: 'Cloves',
+      image: '/images/products/pure-spices/Cloves.png',
+    },
+    {
+      id: 'coriander',
+      category: 'pure-spices',
+      name: 'Coriander',
+      image: '/images/products/pure-spices/Coriander.png',
+    },
+    {
+      id: 'cumin',
+      category: 'pure-spices',
+      name: 'Cumin',
+      image: '/images/products/pure-spices/Cumin.png',
+    },
+    {
+      id: 'garlic-powder',
+      category: 'pure-spices',
+      name: 'Garlic Powder',
+      image: '/images/products/pure-spices/Garlic-Powder.png',
+    },
+    {
+      id: 'ginger',
+      category: 'pure-spices',
+      name: 'Ginger',
+      image: '/images/products/pure-spices/Ginger.png',
+    },
+    {
+      id: 'nutmeg',
+      category: 'pure-spices',
+      name: 'Nutmeg',
+      image: '/images/products/pure-spices/Nutmeg.png',
+    },
+    {
+      id: 'onion-powder',
+      category: 'pure-spices',
+      name: 'Onion Powder',
+      image: '/images/products/pure-spices/Onion-Powder.png',
+    },
+    {
+      id: 'paprika',
+      category: 'pure-spices',
+      name: 'Paprika',
+      image: '/images/products/pure-spices/Paprika.png',
+    },
+    {
+      id: 'turmeric',
+      category: 'pure-spices',
+      name: 'Turmeric',
+      image: '/images/products/pure-spices/Turmeric.png',
+    },
+    {
+      id: 'white-pepper',
+      category: 'pure-spices',
+      name: 'White Pepper',
+      image: '/images/products/pure-spices/White-Pepper.png',
+    },
+  ],
+  'seasonings': [
+    {
+      id: 'biryani-masala',
+      category: 'seasonings',
+      name: 'Biryani Masala',
+      image: '/images/products/seasonings/Biryani-Masala.png',
+    },
+    {
+      id: 'chilli-lemon',
+      category: 'seasonings',
+      name: 'Chilli Lemon',
+      image: '/images/products/seasonings/Chilli-Lemon.png',
+    },
+    {
+      id: 'dhana-jeera',
+      category: 'seasonings',
+      name: 'Dhana Jeera',
+      image: '/images/products/seasonings/Dhana-Jeera.png',
+    },
+    {
+      id: 'garam-masala',
+      category: 'seasonings',
+      name: 'Garam Masala',
+      image: '/images/products/seasonings/Garam-Masala.png',
+    },
+    {
+      id: 'mixed-spices',
+      category: 'seasonings',
+      name: 'Mixed Spices',
+      image: '/images/products/seasonings/Mixed-Spices.png',
+    },
+    {
+      id: 'mixed-spices-for-wet-and-dry',
+      category: 'seasonings',
+      name: 'Mixed Spices for Wet and Dry',
+      image: '/images/products/seasonings/Mixed-Spices-for-Wet-and-Dry.png',
+    },
+    {
+      id: 'peri-peri',
+      category: 'seasonings',
+      name: 'Peri Peri',
+      image: '/images/products/seasonings/Peri-Peri.png',
+    },
+    {
+      id: 'pilau-masala',
+      category: 'seasonings',
+      name: 'Pilau Masala',
+      image: '/images/products/seasonings/Pilau-Masala.png',
+    },
+    {
+      id: 'salad-seasoning',
+      category: 'seasonings',
+      name: 'Salad Seasoning',
+      image: '/images/products/seasonings/Salad-Seasoning.png',
+    },
+    {
+      id: 'tea-masala',
+      category: 'seasonings',
+      name: 'Tea Masala',
+      image: '/images/products/seasonings/Tea-Masala.png',
+    }
+  ],
+  'salts': [
+    {
+      id: 'citric-acid',
+      category: 'salts',
+      name: 'Citric Acid',
+      image: '/images/products/salts/Citric-Acid.png',
+    },
+    {
+      id: 'meat-tenderiser',
+      category: 'salts',
+      name: 'Meat Tenderiser',
+      image: '/images/products/salts/Meat-Tenderizer.png',
+    },
+  ],
+  'herbs': [
+    {
+      id: 'basil',
+      category: 'herbs',
+      name: 'Basil',
+      image: '/images/products/herbs/Basil.png',
+    },
+    {
+      id: 'bay-leaves',
+      category: 'herbs',
+      name: 'Bay Leaves',
+      image: '/images/products/herbs/Bay-Leaves.png',
+    },
+    {
+      id: 'marjoram',
+      category: 'herbs',
+      name: 'Marjoram',
+      image: '/images/products/herbs/Marjoram.png',
+    },
+    {
+      id: 'mint',
+      category: 'herbs',
+      name: 'Mint',
+      image: '/images/products/herbs/Mint.png',
+    },
+    {
+      id: 'mixed-herbs',
+      category: 'herbs',
+      name: 'Mixed Herbs',
+      image: '/images/products/herbs/Mixed-Herbs.png',
+    },
+    {
+      id: 'oregano',
+      category: 'herbs',
+      name: 'Oregano',
+      image: '/images/products/herbs/Oregano.png',
+    },
+    {
+      id: 'parsley',
+      category: 'herbs',
+      name: 'Parsley',
+      image: '/images/products/herbs/Parsley.png',
+    },
+    {
+      id: 'rosemary-leaves',
+      category: 'herbs',
+      name: 'Rosemary Leaves',
+      image: '/images/products/herbs/Rosemary-Leaves.png',
+    },
+    {
+      id: 'sage',
+      category: 'herbs',
+      name: 'Sage',
+      image: '/images/products/herbs/Sage.png',
+    },
+    {
+      id: 'thyme',
+      category: 'herbs',
+      name: 'Thyme',
+      image: '/images/products/herbs/Thyme.png',
+    },
+  ],
+  'masalas': [
+    {
+      id: 'beef-masala',
+      category: 'masalas',
+      name: 'Beef Masala',
+      image: '/images/products/masalas/Beef-Masala.png',
+    },
+    {
+      id: 'chicken-masala',
+      category: 'masalas',
+      name: 'Chicken Masala',
+      image: '/images/products/masalas/Chicken-Masala.png',
+    },
+    {
+      id: 'chips-masala',
+      category: 'masalas',
+      name: 'Chips Masala',
+      image: '/images/products/masalas/Chips-Masala.png',
+    },
+    {
+      id: 'curry-powder',
+      category: 'masalas',
+      name: 'Curry Powder',
+      image: '/images/products/masalas/Curry-Powder.png',
+    },
+    {
+      id: 'fish-masala',
+      category: 'masalas',
+      name: 'Fish Masala',
+      image: '/images/products/masalas/Fish-Masala.png',
+    },
+    {
+      id: 'githeri-masala',
+      category: 'masalas',
+      name: 'Githeri Masala',
+      image: '/images/products/masalas/Githeri-Masala.png',
+    },
+  ],
+  'grinders': [
+    {
+      id: 'black-peppercorn',
+      category: 'grinders',
+      name: 'Black Peppercorn',
+      image: '/images/products/grinders/Black-Peppercorn.png',
+    },
+    {
+      id: 'fireball',
+      category: 'grinders',
+      name: 'Fireball',
+      image: '/images/products/grinders/Fireball.png',
+    },
+    {
+      id: 'himalayan-pink-salt',
+      category: 'grinders',
+      name: 'Himalayan Pink Salt',
+      image: '/images/products/grinders/Himalayan-Pink-Salt.png',
+    },
+    {
+      id: 'mixed-spice-whole',
+      category: 'grinders',
+      name: 'Mixed Spice Whole',
+      image: '/images/products/grinders/Mixed-Spice-Whole.png',
+    },
+    {
+      id: 'pepper-medley-whole',
+      category: 'grinders',
+      name: 'Pepper Medley Whole',
+      image: '/images/products/grinders/Pepper-Medley-Whole.png',
+    },
+    {
+      id: 'sea-salt-whole',
+      category: 'grinders',
+      name: 'Sea Salt Whole',
+      image: '/images/products/grinders/Sea-Salt-Whole.png',
+    },
+  ]
+  
 };
 
 export const categoryTitles: CategoryTitle = {
@@ -881,5 +1206,11 @@ export const categoryTitles: CategoryTitle = {
   'sweets': 'Sweets',
   'drinks': 'Drinks',
   'tea': 'Tea',
-  'toilet-paper': 'Toilet Paper'
+  'toilet-paper': 'Toilet Paper',
+  'pure-spices': 'Pure Spices',
+  'seasonings': 'Seasonings',
+  'salts': 'Salts',
+  'herbs': 'Herbs',
+  'masalas': 'Masalas',
+  'grinders': 'Grinders',
 };

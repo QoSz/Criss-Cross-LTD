@@ -39,10 +39,10 @@ export function Footer() {
                                 <Mail className="h-4 w-4" />
                                 <span>info@crisscross.co.ke</span>
                             </a>
-                            <div className="flex items-center space-x-2 text-muted-foreground/80 dark:text-gray-400 text-sm">
+                            <a href="https://maps.app.goo.gl/nvgUcU4XQTdoUgzy9" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-muted-foreground/80 dark:text-gray-400 hover:text-primary text-sm">
                                 <MapPin className="h-4 w-4" />
                                 <span>Duldul Godown, Phase 2, Mombasa Road, Nairobi</span>
-                            </div>
+                            </a>
                         </div>
                     </div>
 
