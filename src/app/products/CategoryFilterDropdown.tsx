@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import { useMemo } from 'react';
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -10,13 +10,26 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { categoryTitles } from './ProductsData';
+import { categoryTitles, Product } from './ProductsData';
 import { ChevronDown } from 'lucide-react';
 
 interface CategoryFilterDropdownProps {
   selectedCategories: string[];
   onSelectedCategoriesChange: (categories: string[]) => void;
   className?: string;
+}
+
+// Custom hook for category filtering logic
+export function useCategoryFilter(products: Product[], selectedCategories: string[]): Product[] {
+  return useMemo(() => {
+    if (selectedCategories.length === 0) {
+      return products;
+    }
+
+    return products.filter(product =>
+      selectedCategories.includes(product.category)
+    );
+  }, [products, selectedCategories]);
 }
 
 export default function CategoryFilterDropdown({

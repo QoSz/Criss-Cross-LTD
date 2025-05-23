@@ -3,74 +3,53 @@
 import { useState, useMemo } from 'react';
 import { productsByCategory, categoryTitles, Product } from './ProductsData';
 import ProductCardDialog from './ProductCardDialog';
-import ProductSearchInput from './ProductSearchInput';
-import CategoryFilterDropdown from './CategoryFilterDropdown';
+import ProductSearchInput, { useProductSearch } from './ProductSearchInput';
+import CategoryFilterDropdown, { useCategoryFilter } from './CategoryFilterDropdown';
 import ResetFiltersButton from './ResetFiltersButton';
-
-// Helper function to escape regex special characters
-function escapeRegExp(string: string) {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
-}
 
 export default function ProductsPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
+  // Get all products once and memoize
   const allProducts = useMemo(() => {
     return Object.values(productsByCategory).flat();
   }, []);
 
+  // Get filtered results from both filters
+  const searchFilteredProducts = useProductSearch(allProducts, searchTerm);
+  const categoryFilteredProducts = useCategoryFilter(allProducts, selectedCategories);
+
+  // Apply filters with OR logic: show products that match search OR are in selected categories
   const filteredProducts = useMemo(() => {
-    let productsToFilter = allProducts;
+    const hasSearch = searchTerm.trim() !== '';
+    const hasCategories = selectedCategories.length > 0;
 
-    // Category filtering
-    if (selectedCategories.length > 0) {
-      productsToFilter = productsToFilter.filter(product =>
-        selectedCategories.includes(product.category)
-      );
+    // If no filters are active, return all products
+    if (!hasSearch && !hasCategories) {
+      return allProducts;
     }
 
-    // Search term filtering
-    if (searchTerm.trim() !== '') {
-      const searchWords = searchTerm.toLowerCase().trim().split(' ').filter(w => w.length > 0);
-
-      productsToFilter = productsToFilter.filter(product => {
-        const productNameLower = product.name.toLowerCase();
-
-        return searchWords.every(sw => { // Every search word must find a match
-          // Attempt 1: Exact word match for the search word itself
-          const regexExact = new RegExp(`\\b${escapeRegExp(sw)}\\b`);
-          if (regexExact.test(productNameLower)) {
-            return true;
-          }
-
-          // Attempt 2: Handle plural search word vs singular in product name
-          // e.g., search "soaps", product name contains "soap"
-          if (sw.length > 1 && sw.endsWith('s')) {
-            const singularSw = sw.slice(0, -1);
-            const regexSingular = new RegExp(`\\b${escapeRegExp(singularSw)}\\b`);
-            if (regexSingular.test(productNameLower)) {
-              return true;
-            }
-          }
-
-          // Attempt 3: Handle singular search word vs plural in product name
-          // e.g., search "soap", product name contains "soaps"
-          // (Ensure sw itself is not empty after a potential slice if it was 's')
-          if (sw.length > 0) { 
-            const pluralSw = sw + 's';
-            const regexPlural = new RegExp(`\\b${escapeRegExp(pluralSw)}\\b`);
-            if (regexPlural.test(productNameLower)) {
-              return true;
-            }
-          }
-          
-          return false;
-        });
-      });
+    // If only search is active, return search results
+    if (hasSearch && !hasCategories) {
+      return searchFilteredProducts;
     }
-    return productsToFilter;
-  }, [searchTerm, selectedCategories, allProducts]);
+
+    // If only categories are active, return category results
+    if (!hasSearch && hasCategories) {
+      return categoryFilteredProducts;
+    }
+
+    // If both filters are active, combine with OR logic
+    const combined = [...searchFilteredProducts, ...categoryFilteredProducts];
+    
+    // Remove duplicates by product id
+    const uniqueProducts = combined.filter((product, index, array) => 
+      array.findIndex(p => p.id === product.id) === index
+    );
+    
+    return uniqueProducts;
+  }, [allProducts, searchTerm, selectedCategories, searchFilteredProducts, categoryFilteredProducts]);
 
   const handleResetFilters = () => {
     setSearchTerm('');
@@ -82,6 +61,7 @@ export default function ProductsPage() {
   // Group filtered products by their original category for display
   const productsGroupedForDisplay = useMemo(() => {
     const grouped: Record<string, Product[]> = {};
+    
     filteredProducts.forEach(product => {
       if (!grouped[product.category]) {
         grouped[product.category] = [];
@@ -142,7 +122,7 @@ export default function ProductsPage() {
         return (
           <div key={categoryKey}>
             <h2 className="text-2xl font-bold pt-8 pb-4">{categoryTitle}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
               {productsForCategory.map((product: Product) => (
                 <ProductCardDialog key={product.id} product={product} />
               ))}
