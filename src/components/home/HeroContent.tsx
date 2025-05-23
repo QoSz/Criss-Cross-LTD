@@ -15,11 +15,8 @@ export default function HeroClient() {
             </span>
           </h1>
 
-          <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
-            Criss Cross Ltd delivers FMCG products at competitive wholesale prices, offering a comprehensive
-            selection and reliable service to streamline supply chains efficiently.
-            With established distribution lines across the greater Nairobi area, we ensure timely and dependable
-            delivery to meet our clients&apos; needs.
+          <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+            Leading wholesale FMCG distributor in Kenya. Competitive prices, reliable delivery across Nairobi, and comprehensive product selection for your business needs.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
