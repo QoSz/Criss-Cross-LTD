@@ -18,7 +18,7 @@ export function Navbar() {
                         <div className="w-[60px] h-[60px] relative">
                             <Image
                                 src="/criss-cross.svg"
-                                alt="Criss Cross LTD"
+                                alt="Company logo"
                                 fill
                                 sizes="60px"
                                 className="object-contain"
@@ -93,7 +93,7 @@ export function Navbar() {
                                 <div className="w-[60px] h-[60px] relative">
                                     <Image
                                         src="/criss-cross.svg"
-                                        alt="Criss Cross LTD"
+                                        alt="Company logo"
                                         fill
                                         sizes="60px"
                                         className="object-contain"
