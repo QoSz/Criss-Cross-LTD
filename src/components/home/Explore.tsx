@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-export function Explore() {
+export default function Explore() {
   const cards = [
     {
       title: "About Us",
@@ -67,5 +67,3 @@ export function Explore() {
     </section>
   );
 }
-
-export default Explore;

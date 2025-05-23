@@ -5,7 +5,7 @@ import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
 // Fix for default markers in Leaflet
-delete (L.Icon.Default.prototype as any)._getIconUrl;
+delete (L.Icon.Default.prototype as { _getIconUrl?: unknown })._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
@@ -60,6 +60,12 @@ const deliveryLocations = [
   { name: "Zimmerman", lat: -1.20833, lng: 36.89972, color: "#FF6347" }
 ];
 
+// Define Nairobi bounds to restrict map view
+const nairobiBounds = L.latLngBounds(
+  [-1.55, 36.60], // Southwest corner (bottom-left)
+  [-0.95, 37.15]  // Northeast corner (top-right)
+);
+
 // Create custom colored icons
 const createColoredIcon = (color: string) => {
   const svgIcon = `
@@ -85,8 +91,15 @@ export default function DeliveryMap({ deliveryAreas }: DeliveryMapProps) {
   useEffect(() => {
     if (!mapRef.current) return
 
-    // Initialize the map centered on Nairobi
-    const map = L.map(mapRef.current).setView([-1.2921, 36.8219], 11)
+    // Initialize the map centered on Nairobi with restrictions
+    const map = L.map(mapRef.current, {
+      center: [-1.2921, 36.8219],
+      zoom: 11,
+      minZoom: 10,
+      maxZoom: 16,
+      maxBounds: nairobiBounds,
+      maxBoundsViscosity: 1.0 // Prevents dragging outside bounds
+    })
 
     // Add OpenStreetMap tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

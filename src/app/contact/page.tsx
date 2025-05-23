@@ -2,6 +2,12 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Mail, MapPin, Phone } from "lucide-react"
 import ContactForm from "./ContactForm"
+import { createPageMetadata } from "@/lib/seo"
+
+export const metadata = createPageMetadata(
+  "Contact Us | Criss Cross Ltd",
+  "Contact Criss Cross Ltd - Kenya's trusted wholesale FMCG distributor. Located in Nairobi on Mombasa Road. Call +254 707 451 536 or email info@crisscross.co.ke for wholesale inquiries, partnerships, and business opportunities."
+)
 
 export default function ContactPage() {
   return (

@@ -1,6 +1,6 @@
 import { Companies } from "@/components/home/companies/Companies";
+import Explore from "@/components/home/Explore";
 import Hero from "@/components/home/Hero";
-import { Explore } from "@/components/home/Explore";
 import { OrganizationSchema, WebsiteSchema } from "@/components/structured-data/OrganizationSchema";
 import { createMetadata } from "@/lib/seo";
 
@@ -13,7 +13,24 @@ export const metadata = createMetadata({
     "wholesale food products Kenya",
     "bulk consumer goods distributor",
     "FMCG supply chain Kenya",
-    "wholesale household products Nairobi"
+    "wholesale household products Nairobi",
+    "competitive wholesale prices Kenya",
+    "reliable FMCG delivery Nairobi",
+    "wholesale cooking oil distributor",
+    "wholesale soap distributor Kenya",
+    "bulk rice supplier Nairobi",
+    "wholesale sugar distributor",
+    "wholesale beverages Kenya",
+    "FMCG procurement Kenya",
+    "wholesale product sourcing",
+    "bulk purchasing FMCG",
+    "wholesale trade Kenya",
+    "consumer goods wholesale market",
+    "FMCG distribution network",
+    "wholesale supply chain solutions",
+    "bulk product distributor Nairobi",
+    "wholesale merchandise Kenya",
+    "commercial FMCG supplier"
   ]
 });
 
