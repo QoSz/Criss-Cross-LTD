@@ -10,17 +10,6 @@
             ],
             "destination": "https://www.crisscross.co.ke/:path*",
             "permanent": true
-        },
-        {
-            "source": "/:path*",
-            "has": [
-                {
-                    "type": "scheme",
-                    "value": "http"
-                }
-            ],
-            "destination": "https://www.crisscross.co.ke/:path*",
-            "permanent": true
         }
     ],
     "headers": [
