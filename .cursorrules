@@ -1,0 +1,186 @@
+# Criss Cross Ltd - Development Rules & Patterns
+
+## Project Context
+This is a business website for Criss Cross Ltd, a wholesale FMCG distributor in Kenya. The project prioritizes mobile performance, local market relevance, and lead generation for wholesale customers.
+
+## Critical Implementation Paths
+
+### SEO-First Development
+- ALWAYS implement comprehensive metadata for new pages using `createMetadata()` from `@/lib/seo`
+- Include Kenya-specific keywords and locale (`en-KE`)
+- Add structured data components for business pages
+- Target wholesale FMCG search terms for B2B customer discovery
+
+### Mobile-First & Kenya-Optimized
+- Design for 3G connections and lower-end smartphones first
+- Test performance on slower networks (target <3 seconds load time)
+- Use WhatsApp integration as primary contact method (local preference)
+- Implement progressive enhancement for core functionality
+
+### Component Architecture Patterns
+```typescript
+// Page structure pattern
+export default function PageName() {
+  return (
+    <>
+      <StructuredDataComponent />
+      <div className="bg-gradient-to-b from-gray-100/70...">
+        <MainSection />
+        <AdditionalSections />
+      </div>
+    </>
+  );
+}
+
+// Shared layout components
+- Navbar: Responsive with theme toggle
+- Footer: Company info and links
+- WhatsAppButton: Floating action button
+```
+
+### Form Implementation Standards
+- Use Radix UI primitives for accessibility
+- Implement both client and server validation
+- Include anti-spam protection
+- Provide clear success/error states
+- Optimize for mobile input
+
+## User Workflow Preferences
+
+### Content Strategy
+- Focus on wholesale benefits and competitive pricing
+- Emphasize reliability and Kenya-wide delivery
+- Use business-to-business language appropriate for retailers
+- Include practical information (minimum orders, delivery areas)
+
+### Trust-Building Elements
+- Professional design reflecting business maturity
+- Clear company contact information
+- Social proof through client logos or testimonials
+- Transparent pricing and service information
+
+## Technical Patterns
+
+### File Organization
+```
+src/
+├── app/[page]/page.tsx          # Page components
+├── components/
+│   ├── [page]/                  # Page-specific components
+│   ├── shared/                  # Cross-page reusable components
+│   ├── ui/                      # Radix UI primitives
+│   └── structured-data/         # SEO schema components
+└── lib/                         # Utilities and configuration
+```
+
+### Styling Conventions
+- Use Tailwind utility classes for consistency
+- Dark mode support with `dark:` prefixes
+- Mobile-first responsive design
+- Component variants with `class-variance-authority`
+
+### Import Patterns
+```typescript
+// External libraries first
+import { motion } from "framer-motion";
+import { MapContainer } from "react-leaflet";
+
+// Internal components by type
+import { Hero } from "@/components/home/Hero";
+import { Button } from "@/components/ui/button";
+import { createMetadata } from "@/lib/seo";
+```
+
+## Business-Specific Implementations
+
+### Contact Flow Priority
+1. WhatsApp integration (primary) - immediate business conversations
+2. Contact form (secondary) - formal inquiries with validation
+3. Phone/email (tertiary) - alternative contact methods
+
+### Product Display Strategy
+- Category-based organization (cooking oil, soaps, rice, sugar, etc.)
+- Wholesale pricing emphasis
+- Bulk quantity indicators
+- Availability status for inventory management
+
+### Geographic Considerations
+- Nairobi-centered with Kenya-wide delivery messaging
+- Local business hours and contact information
+- Currency in Kenyan Shillings (KSH) when applicable
+- Address and location information for trust-building
+
+## Performance Critical Paths
+
+### Image Optimization
+- Use Next.js Image component with responsive sizing
+- WebP format with JPEG fallbacks
+- Lazy loading for below-the-fold content
+- Compressed images for mobile networks
+
+### Bundle Management
+- Dynamic imports for heavy components (maps, animations)
+- Tree-shake unnecessary dependencies
+- Monitor bundle size impact of new features
+- Server components where possible, client components sparingly
+
+## Development Commands & Workflow
+
+### Standard Commands
+```bash
+pnpm dev           # Development with Turbopack
+pnpm build         # Production build
+pnpm start         # Production server
+pnpm lint          # Code linting
+```
+
+### Testing Strategy
+- Manual testing on mobile devices
+- Performance testing on throttled connections
+- SEO validation with structured data testing tools
+- Contact form submission testing
+
+## Known Project Patterns
+
+### Theme Implementation
+- `next-themes` for system preference detection
+- Consistent dark/light mode across all components
+- Theme toggle in navbar for user preference
+
+### Navigation Structure
+- Responsive navigation with mobile hamburger menu
+- Product categories in dropdown/submenu
+- Clear hierarchy: Home > About > Products > Deliveries > Contact
+
+### Content Management
+- Centralized SEO configuration in `lib/seo.ts`
+- Reusable metadata patterns for consistency
+- Easy content updates without code changes (future enhancement)
+
+## Error Handling Patterns
+
+### Form Errors
+- Client-side validation with immediate feedback
+- Server-side validation for security
+- Clear error messages for user guidance
+- Graceful degradation for JavaScript-disabled browsers
+
+### Performance Fallbacks
+- Loading states for dynamic content
+- Skeleton components for perceived performance
+- Offline functionality considerations (future PWA)
+- Progressive image loading
+
+## Local Market Adaptations
+
+### Language & Content
+- English language with Kenyan business context
+- Professional but approachable tone
+- Local business terminology and practices
+- Contact methods preferred in Kenya (WhatsApp primary)
+
+### Technical Considerations
+- Optimized for mobile networks common in Kenya
+- Conservative JavaScript usage for device compatibility
+- Fast initial page loads for user retention
+- Clear navigation for varied technical literacy levels 

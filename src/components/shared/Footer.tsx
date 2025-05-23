@@ -15,6 +15,7 @@ export function Footer() {
                                     src="/criss-cross.svg"
                                     alt="Criss Cross LTD"
                                     fill
+                                    sizes="50px"
                                     className="object-contain"
                                 />
                             </div>

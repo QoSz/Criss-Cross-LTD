@@ -20,6 +20,7 @@ export function Navbar() {
                                 src="/criss-cross.svg"
                                 alt="Criss Cross LTD"
                                 fill
+                                sizes="60px"
                                 className="object-contain"
                             />
                         </div>
@@ -94,6 +95,7 @@ export function Navbar() {
                                         src="/criss-cross.svg"
                                         alt="Criss Cross LTD"
                                         fill
+                                        sizes="60px"
                                         className="object-contain"
                                     />
                                 </div>

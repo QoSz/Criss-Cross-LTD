@@ -8,6 +8,9 @@ interface Logo {
   id: number;
   name: string;
   src: string;
+  alt: string;
+  width: number;
+  height: number;
   style?: React.CSSProperties;
   className?: string;
 }
@@ -56,25 +59,17 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
             transition: { duration: 0.3 },
           }}
         >
-          {currentLogo.src.endsWith(".svg") ? (
-            <Image
-              src={currentLogo.src}
-              alt={currentLogo.name}
-              width={180}
-              height={90}
-              className={`h-auto w-auto max-h-[90%] max-w-[90%] object-contain ${currentLogo.className || ''}`}
-              style={currentLogo.style}
-            />
-          ) : (
-            <Image
-              src={currentLogo.src}
-              alt={currentLogo.name}
-              width={180}
-              height={90}
-              className={`h-auto w-auto max-h-[90%] max-w-[90%] object-contain ${currentLogo.className || ''}`}
-              style={currentLogo.style}
-            />
-          )}
+          <Image
+            src={currentLogo.src}
+            alt={currentLogo.alt}
+            width={currentLogo.width}
+            height={currentLogo.height}
+            sizes="(max-width: 640px) 200px, (max-width: 768px) 250px, 300px"
+            className={`h-auto w-auto max-h-[90%] max-w-[90%] object-contain ${currentLogo.className || ''}`}
+            style={currentLogo.style}
+            priority={false}
+            loading="lazy"
+          />
         </motion.div>
       </AnimatePresence>
     </motion.div>

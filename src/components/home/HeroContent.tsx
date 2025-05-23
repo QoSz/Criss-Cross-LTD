@@ -2,20 +2,10 @@
 
 import Link from 'next/link'
 import { ArrowRight, Phone } from 'lucide-react'
-import { motion } from "framer-motion";
 
 export default function HeroClient() {
   return (
-    <motion.div 
-      initial={{ opacity: 0.0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{
-        delay: 0.3,
-        duration: 0.8,
-        ease: "easeInOut",
-      }}
-      className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-    >
+    <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in">
       <div className="pt-16 pb-20 sm:pt-24 sm:pb-32">
         <div className="text-center max-w-4xl mx-auto px-4">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight dark:text-white">
@@ -53,6 +43,6 @@ export default function HeroClient() {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 } 
