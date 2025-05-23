@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-const ComingSoonPage = () => {
+export default function ComingSoonPage() {
   const [displayText, setDisplayText] = useState('');
   const [fullText, setFullText] = useState('Coming Soon...');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -57,5 +57,3 @@ const ComingSoonPage = () => {
     </div>
   );
 };
-
-export default ComingSoonPage; 

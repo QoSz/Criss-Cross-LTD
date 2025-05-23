@@ -4,15 +4,67 @@ import "./globals.css";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
+import { siteConfig } from "@/lib/seo";
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Criss Cross",
-  description: "Discover Criss Cross LTD, your one-stop shop for premium FMCG essentials! From cooking oil and soaps to rice, sugar, water, juices, and more, we deliver quality and convenience straight to your door. Shop now for everyday staples!",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.name} | Wholesale FMCG Distributor in Kenya`,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  applicationName: siteConfig.name,
+  referrer: 'origin-when-cross-origin',
+  keywords: [
+    'wholesale FMCG Kenya',
+    'fast moving consumer goods distributor',
+    'wholesale distributor Nairobi',
+    'FMCG supply chain Kenya',
+    'bulk consumer goods',
+    'wholesale food products'
+  ],
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  manifest: '/cc-logos/manifest.json',
+  openGraph: {
+    type: 'website',
+    locale: 'en_KE',
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: `${siteConfig.name} | Wholesale FMCG Distributor in Kenya`,
+    description: siteConfig.description,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} - Wholesale FMCG Distributor in Kenya`,
+      },
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -21,7 +73,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-KE" dir="ltr">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#1d4ed8" />
+        <meta name="color-scheme" content="light dark" />
+        <link rel="canonical" href={siteConfig.url} />
+      </head>
       <body className={poppins.className}>
         <Navbar />
         <main className="dark:bg-gray-900 dark:text-gray-100">

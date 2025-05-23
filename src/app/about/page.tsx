@@ -1,12 +1,9 @@
-import React from 'react';
 import ComingSoonPage from '../coming-soon/page';
 
-const AboutPage = () => {
+export default function AboutPage() {
   return (
     <div>
       <ComingSoonPage />
     </div>
   );
 };
-
-export default AboutPage;

@@ -41,6 +41,8 @@ export function Explore() {
                 src={card.image}
                 alt={card.title}
                 fill
+                sizes="(min-width: 768px) 33vw, 100vw"
+                priority={card.image === "/images/products.jpg"}
                 className="object-cover"
               />
               {/* Blur Overlay */}

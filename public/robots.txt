@@ -1,2 +1,27 @@
 User-agent: *
-Disallow: /
+Allow: /
+
+# Allow specific crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Allow crawling of important directories
+Allow: /products/
+Allow: /about/
+Allow: /contact/
+Allow: /deliveries/
+
+# Sitemap location
+Sitemap: https://www.crisscross.co.ke/sitemap.xml
+
+# Crawl delay (be respectful to server)
+Crawl-delay: 1
