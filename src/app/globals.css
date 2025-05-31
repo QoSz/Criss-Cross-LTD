@@ -101,6 +101,29 @@ body {
   width: 100%;
   border-radius: 1.618rem;
   font-family: inherit;
+  /* Ensure the map renders on mobile devices */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  .leaflet-container {
+    min-height: 300px;
+    touch-action: pan-x pan-y;
+  }
+  
+  .leaflet-control-zoom {
+    margin-top: 10px !important;
+    margin-right: 10px !important;
+  }
+  
+  .leaflet-control-zoom a {
+    width: 30px !important;
+    height: 30px !important;
+    line-height: 28px !important;
+    font-size: 16px !important;
+  }
 }
 
 .leaflet-popup-content-wrapper {

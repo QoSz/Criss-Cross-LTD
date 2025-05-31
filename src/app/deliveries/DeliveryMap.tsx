@@ -138,23 +138,65 @@ export default function DeliveryMap({ deliveryAreas }: DeliveryMapProps) {
 
     mapInstanceRef.current = map
 
+    // Force map resize after initialization to ensure proper sizing
+    setTimeout(() => {
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.invalidateSize()
+      }
+    }, 100)
+
+    // Add resize observer for better mobile handling
+    let resizeObserver: ResizeObserver | undefined
+    
+    if (typeof window !== 'undefined' && window.ResizeObserver) {
+      resizeObserver = new ResizeObserver(() => {
+        if (mapInstanceRef.current) {
+          mapInstanceRef.current.invalidateSize()
+        }
+      })
+      
+      if (mapRef.current) {
+        resizeObserver.observe(mapRef.current)
+      }
+    }
+
+    // Handle orientation changes on mobile
+    const handleOrientationChange = () => {
+      setTimeout(() => {
+        if (mapInstanceRef.current) {
+          mapInstanceRef.current.invalidateSize()
+        }
+      }, 300)
+    }
+
+    window.addEventListener('orientationchange', handleOrientationChange)
+    window.addEventListener('resize', handleOrientationChange)
+
     // Cleanup function
     return () => {
       if (mapInstanceRef.current) {
         mapInstanceRef.current.remove()
         mapInstanceRef.current = null
       }
+      
+      if (resizeObserver) {
+        resizeObserver.disconnect()
+      }
+      
+      window.removeEventListener('orientationchange', handleOrientationChange)
+      window.removeEventListener('resize', handleOrientationChange)
     }
   }, [deliveryAreas])
 
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <div 
         ref={mapRef} 
-        className="h-[400px] lg:h-[500px] rounded-[1.618rem] overflow-hidden border border-gray-200 dark:border-gray-700 shadow-lg"
+        className="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px] rounded-[1.618rem] overflow-hidden border border-gray-200 dark:border-gray-700 shadow-lg"
+        style={{ minHeight: '300px' }}
       />
-      <div className="absolute top-4 right-4 bg-white dark:bg-gray-800 px-3 py-2 rounded-lg shadow-md">
-        <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
+      <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-white dark:bg-gray-800 px-2 py-1 sm:px-3 sm:py-2 rounded-lg shadow-md">
+        <p className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">
           {deliveryAreas.length} Areas
         </p>
       </div>
