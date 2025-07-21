@@ -30,21 +30,21 @@ export function Navbar() {
                     </Link>
                     <Link
                         href="/deliveries"
-                        className="group relative flex items-center space-x-2 text-muted-foreground/80 ml-4 hidden md:inline-flex dark:text-gray-400 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:text-blue-600 dark:hover:text-blue-400 after:hover:w-full"
+                        className="group relative hidden md:inline-flex items-center space-x-2 text-muted-foreground/80 ml-4 dark:text-gray-400 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:text-blue-600 dark:hover:text-blue-400 after:hover:w-full"
                     >
                         <Truck className="h-4 w-4" />
                         <span>Deliveries</span>
                     </Link>
                     <Link
                         href="/about"
-                        className="group relative flex items-center space-x-2 text-muted-foreground/80 ml-4 hidden md:inline-flex dark:text-gray-400 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:text-blue-600 dark:hover:text-blue-400 after:hover:w-full"
+                        className="group relative hidden md:inline-flex items-center space-x-2 text-muted-foreground/80 ml-4 dark:text-gray-400 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:text-blue-600 dark:hover:text-blue-400 after:hover:w-full"
                     >
                         <User className="h-4 w-4" />
                         <span>About Us</span>
                     </Link>
                     <Link
                         href="/products"
-                        className="group relative flex items-center space-x-2 text-muted-foreground/80 ml-4 hidden md:inline-flex dark:text-gray-400 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:text-blue-600 dark:hover:text-blue-400 after:hover:w-full"
+                        className="group relative hidden md:inline-flex items-center space-x-2 text-muted-foreground/80 ml-4 dark:text-gray-400 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:text-blue-600 dark:hover:text-blue-400 after:hover:w-full"
                     >
                         <Package className="h-4 w-4" />
                         <span>Products</span>
@@ -53,7 +53,7 @@ export function Navbar() {
                 <nav className="hidden md:flex items-center space-x-6 text-base font-medium relative">
                     <Button
                         asChild
-                        className="bg-gradient-to-r from-blue-600 to-purple-600 text-white dark:from-blue-600 dark:to-purple-500 hover:opacity-80 transition-opacity duration-200"
+                        className="bg-gradient-to-r from-blue-600 to-purple-600 text-white dark:from-blue-600 dark:to-purple-500 hover:opacity-80 transition-opacity duration-200 rounded-[1.618rem]"
                     >
                         <Link
                             href="/contact"
@@ -130,7 +130,7 @@ export function Navbar() {
                                 </Link>
                                 <Button
                                     asChild
-                                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white justify-start self-start dark:from-blue-600 dark:to-purple-500 hover:opacity-80 transition-opacity duration-200"
+                                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white justify-start self-start dark:from-blue-600 dark:to-purple-500 hover:opacity-80 transition-opacity duration-200 rounded-[1.618rem]"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     <Link

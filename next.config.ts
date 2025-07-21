@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   // Experimental optimizations for better performance
   experimental: {
     optimizeCss: true,
-    optimizePackageImports: ['lucide-react', '@radix-ui/react-navigation-menu'],
+    optimizePackageImports: ['lucide-react', '@radix-ui/react-navigation-menu', 'framer-motion', 'react-icons'],
   },
 
   images: {
@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
+
+  // Enable compiler optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
   },
 };
 

@@ -56,4 +56,4 @@ export default function ComingSoonPage() {
       </p>
     </div>
   );
-};
+}
