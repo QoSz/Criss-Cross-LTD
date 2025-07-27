@@ -1,60 +1,45 @@
-import { Metadata } from 'next';
 import ProductsClient from './ProductsClient';
+import { createMetadata } from '@/lib/seo';
+import { BreadcrumbSchema } from '@/components/structured-data/OrganizationSchema';
 
-export const metadata: Metadata = {
-  title: 'Products | Criss Cross - Premium Quality Products',
-  description: 'Browse our comprehensive collection of premium products across multiple categories. Find exactly what you need with our easy-to-use search and filter tools. Quality guaranteed with various sizes available.',
+export const metadata = createMetadata({
+  title: 'Wholesale FMCG Products',
+  description: 'Browse our comprehensive wholesale FMCG product catalog. Cooking oil, soaps, rice, sugar, beverages, and household products at competitive wholesale prices. Bulk orders welcome with reliable delivery across Kenya.',
   keywords: [
-    'products',
-    'premium quality',
-    'criss cross',
-    'search products',
-    'filter products',
-    'categories',
-    'quality products',
-    'various sizes',
-    'product catalog',
-    'online shopping',
-    'product search',
-    'product filter',
-    'multiple categories',
-    'quality guarantee'
-  ].join(', '),
-  authors: [{ name: 'Criss Cross' }],
-  creator: 'Criss Cross',
-  publisher: 'Criss Cross',
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  openGraph: {
-    title: 'Products | Criss Cross - Premium Quality Products',
-    description: 'Browse our comprehensive collection of premium products across multiple categories. Find exactly what you need with our easy-to-use search and filter tools.',
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'Criss Cross',
-    images: [
-      {
-        url: '/og-products.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Criss Cross Products Collection',
-      },
-    ],
-  },
-  alternates: {
-    canonical: '/products',
-  },
-  category: 'E-commerce',
-};
+    'wholesale FMCG products Kenya',
+    'bulk consumer goods Kenya',
+    'wholesale cooking oil Kenya',
+    'wholesale soaps detergents Kenya', 
+    'wholesale rice grains Kenya',
+    'wholesale sugar Kenya',
+    'wholesale beverages Kenya',
+    'wholesale household products Kenya',
+    'FMCG product catalog Kenya',
+    'bulk product prices Kenya',
+    'wholesale food products Nairobi',
+    'consumer goods distributor Kenya',
+    'wholesale merchandise Kenya',
+    'bulk purchasing FMCG Kenya',
+    'wholesale product sourcing Kenya',
+    'FMCG supply chain Kenya',
+    'competitive wholesale prices Kenya',
+    'minimum order quantities FMCG',
+    'wholesale distribution Kenya',
+    'bulk orders FMCG Kenya'
+  ],
+  path: '/products'
+});
 
 export default function ProductsPage() {
-  return <ProductsClient />;
+  const breadcrumbItems = [
+    { name: 'Home', url: 'https://www.crisscross.co.ke' },
+    { name: 'Products', url: 'https://www.crisscross.co.ke/products' }
+  ];
+
+  return (
+    <>
+      <BreadcrumbSchema items={breadcrumbItems} />
+      <ProductsClient />
+    </>
+  );
 }

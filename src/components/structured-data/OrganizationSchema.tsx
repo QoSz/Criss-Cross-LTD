@@ -133,4 +133,122 @@ export function BreadcrumbSchema({ items }: { items: Array<{ name: string; url: 
       dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
     />
   );
+}
+
+export function LocalBusinessSchema() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.crisscross.co.ke/#localbusiness",
+    name: "Criss Cross Ltd",
+    image: "https://www.crisscross.co.ke/cc-logos/CC-Logo.png",
+    description: "Kenya's trusted wholesale FMCG distributor offering competitive prices on cooking oil, soaps, rice, sugar, water, juices and more. Reliable delivery across Nairobi and Kenya.",
+    url: "https://www.crisscross.co.ke",
+    telephone: "+254707451536",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Nairobi",
+      addressRegion: "Nairobi County",
+      addressCountry: "Kenya"
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -1.286389,
+      longitude: 36.817223
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:00",
+        closes: "17:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "08:00",
+        closes: "13:00"
+      }
+    ],
+    areaServed: {
+      "@type": "Country",
+      name: "Kenya"
+    },
+    serviceArea: {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: -1.286389,
+        longitude: 36.817223
+      },
+      geoRadius: "500000"
+    },
+    makesOffer: {
+      "@type": "Offer",
+      category: "Wholesale Distribution",
+      itemOffered: {
+        "@type": "Service",
+        name: "Wholesale FMCG Distribution",
+        description: "Bulk distribution of fast moving consumer goods including cooking oil, soaps, rice, sugar, beverages, and household products"
+      }
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+    />
+  );
+}
+
+interface ProductSchemaProps {
+  name: string;
+  description?: string;
+  image?: string;
+  category?: string;
+  brand?: string;
+  availability?: string;
+}
+
+export function ProductSchema({ name, description, image, category, brand, availability = "InStock" }: ProductSchemaProps) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: name,
+    description: description || `Wholesale ${name} available at competitive prices from Criss Cross Ltd, Kenya's trusted FMCG distributor`,
+    image: image,
+    category: category,
+    brand: {
+      "@type": "Brand",
+      name: brand || "Various Brands"
+    },
+    offers: {
+      "@type": "Offer",
+      availability: `https://schema.org/${availability}`,
+      priceCurrency: "KES",
+      seller: {
+        "@type": "Organization",
+        name: "Criss Cross Ltd",
+        url: "https://www.crisscross.co.ke"
+      },
+      businessFunction: "http://purl.org/goodrelations/v1#Sell",
+      eligibleQuantity: {
+        "@type": "QuantitativeValue",
+        minValue: 1,
+        unitText: "Bulk Orders"
+      }
+    },
+    manufacturer: {
+      "@type": "Organization",
+      name: brand || "Various Manufacturers"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+    />
+  );
 } 

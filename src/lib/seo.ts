@@ -81,9 +81,9 @@ export function createMetadata({
       ],
     },
     verification: {
-      google: 'your-google-verification-code',
+      google: 'google-site-verification=crisscross-verification-code',
       other: {
-        'msvalidate.01': 'your-bing-verification-code',
+        'msvalidate.01': 'crisscross-bing-verification-code',
       },
     },
     category: 'business',

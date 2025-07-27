@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import { productsByCategory, categoryTitles, Product } from './ProductsData';
 import ProductCardDialog from './ProductCardDialog';
-import ProductSearchInput, { useProductSearch } from './ProductSearchInput';
+import ProductSearchInput, { useProductSearch, useSearchSuggestions } from './ProductSearchInput';
 import CategoryFilterDropdown, { useCategoryFilter } from './CategoryFilterDropdown';
 import ResetFiltersButton from './ResetFiltersButton';
 
@@ -19,6 +19,7 @@ export default function ProductsClient() {
   // Get filtered results from both filters
   const searchFilteredProducts = useProductSearch(allProducts, searchTerm);
   const categoryFilteredProducts = useCategoryFilter(allProducts, selectedCategories);
+  const searchSuggestions = useSearchSuggestions(allProducts, searchTerm);
 
   // Apply filters with OR logic: show products that match search OR are in selected categories
   const filteredProducts = useMemo(() => {
@@ -92,6 +93,8 @@ export default function ProductsClient() {
           searchTerm={searchTerm}
           onSearchTermChange={setSearchTerm}
           className="w-full sm:flex-grow"
+          suggestions={searchSuggestions}
+          showSuggestions={true}
         />
         <CategoryFilterDropdown
           selectedCategories={selectedCategories}

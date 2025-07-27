@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
+import { ServiceWorkerRegistration } from "@/components/shared/ServiceWorkerRegistration";
 import { siteConfig } from "@/lib/seo";
 
 const poppins = Poppins({
@@ -81,6 +82,7 @@ export default function RootLayout({
         <link rel="canonical" href={siteConfig.url} />
       </head>
       <body className={poppins.className}>
+        <ServiceWorkerRegistration />
         <Navbar />
         <main className="dark:bg-gray-900 dark:text-gray-100">
           {children}
