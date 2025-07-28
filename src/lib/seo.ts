@@ -80,12 +80,6 @@ export function createMetadata({
         },
       ],
     },
-    verification: {
-      google: 'google-site-verification=crisscross-verification-code',
-      other: {
-        'msvalidate.01': 'crisscross-bing-verification-code',
-      },
-    },
     category: 'business',
     classification: 'Wholesale Distribution, FMCG, Fast Moving Consumer Goods',
     other: {
