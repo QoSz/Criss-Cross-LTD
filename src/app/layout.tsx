@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
+import { ScrollUpButton } from "@/components/shared/ScrollUpButton";
 import { ServiceWorkerRegistration } from "@/components/shared/ServiceWorkerRegistration";
 import { siteConfig } from "@/lib/seo";
 
@@ -88,6 +89,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <ScrollUpButton />
         <WhatsAppButton />
       </body>
     </html>
