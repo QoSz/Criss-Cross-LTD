@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Users, Trophy, Handshake, Target, Heart, Phone, ArrowRight } from "lucide-react";
 import { createPageMetadata } from "@/lib/seo";
 import { OrganizationSchema } from "@/components/structured-data/OrganizationSchema";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = createPageMetadata(
@@ -16,23 +17,34 @@ export default function AboutPage() {
       <OrganizationSchema />
       <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-900/50">
         {/* Hero Section */}
-        <section className="py-16 px-4">
-          <div className="max-w-6xl mx-auto text-center">
+        <section className="relative isolate overflow-hidden px-4 pt-28 pb-16 md:pt-36 md:pb-24 min-h-[420px] md:min-h-[560px]">
+          <Image
+            src="/images/about/about-hero.jpg"
+            alt=""
+            aria-hidden
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 1200px"
+            quality={30}
+            className="object-cover object-bottom pointer-events-none select-none"
+          />
+          <div className="absolute inset-0 bg-black/70" />
+          <div className="relative z-10 max-w-6xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-700 to-blue-400 text-transparent bg-clip-text dark:from-blue-400 dark:to-blue-600">
               25 Years of Trust and Growth
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-              From a small warehouse with two delivery trucks to Kenya&apos;s most trusted wholesale FMCG distributor. 
+            <p className="text-xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed">
+              From a small warehouse with two delivery trucks to Kenya&apos;s most trusted wholesale FMCG distributor.
               This is the story of Criss Cross Ltd.
             </p>
             <div className="flex flex-wrap justify-center gap-8 text-center">
               <div className="flex flex-col items-center">
-                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400">25+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Years in Business</div>
+                <div className="text-4xl font-bold text-white">25+</div>
+                <div className="text-sm text-white/80">Years in Business</div>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400">30+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Retail Partners</div>
+                <div className="text-4xl font-bold text-white">30+</div>
+                <div className="text-sm text-white/80">Retail Partners</div>
               </div>
             </div>
           </div>
