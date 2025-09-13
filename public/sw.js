@@ -137,7 +137,7 @@ async function networkFirst(request, cache) {
       cache.put(request, networkResponse.clone());
     }
     return networkResponse;
-  } catch (error) {
+  } catch {
     console.log('[SW] Network failed, trying cache:', request.url);
     const cachedResponse = await cache.match(request);
     if (cachedResponse) {
@@ -165,7 +165,7 @@ async function staleWhileRevalidate(request, cache) {
       cache.put(request, networkResponse.clone());
     }
     return networkResponse;
-  }).catch(error => {
+  }).catch(() => {
     console.log('[SW] Network failed for:', request.url);
     return cachedResponse;
   });
