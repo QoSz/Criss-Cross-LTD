@@ -11,12 +11,11 @@ const nextConfig: NextConfig = {
     optimizeCss: true,
     // Package import optimizations for better tree shaking
     optimizePackageImports: [
-      'lucide-react', 
-      '@radix-ui/react-navigation-menu', 
+      'lucide-react',
+      '@radix-ui/react-navigation-menu',
       '@radix-ui/react-dialog',
       '@radix-ui/react-dropdown-menu',
-      '@radix-ui/react-select',
-      'framer-motion', 
+      'framer-motion',
       'leaflet',
       'react-leaflet'
     ],
