@@ -3,7 +3,7 @@ import DeliveryClient from "./DeliveryClient"
 
 // Export metadata for SEO
 export const metadata = createMetadata({
-  title: "Deliveries | Criss Cross Ltd",
+  title: "Deliveries",
   description: "Fast and reliable FMCG delivery across 40+ locations in Nairobi and surrounding areas. Same-day delivery available for wholesale cooking oil, soaps, rice, sugar, and consumer goods. Check our delivery coverage map.",
   keywords: [
     'FMCG delivery Nairobi',

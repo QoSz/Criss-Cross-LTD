@@ -12,7 +12,6 @@ const nextConfig: NextConfig = {
     // Package import optimizations for better tree shaking
     optimizePackageImports: [
       'lucide-react',
-      '@radix-ui/react-navigation-menu',
       '@radix-ui/react-dialog',
       '@radix-ui/react-dropdown-menu',
       'framer-motion',
@@ -41,9 +40,36 @@ const nextConfig: NextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
 
-  // Headers for better caching
+  // Headers for better caching and security
   async headers() {
     return [
+      // Security headers for all routes
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'origin-when-cross-origin'
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()'
+          },
+        ],
+      },
+      // Existing cache headers for images
       {
         source: '/images/:path*',
         headers: [

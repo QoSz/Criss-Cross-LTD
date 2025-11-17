@@ -80,6 +80,12 @@ export function createMetadata({
         },
       ],
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: title ? `${title} | ${siteConfig.name}` : `${siteConfig.name} | Wholesale FMCG Distributor in Kenya`,
+      description,
+      images: [image],
+    },
     category: 'business',
     classification: 'Wholesale Distribution, FMCG, Fast Moving Consumer Goods',
     other: {

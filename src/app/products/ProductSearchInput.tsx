@@ -1,15 +1,10 @@
 "use client";
 
-import { useMemo, useState, useEffect, useRef } from 'react';
+import { useMemo, useState, useEffect, useRef, useCallback } from 'react';
 import { Input } from "@/components/ui/input";
 import { Search, X } from 'lucide-react';
 import { Product } from './ProductsData';
-
-interface ProductSearchInputProps {
-  searchTerm: string;
-  onSearchTermChange: (term: string) => void;
-  className?: string;
-}
+import { fuzzyMatch, SEARCH_SCORES } from '@/lib/search-utils';
 
 // Enhanced search hook with fuzzy matching and relevance scoring
 export function useProductSearch(products: Product[], searchTerm: string): Product[] {
@@ -33,35 +28,35 @@ export function useProductSearch(products: Product[], searchTerm: string): Produ
       searchWords.forEach(searchWord => {
         // Exact match in name (highest score)
         if (productName === searchWord) {
-          score += 100;
+          score += SEARCH_SCORES.EXACT_MATCH;
         }
         // Starts with search word (high score)
         else if (productName.startsWith(searchWord)) {
-          score += 80;
+          score += SEARCH_SCORES.STARTS_WITH;
         }
         // Contains search word (medium score)
         else if (productName.includes(searchWord)) {
-          score += 60;
+          score += SEARCH_SCORES.CONTAINS;
         }
         // Fuzzy match for common misspellings and variations
         else if (fuzzyMatch(productName, searchWord)) {
-          score += 40;
+          score += SEARCH_SCORES.FUZZY_MATCH;
         }
         // Category match (lower score)
         else if (productCategory.includes(searchWord)) {
-          score += 20;
+          score += SEARCH_SCORES.CATEGORY_MATCH;
         }
         // Handle plural/singular variations
         else {
           if (searchWord.endsWith('s') && searchWord.length > 2) {
             const singular = searchWord.slice(0, -1);
             if (productName.includes(singular)) {
-              score += 50;
+              score += SEARCH_SCORES.PLURAL_SINGULAR;
             }
           } else {
             const plural = searchWord + 's';
             if (productName.includes(plural)) {
-              score += 50;
+              score += SEARCH_SCORES.PLURAL_SINGULAR;
             }
           }
         }
@@ -76,63 +71,6 @@ export function useProductSearch(products: Product[], searchTerm: string): Produ
       .sort((a, b) => b.score - a.score)
       .map(item => item.product);
   }, [products, searchTerm]);
-}
-
-// Simple fuzzy matching for common variations
-function fuzzyMatch(text: string, pattern: string): boolean {
-  // Handle common substitutions and misspellings
-  const substitutions: Record<string, string[]> = {
-    'oil': ['oel', 'oyl'],
-    'soap': ['sope', 'soep'],
-    'rice': ['ryce', 'rise'],
-    'tea': ['te', 'tee'],
-    'sugar': ['suggar', 'suger'],
-    'spice': ['spise', 'spyse'],
-    'sauce': ['sause', 'souce'],
-  };
-
-  // Check direct substitutions
-  for (const [correct, variations] of Object.entries(substitutions)) {
-    if (pattern === correct && variations.some(v => text.includes(v))) {
-      return true;
-    }
-    if (variations.includes(pattern) && text.includes(correct)) {
-      return true;
-    }
-  }
-
-  // Simple edit distance for short words
-  if (pattern.length <= 4 && text.length <= 10) {
-    return editDistance(text, pattern) <= 1;
-  }
-
-  return false;
-}
-
-// Simple edit distance calculation
-function editDistance(str1: string, str2: string): number {
-  const matrix = Array(str2.length + 1).fill(null).map(() => Array(str1.length + 1).fill(null));
-
-  for (let i = 0; i <= str1.length; i++) {
-    matrix[0][i] = i;
-  }
-
-  for (let j = 0; j <= str2.length; j++) {
-    matrix[j][0] = j;
-  }
-
-  for (let j = 1; j <= str2.length; j++) {
-    for (let i = 1; i <= str1.length; i++) {
-      const substitutionCost = str1[i - 1] === str2[j - 1] ? 0 : 1;
-      matrix[j][i] = Math.min(
-        matrix[j][i - 1] + 1, // deletion
-        matrix[j - 1][i] + 1, // insertion
-        matrix[j - 1][i - 1] + substitutionCost // substitution
-      );
-    }
-  }
-
-  return matrix[str2.length][str1.length];
 }
 
 // Hook for search suggestions
@@ -203,19 +141,19 @@ export default function ProductSearchInput({
   }, [searchTerm]);
 
   // Handle keyboard navigation
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (!showSuggestions || suggestions.length === 0) return;
 
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault();
-        setSelectedSuggestionIndex(prev => 
+        setSelectedSuggestionIndex(prev =>
           prev < suggestions.length - 1 ? prev + 1 : 0
         );
         break;
       case 'ArrowUp':
         e.preventDefault();
-        setSelectedSuggestionIndex(prev => 
+        setSelectedSuggestionIndex(prev =>
           prev > 0 ? prev - 1 : suggestions.length - 1
         );
         break;
@@ -235,36 +173,41 @@ export default function ProductSearchInput({
         inputRef.current?.blur();
         break;
     }
-  };
+  }, [showSuggestions, suggestions, selectedSuggestionIndex, onSearchTermChange]);
 
   // Handle suggestion click
-  const handleSuggestionClick = (suggestion: string) => {
+  const handleSuggestionClick = useCallback((suggestion: string) => {
     setLocalSearchTerm(suggestion);
     onSearchTermChange(suggestion);
     setShowSuggestionsList(false);
     setSelectedSuggestionIndex(-1);
     inputRef.current?.focus();
-  };
+  }, [onSearchTermChange]);
 
   // Clear search
-  const clearSearch = () => {
+  const clearSearch = useCallback(() => {
     setLocalSearchTerm('');
     onSearchTermChange('');
     setShowSuggestionsList(false);
     inputRef.current?.focus();
-  };
+  }, [onSearchTermChange]);
 
   // Show suggestions when input is focused and has content
-  const handleFocus = () => {
+  const handleFocus = useCallback(() => {
     if (showSuggestions && suggestions.length > 0 && localSearchTerm.length > 1) {
       setShowSuggestionsList(true);
     }
-  };
+  }, [showSuggestions, suggestions.length, localSearchTerm]);
 
   // Hide suggestions when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (suggestionsRef.current && !suggestionsRef.current.contains(event.target as Node)) {
+      const target = event.target;
+      if (
+        suggestionsRef.current &&
+        target instanceof Node &&
+        !suggestionsRef.current.contains(target)
+      ) {
         setShowSuggestionsList(false);
       }
     };

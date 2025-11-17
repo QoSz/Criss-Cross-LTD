@@ -9,8 +9,8 @@ interface CompanyLogo {
     className?: string;
 }
 
-const logoWidth: number = 300;
-const logoHeight: number = 150;
+const logoWidth = 300;
+const logoHeight = 150;
 
 export const companyLogos: CompanyLogo[] = [
     {

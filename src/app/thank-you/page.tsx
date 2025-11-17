@@ -1,6 +1,13 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { CheckCircle, Home } from "lucide-react"
+import { createMetadata } from "@/lib/seo"
+
+export const metadata = createMetadata({
+  title: "Thank You",
+  description: "Thank you for contacting Criss Cross Ltd. We'll respond to your inquiry soon.",
+  noIndex: true,
+})
 
 export default function ThankYouPage() {
   return (

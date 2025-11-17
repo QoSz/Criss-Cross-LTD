@@ -112,8 +112,8 @@ export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime((prev) => prev + 100);
-    }, 100);
+      setTime((prev) => prev + 500);
+    }, 500);
     return () => clearInterval(interval);
   }, []);
 

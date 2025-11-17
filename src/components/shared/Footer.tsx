@@ -13,7 +13,7 @@ export function Footer() {
                             <div className="w-[50px] h-[50px] relative">
                                 <Image
                                     src="/criss-cross.svg"
-                                    alt="Company logo"
+                                    alt="Criss Cross Ltd - Wholesale FMCG Distributor Kenya"
                                     fill
                                     sizes="50px"
                                     className="object-contain"

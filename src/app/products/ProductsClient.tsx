@@ -6,6 +6,7 @@ import ProductCardDialog from './ProductCardDialog';
 import ProductSearchInput, { useProductSearch, useSearchSuggestions } from './ProductSearchInput';
 import CategoryFilterDropdown, { useCategoryFilter } from './CategoryFilterDropdown';
 import ResetFiltersButton from './ResetFiltersButton';
+import { ProductSchemaList } from './ProductSchemaList';
 
 export default function ProductsClient() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -43,12 +44,12 @@ export default function ProductsClient() {
 
     // If both filters are active, combine with OR logic
     const combined = [...searchFilteredProducts, ...categoryFilteredProducts];
-    
-    // Remove duplicates by product id
-    const uniqueProducts = combined.filter((product, index, array) => 
-      array.findIndex(p => p.id === product.id) === index
+
+    // Remove duplicates by product id using Map for better performance
+    const uniqueProducts = Array.from(
+      new Map(combined.map(p => [p.id, p])).values()
     );
-    
+
     return uniqueProducts;
   }, [allProducts, searchTerm, selectedCategories, searchFilteredProducts, categoryFilteredProducts]);
 
@@ -81,14 +82,22 @@ export default function ProductsClient() {
   const categoryKeysToDisplay = Object.keys(productsGroupedForDisplay);
 
   return (
-    <div className="container mx-auto p-4 md:p-8">
-      <h1 className="text-3xl font-bold text-center">Products</h1>
+    <>
+      {/* Structured Data for all products */}
+      <ProductSchemaList products={allProducts} />
+
+      <div className="container mx-auto p-4 md:p-8">
+        <h1 className="text-3xl font-bold text-center">Products</h1>
       <p className="text-center pt-4 pb-8 text-gray-600">
         Note: we have a range of sizes for the products contact for more info!
       </p>
 
       {/* Filters Section */}
-      <div className="mb-8 flex flex-col sm:flex-row gap-4 items-center">
+      <div
+        className="mb-8 flex flex-col sm:flex-row gap-4 items-center"
+        role="search"
+        aria-label="Filter products by search term or category"
+      >
         <ProductSearchInput
           searchTerm={searchTerm}
           onSearchTermChange={setSearchTerm}
@@ -109,6 +118,18 @@ export default function ProductsClient() {
         )}
       </div>
 
+      {/* Results count - live region for screen readers */}
+      <div
+        className="sr-only"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        {isFiltered
+          ? `Showing ${filteredProducts.length} product${filteredProducts.length === 1 ? '' : 's'} matching your criteria`
+          : `Showing all ${allProducts.length} products`}
+      </div>
+
       {categoryKeysToDisplay.length === 0 && isFiltered && (
         <p className="text-center text-gray-500 text-xl py-10">
           No products found matching your criteria.
@@ -123,16 +144,28 @@ export default function ProductsClient() {
         const categoryTitle = categoryTitles[categoryKey] || categoryKey;
 
         return (
-          <div key={categoryKey}>
-            <h2 className="text-2xl font-bold pt-8 pb-4">{categoryTitle}</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+          <section
+            key={categoryKey}
+            aria-labelledby={`category-${categoryKey}`}
+          >
+            <h2
+              id={`category-${categoryKey}`}
+              className="text-2xl font-bold pt-8 pb-4"
+            >
+              {categoryTitle}
+            </h2>
+            <div
+              className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
+              role="list"
+            >
               {productsForCategory.map((product: Product) => (
                 <ProductCardDialog key={product.id} product={product} />
               ))}
             </div>
-          </div>
+          </section>
         );
       })}
-    </div>
+      </div>
+    </>
   );
 } 

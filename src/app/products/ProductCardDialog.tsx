@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Product } from './ProductsData';
@@ -10,7 +10,7 @@ interface ProductCardDialogProps {
   product: Product;
 }
 
-const ProductCardDialog: React.FC<ProductCardDialogProps> = ({ product }) => {
+const ProductCardDialog = React.memo<ProductCardDialogProps>(({ product }) => {
   const [cardImageLoaded, setCardImageLoaded] = useState(false);
   const [dialogImageLoaded, setDialogImageLoaded] = useState(false);
 
@@ -75,6 +75,8 @@ const ProductCardDialog: React.FC<ProductCardDialogProps> = ({ product }) => {
       </DialogContent>
     </Dialog>
   );
-};
+});
+
+ProductCardDialog.displayName = 'ProductCardDialog';
 
 export default ProductCardDialog; 

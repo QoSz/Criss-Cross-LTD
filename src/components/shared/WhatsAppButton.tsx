@@ -1,7 +1,9 @@
 "use client";
 
-export const WhatsAppButton = () => {
-  const phoneNumber = '+254707451536';
+import { env } from "@/lib/env";
+
+export const WhatsAppButton = (): JSX.Element => {
+  const phoneNumber = env.NEXT_PUBLIC_WHATSAPP_NUMBER || '+254707451536';
   const message = 'Hello! I would like to inquire about your products.';
   
   const handleWhatsAppClick = () => {

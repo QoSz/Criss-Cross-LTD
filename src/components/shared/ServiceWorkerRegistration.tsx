@@ -6,57 +6,81 @@ export function ServiceWorkerRegistration() {
   useEffect(() => {
     // Only register in production and if service workers are supported
     if (typeof window !== 'undefined' && 'serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
+      let updateInterval: NodeJS.Timeout | null = null;
+      let updateFoundHandler: (() => void) | null = null;
+      let messageHandler: ((event: MessageEvent) => void) | null = null;
+      let controllerChangeHandler: (() => void) | null = null;
+      let loadHandler: (() => void) | null = null;
+
       const registerServiceWorker = async () => {
         try {
           const registration = await navigator.serviceWorker.register('/sw.js', {
             scope: '/'
           });
 
-          console.log('[SW] Registration successful:', registration);
-
           // Handle updates
-          registration.addEventListener('updatefound', () => {
+          updateFoundHandler = () => {
             const newWorker = registration.installing;
             if (newWorker) {
-              newWorker.addEventListener('statechange', () => {
+              const stateChangeHandler = () => {
                 if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  // New service worker is available
-                  console.log('[SW] New version available');
-                  // Optionally show a notification to user about update
+                  // New service worker is available - optionally show a notification to user about update
                 }
-              });
+              };
+              newWorker.addEventListener('statechange', stateChangeHandler);
             }
-          });
+          };
+          registration.addEventListener('updatefound', updateFoundHandler);
 
           // Check for updates periodically
-          setInterval(() => {
+          updateInterval = setInterval(() => {
             registration.update();
           }, 60000); // Check every minute
 
-        } catch (error) {
-          console.error('[SW] Registration failed:', error);
+        } catch {
+          // Service worker registration failed silently in production
         }
       };
+
+      // Handle service worker messages
+      messageHandler = () => {
+        // Handle service worker messages here
+      };
+      navigator.serviceWorker.addEventListener('message', messageHandler);
+
+      // Handle controller change (new service worker activated)
+      controllerChangeHandler = () => {
+        // Optionally reload the page to use new service worker
+        // window.location.reload();
+      };
+      navigator.serviceWorker.addEventListener('controllerchange', controllerChangeHandler);
 
       // Register after page load to avoid impacting initial load performance
       if (document.readyState === 'complete') {
         registerServiceWorker();
       } else {
-        window.addEventListener('load', registerServiceWorker);
+        loadHandler = registerServiceWorker;
+        window.addEventListener('load', loadHandler);
       }
 
-      // Handle service worker messages
-      navigator.serviceWorker.addEventListener('message', (event) => {
-        console.log('[SW] Message received:', event.data);
-        // Handle service worker messages here
-      });
+      // Cleanup function to prevent memory leaks
+      return () => {
+        // Clear the update interval
+        if (updateInterval) {
+          clearInterval(updateInterval);
+        }
 
-      // Handle controller change (new service worker activated)
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
-        console.log('[SW] Controller changed');
-        // Optionally reload the page to use new service worker
-        // window.location.reload();
-      });
+        // Remove event listeners
+        if (messageHandler) {
+          navigator.serviceWorker.removeEventListener('message', messageHandler);
+        }
+        if (controllerChangeHandler) {
+          navigator.serviceWorker.removeEventListener('controllerchange', controllerChangeHandler);
+        }
+        if (loadHandler) {
+          window.removeEventListener('load', loadHandler);
+        }
+      };
     }
   }, []);
 

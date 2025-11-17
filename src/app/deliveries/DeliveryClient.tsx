@@ -57,13 +57,13 @@ export default function DeliveryClient({ deliveryAreas }: DeliveryClientProps) {
               <Truck className="h-8 w-8 text-blue-600 dark:text-blue-400" />
             </div>
           </motion.div>
-          <motion.h1 
+          <motion.h1
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-700 to-blue-400 text-transparent bg-clip-text dark:from-blue-400 dark:to-blue-600"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            Delivery Areas
+            Fast & Reliable FMCG Delivery Across Nairobi
           </motion.h1>
           <motion.p 
             className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto"

@@ -8,6 +8,7 @@ import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { ScrollUpButton } from "@/components/shared/ScrollUpButton";
 import { ServiceWorkerRegistration } from "@/components/shared/ServiceWorkerRegistration";
 import { siteConfig } from "@/lib/seo";
+import { env } from "@/lib/env";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -78,23 +79,33 @@ export default function RootLayout({
   return (
     <html lang="en-KE" dir="ltr">
       <head>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-835TQP29JC" strategy="afterInteractive" />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-           function gtag(){dataLayer.push(arguments);}
-           gtag('js', new Date());
+        {env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${env.NEXT_PUBLIC_GA_ID}`} strategy="afterInteractive" />
+            <Script id="gtag-init" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+               function gtag(){dataLayer.push(arguments);}
+               gtag('js', new Date());
 
-           gtag('config', 'G-835TQP29JC');`}
-        </Script>
+               gtag('config', '${env.NEXT_PUBLIC_GA_ID}');`}
+            </Script>
+          </>
+        )}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#1d4ed8" />
         <meta name="color-scheme" content="light dark" />
         <link rel="canonical" href={siteConfig.url} />
       </head>
       <body className={poppins.className}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-md focus:shadow-lg"
+        >
+          Skip to main content
+        </a>
         <ServiceWorkerRegistration />
         <Navbar />
-        <main className="dark:bg-gray-900 dark:text-gray-100">
+        <main id="main-content" className="dark:bg-gray-900 dark:text-gray-100">
           {children}
         </main>
         <Footer />

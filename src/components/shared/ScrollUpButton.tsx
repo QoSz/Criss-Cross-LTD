@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-export const ScrollUpButton = () => {
+export const ScrollUpButton = (): JSX.Element | null => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {

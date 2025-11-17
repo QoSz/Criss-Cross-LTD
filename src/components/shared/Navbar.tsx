@@ -18,10 +18,11 @@ export function Navbar() {
                         <div className="w-[60px] h-[60px] relative">
                             <Image
                                 src="/criss-cross.svg"
-                                alt="Company logo"
+                                alt="Criss Cross Ltd - Wholesale FMCG Distributor Kenya"
                                 fill
                                 sizes="60px"
                                 className="object-contain"
+                                priority
                             />
                         </div>
                         <span className="ml-2 font-bold text-2xl bg-gradient-to-b from-blue-700 to-blue-400 bg-clip-text text-transparent dark:from-blue-400 dark:to-blue-600">
@@ -69,7 +70,7 @@ export function Navbar() {
                         <SheetTrigger asChild>
                             <Button
                                 variant="ghost"
-                                className="ml-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+                                className="ml-2 px-0 text-base hover:bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
                             >
                                 <MenuIcon className="h-5 w-5" />
                                 <span className="sr-only">Toggle Menu</span>
@@ -93,10 +94,11 @@ export function Navbar() {
                                 <div className="w-[60px] h-[60px] relative">
                                     <Image
                                         src="/criss-cross.svg"
-                                        alt="Company logo"
+                                        alt="Criss Cross Ltd - Wholesale FMCG Distributor Kenya"
                                         fill
                                         sizes="60px"
                                         className="object-contain"
+                                        priority
                                     />
                                 </div>
                                 <span className="ml-2 font-bold text-2xl bg-gradient-to-b from-blue-700 to-blue-400 bg-clip-text text-transparent dark:from-blue-400 dark:to-blue-600">
