@@ -6,8 +6,35 @@ import { Search, X } from 'lucide-react';
 import { Product } from './ProductsData';
 import { fuzzyMatch, SEARCH_SCORES } from '@/lib/search-utils';
 
-// Enhanced search hook with fuzzy matching and relevance scoring
+/**
+ * Pre-compute search index for faster lookups
+ * Memoized per products array to avoid recomputation
+ */
+interface SearchIndex {
+  product: Product;
+  nameLower: string;
+  categoryLower: string;
+  nameWords: string[];
+}
+
+function useSearchIndex(products: Product[]): SearchIndex[] {
+  return useMemo(() => {
+    return products.map(product => ({
+      product,
+      nameLower: product.name.toLowerCase(),
+      categoryLower: product.category.toLowerCase(),
+      nameWords: product.name.toLowerCase().split(/\s+/),
+    }));
+  }, [products]);
+}
+
+/**
+ * Enhanced search hook with fuzzy matching and relevance scoring
+ * Optimized with pre-computed search index to reduce computation per keystroke
+ */
 export function useProductSearch(products: Product[], searchTerm: string): Product[] {
+  const searchIndex = useSearchIndex(products);
+
   return useMemo(() => {
     if (!searchTerm.trim()) {
       return products;
@@ -19,48 +46,46 @@ export function useProductSearch(products: Product[], searchTerm: string): Produ
       .split(/\s+/)
       .filter(word => word.length > 0);
 
-    // Score products based on search relevance
-    const scoredProducts = products.map(product => {
-      const productName = product.name.toLowerCase();
-      const productCategory = product.category.toLowerCase();
+    // Score products based on search relevance using pre-computed index
+    const scoredProducts = searchIndex.map(({ product, nameLower, categoryLower }) => {
       let score = 0;
 
-      searchWords.forEach(searchWord => {
+      for (const searchWord of searchWords) {
         // Exact match in name (highest score)
-        if (productName === searchWord) {
+        if (nameLower === searchWord) {
           score += SEARCH_SCORES.EXACT_MATCH;
         }
         // Starts with search word (high score)
-        else if (productName.startsWith(searchWord)) {
+        else if (nameLower.startsWith(searchWord)) {
           score += SEARCH_SCORES.STARTS_WITH;
         }
         // Contains search word (medium score)
-        else if (productName.includes(searchWord)) {
+        else if (nameLower.includes(searchWord)) {
           score += SEARCH_SCORES.CONTAINS;
         }
         // Fuzzy match for common misspellings and variations
-        else if (fuzzyMatch(productName, searchWord)) {
+        else if (fuzzyMatch(nameLower, searchWord)) {
           score += SEARCH_SCORES.FUZZY_MATCH;
         }
         // Category match (lower score)
-        else if (productCategory.includes(searchWord)) {
+        else if (categoryLower.includes(searchWord)) {
           score += SEARCH_SCORES.CATEGORY_MATCH;
         }
         // Handle plural/singular variations
         else {
           if (searchWord.endsWith('s') && searchWord.length > 2) {
             const singular = searchWord.slice(0, -1);
-            if (productName.includes(singular)) {
+            if (nameLower.includes(singular)) {
               score += SEARCH_SCORES.PLURAL_SINGULAR;
             }
           } else {
             const plural = searchWord + 's';
-            if (productName.includes(plural)) {
+            if (nameLower.includes(plural)) {
               score += SEARCH_SCORES.PLURAL_SINGULAR;
             }
           }
         }
-      });
+      }
 
       return { product, score };
     });
@@ -70,11 +95,16 @@ export function useProductSearch(products: Product[], searchTerm: string): Produ
       .filter(item => item.score > 0)
       .sort((a, b) => b.score - a.score)
       .map(item => item.product);
-  }, [products, searchTerm]);
+  }, [searchIndex, products, searchTerm]);
 }
 
-// Hook for search suggestions
+/**
+ * Hook for search suggestions
+ * Optimized with pre-computed index to avoid splitting strings repeatedly
+ */
 export function useSearchSuggestions(products: Product[], searchTerm: string): string[] {
+  const searchIndex = useSearchIndex(products);
+
   return useMemo(() => {
     if (!searchTerm.trim() || searchTerm.length < 2) {
       return [];
@@ -83,17 +113,18 @@ export function useSearchSuggestions(products: Product[], searchTerm: string): s
     const suggestions = new Set<string>();
     const searchLower = searchTerm.toLowerCase();
 
-    products.forEach(product => {
-      const words = product.name.toLowerCase().split(/\s+/);
-      words.forEach(word => {
+    // Use pre-computed nameWords from index
+    searchIndex.forEach(({ nameWords }) => {
+      for (const word of nameWords) {
         if (word.startsWith(searchLower) && word !== searchLower) {
           suggestions.add(word);
+          if (suggestions.size >= 5) break; // Early exit once we have 5 suggestions
         }
-      });
+      }
     });
 
     return Array.from(suggestions).slice(0, 5);
-  }, [products, searchTerm]);
+  }, [searchIndex, searchTerm]);
 }
 
 interface ProductSearchInputProps {

@@ -1,6 +1,8 @@
 import ProductsClient from './ProductsClient';
 import { createMetadata } from '@/lib/seo';
 import { BreadcrumbSchema } from '@/components/structured-data/OrganizationSchema';
+import { getProductsData } from '@/lib/products';
+import { ProductSchemaList } from './ProductSchemaList';
 
 export const metadata = createMetadata({
   title: 'Wholesale FMCG Products',
@@ -9,7 +11,7 @@ export const metadata = createMetadata({
     'wholesale FMCG products Kenya',
     'bulk consumer goods Kenya',
     'wholesale cooking oil Kenya',
-    'wholesale soaps detergents Kenya', 
+    'wholesale soaps detergents Kenya',
     'wholesale rice grains Kenya',
     'wholesale sugar Kenya',
     'wholesale beverages Kenya',
@@ -30,7 +32,11 @@ export const metadata = createMetadata({
   path: '/products'
 });
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+  // Load products data server-side to prevent client bundle bloat
+  const { productsByCategory, categoryTitles } = await getProductsData();
+  const allProducts = Object.values(productsByCategory).flat();
+
   const breadcrumbItems = [
     { name: 'Home', url: 'https://www.crisscross.co.ke' },
     { name: 'Products', url: 'https://www.crisscross.co.ke/products' }
@@ -39,7 +45,13 @@ export default function ProductsPage() {
   return (
     <>
       <BreadcrumbSchema items={breadcrumbItems} />
-      <ProductsClient />
+      {/* Structured data rendered server-side - not in client bundle */}
+      <ProductSchemaList products={allProducts} />
+      {/* Pass products data as props to client component */}
+      <ProductsClient
+        productsByCategory={productsByCategory}
+        categoryTitles={categoryTitles}
+      />
     </>
   );
 }

@@ -1,21 +1,28 @@
 "use client";
 
 import { useState, useMemo } from 'react';
-import { productsByCategory, categoryTitles, Product } from './ProductsData';
+import type { Product, ProductsByCategory } from './ProductsData';
 import ProductCardDialog from './ProductCardDialog';
 import ProductSearchInput, { useProductSearch, useSearchSuggestions } from './ProductSearchInput';
 import CategoryFilterDropdown, { useCategoryFilter } from './CategoryFilterDropdown';
 import ResetFiltersButton from './ResetFiltersButton';
-import { ProductSchemaList } from './ProductSchemaList';
 
-export default function ProductsClient() {
+interface ProductsClientProps {
+  productsByCategory: ProductsByCategory;
+  categoryTitles: Record<string, string>;
+}
+
+export default function ProductsClient({
+  productsByCategory,
+  categoryTitles,
+}: ProductsClientProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
   // Get all products once and memoize
   const allProducts = useMemo(() => {
     return Object.values(productsByCategory).flat();
-  }, []);
+  }, [productsByCategory]);
 
   // Get filtered results from both filters
   const searchFilteredProducts = useProductSearch(allProducts, searchTerm);
@@ -42,15 +49,13 @@ export default function ProductsClient() {
       return categoryFilteredProducts;
     }
 
-    // If both filters are active, combine with OR logic
-    const combined = [...searchFilteredProducts, ...categoryFilteredProducts];
+    // If both filters are active, combine with OR logic and deduplicate
+    const uniqueProductsMap = new Map<string, Product>();
 
-    // Remove duplicates by product id using Map for better performance
-    const uniqueProducts = Array.from(
-      new Map(combined.map(p => [p.id, p])).values()
-    );
+    searchFilteredProducts.forEach(p => uniqueProductsMap.set(p.id, p));
+    categoryFilteredProducts.forEach(p => uniqueProductsMap.set(p.id, p));
 
-    return uniqueProducts;
+    return Array.from(uniqueProductsMap.values());
   }, [allProducts, searchTerm, selectedCategories, searchFilteredProducts, categoryFilteredProducts]);
 
   const handleResetFilters = () => {
@@ -77,19 +82,15 @@ export default function ProductsClient() {
     }
 
     return grouped;
-  }, [filteredProducts, isFiltered]);
+  }, [filteredProducts, isFiltered, productsByCategory]);
 
   const categoryKeysToDisplay = Object.keys(productsGroupedForDisplay);
 
   return (
-    <>
-      {/* Structured Data for all products */}
-      <ProductSchemaList products={allProducts} />
-
-      <div className="container mx-auto p-4 md:p-8">
+    <div className="container mx-auto p-4 md:p-8">
         <h1 className="text-3xl font-bold text-center">Products</h1>
-      <p className="text-center pt-4 pb-8 text-gray-600">
-        Note: we have a range of sizes for the products contact for more info!
+      <p className="text-center pt-4 pb-8 text-gray-600 dark:text-gray-400">
+        Note: We have a range of sizes for all products. Contact us for more information!
       </p>
 
       {/* Filters Section */}
@@ -108,6 +109,8 @@ export default function ProductsClient() {
         <CategoryFilterDropdown
           selectedCategories={selectedCategories}
           onSelectedCategoriesChange={setSelectedCategories}
+          categoryTitles={categoryTitles}
+          productsByCategory={productsByCategory}
           className="w-full sm:w-auto min-w-[200px]"
         />
         {isFiltered && (
@@ -154,18 +157,16 @@ export default function ProductsClient() {
             >
               {categoryTitle}
             </h2>
-            <div
-              className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
-              role="list"
-            >
+            <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
               {productsForCategory.map((product: Product) => (
-                <ProductCardDialog key={product.id} product={product} />
+                <li key={product.id}>
+                  <ProductCardDialog product={product} />
+                </li>
               ))}
-            </div>
+            </ul>
           </section>
         );
       })}
-      </div>
-    </>
+    </div>
   );
 } 

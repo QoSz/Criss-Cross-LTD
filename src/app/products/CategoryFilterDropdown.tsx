@@ -10,12 +10,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { categoryTitles, Product, productsByCategory } from './ProductsData';
+import type { Product, ProductsByCategory } from './ProductsData';
 import { ChevronDown, Filter } from 'lucide-react';
 
 interface CategoryFilterDropdownProps {
   selectedCategories: string[];
   onSelectedCategoriesChange: (categories: string[]) => void;
+  categoryTitles: Record<string, string>;
+  productsByCategory: ProductsByCategory;
   className?: string;
 }
 
@@ -35,18 +37,24 @@ export function useCategoryFilter(products: Product[], selectedCategories: strin
 export default function CategoryFilterDropdown({
   selectedCategories,
   onSelectedCategoriesChange,
+  categoryTitles,
+  productsByCategory,
   className,
 }: CategoryFilterDropdownProps) {
-  const categoryKeys = Object.keys(categoryTitles);
+  // Memoize categoryKeys to prevent recreation on every render
+  const categoryKeys = useMemo(
+    () => Object.keys(categoryTitles),
+    [categoryTitles]
+  );
 
-  // Get category counts
+  // Get category counts - now properly memoized since categoryKeys is stable
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = {};
     categoryKeys.forEach(key => {
       counts[key] = productsByCategory[key]?.length || 0;
     });
     return counts;
-  }, [categoryKeys]);
+  }, [categoryKeys, productsByCategory]);
 
   // Sort categories by product count (descending)
   const sortedCategoryKeys = useMemo(() => {
