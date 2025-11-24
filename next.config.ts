@@ -15,8 +15,7 @@ const nextConfig: NextConfig = {
       '@radix-ui/react-dialog',
       '@radix-ui/react-dropdown-menu',
       'framer-motion',
-      'leaflet',
-      'react-leaflet'
+      'leaflet'
     ],
     // Enable webpack build worker for faster builds
     webpackBuildWorker: true,

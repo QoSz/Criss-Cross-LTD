@@ -103,31 +103,7 @@ export function createMetadata({
   };
 }
 
-// Product-specific metadata helper
-// Note: Reserved for future product detail pages (currently products are displayed in grid view)
-export function createProductMetadata(productName: string, productDescription?: string, productImage?: string): Metadata {
-  return createMetadata({
-    title: `${productName} - Wholesale FMCG Products`,
-    description: productDescription || `Buy ${productName} at wholesale prices from Criss Cross Ltd, Kenya's trusted FMCG distributor. Competitive prices and reliable delivery across Nairobi.`,
-    image: productImage,
-    keywords: [`wholesale ${productName.toLowerCase()}`, `${productName.toLowerCase()} distributor Kenya`, `bulk ${productName.toLowerCase()}`],
-    path: `/products/${productName.toLowerCase().replace(/\s+/g, '-')}`,
-  });
-}
-
-// Category-specific metadata helper
-// Note: Reserved for future category-specific pages (currently using filter-based navigation)
-export function createCategoryMetadata(categoryName: string, categoryDescription?: string): Metadata {
-  return createMetadata({
-    title: `${categoryName} - Wholesale FMCG Products`,
-    description: categoryDescription || `Explore our wholesale ${categoryName.toLowerCase()} products. Criss Cross Ltd offers competitive prices on quality ${categoryName.toLowerCase()} with reliable delivery across Kenya.`,
-    keywords: [`wholesale ${categoryName.toLowerCase()}`, `${categoryName.toLowerCase()} distributor Kenya`, `bulk ${categoryName.toLowerCase()} products`],
-    path: `/products/category/${categoryName.toLowerCase().replace(/\s+/g, '-')}`,
-  });
-}
-
 // Page-specific metadata helper
-// Note: Generic helper for future dynamic pages - prefer createMetadata() for specific pages
 export function createPageMetadata(pageName: string, pageDescription?: string): Metadata {
   return createMetadata({
     title: pageName,
