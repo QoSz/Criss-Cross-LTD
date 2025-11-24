@@ -104,6 +104,7 @@ export function createMetadata({
 }
 
 // Product-specific metadata helper
+// Note: Reserved for future product detail pages (currently products are displayed in grid view)
 export function createProductMetadata(productName: string, productDescription?: string, productImage?: string): Metadata {
   return createMetadata({
     title: `${productName} - Wholesale FMCG Products`,
@@ -115,6 +116,7 @@ export function createProductMetadata(productName: string, productDescription?: 
 }
 
 // Category-specific metadata helper
+// Note: Reserved for future category-specific pages (currently using filter-based navigation)
 export function createCategoryMetadata(categoryName: string, categoryDescription?: string): Metadata {
   return createMetadata({
     title: `${categoryName} - Wholesale FMCG Products`,
@@ -125,6 +127,7 @@ export function createCategoryMetadata(categoryName: string, categoryDescription
 }
 
 // Page-specific metadata helper
+// Note: Generic helper for future dynamic pages - prefer createMetadata() for specific pages
 export function createPageMetadata(pageName: string, pageDescription?: string): Metadata {
   return createMetadata({
     title: pageName,

@@ -112,8 +112,11 @@ export default function DeliveryMap({ deliveryAreas }: DeliveryMapProps) {
     }).addTo(map)
 
     // Add markers for each delivery area
+    // Convert array to Set for O(1) lookups instead of O(n) - massive performance gain
+    const deliveryAreasSet = new Set(deliveryAreas);
+
     deliveryLocations.forEach((location) => {
-      if (deliveryAreas.includes(location.name)) {
+      if (deliveryAreasSet.has(location.name)) {
         const marker = L.marker([location.lat, location.lng], {
           icon: createColoredIcon(location.color)
         }).addTo(map)
@@ -151,17 +154,17 @@ export default function DeliveryMap({ deliveryAreas }: DeliveryMapProps) {
 
     // Add resize observer for better mobile handling
     let resizeObserver: ResizeObserver | undefined
-    
-    if (typeof window !== 'undefined' && window.ResizeObserver) {
+    let observedElement: HTMLElement | null = null
+
+    if (typeof window !== 'undefined' && window.ResizeObserver && mapRef.current) {
+      observedElement = mapRef.current
       resizeObserver = new ResizeObserver(() => {
         if (mapInstanceRef.current) {
           mapInstanceRef.current.invalidateSize()
         }
       })
-      
-      if (mapRef.current) {
-        resizeObserver.observe(mapRef.current)
-      }
+
+      resizeObserver.observe(observedElement)
     }
 
     // Handle orientation changes on mobile
@@ -182,11 +185,13 @@ export default function DeliveryMap({ deliveryAreas }: DeliveryMapProps) {
         mapInstanceRef.current.remove()
         mapInstanceRef.current = null
       }
-      
-      if (resizeObserver) {
+
+      // Guaranteed cleanup even if ref becomes null
+      if (resizeObserver && observedElement) {
+        resizeObserver.unobserve(observedElement)
         resizeObserver.disconnect()
       }
-      
+
       window.removeEventListener('orientationchange', handleOrientationChange)
       window.removeEventListener('resize', handleOrientationChange)
     }

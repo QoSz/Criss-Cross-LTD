@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 
@@ -82,33 +82,45 @@ interface LogoCarouselProps {
 }
 
 export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
-  const [logoColumns, setLogoColumns] = useState<Logo[][]>([]);
   const [time, setTime] = useState(0);
 
-  const distributeLogos = useCallback(
-    (logos: Logo[]) => {
-      const shuffled = [...logos].sort(() => Math.random() - 0.5);
-      const result: Logo[][] = Array.from({ length: columns }, () => []);
+  // Seeded random shuffle for deterministic behavior
+  const seededRandom = (seed: number) => {
+    const x = Math.sin(seed++) * 10000;
+    return x - Math.floor(x);
+  };
 
-      shuffled.forEach((logo, index) => {
-        result[index % columns].push(logo);
-      });
+  const logoColumns = useMemo(() => {
+    // Create a deterministic shuffle based on logo IDs
+    const seed = logos.reduce((acc, logo) => acc + logo.id, 0);
 
-      const maxLength = Math.max(...result.map((col) => col.length));
-      result.forEach((col) => {
-        while (col.length < maxLength) {
-          col.push(shuffled[Math.floor(Math.random() * shuffled.length)]);
-        }
-      });
+    // Fisher-Yates shuffle - O(n) instead of O(n log n) sort
+    const shuffled = [...logos];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(seededRandom(seed + i) * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
 
-      return result;
-    },
-    [columns]
-  );
+    const result: Logo[][] = Array.from({ length: columns }, () => []);
 
-  useEffect(() => {
-    setLogoColumns(distributeLogos(logos));
-  }, [logos, distributeLogos]);
+    // Distribute and track max length in single pass - O(n) with no extra array allocation
+    let maxLength = 0;
+    shuffled.forEach((logo, index) => {
+      const colIndex = index % columns;
+      result[colIndex].push(logo);
+      maxLength = Math.max(maxLength, result[colIndex].length);
+    });
+
+    // Fill columns to equal length
+    result.forEach((col, colIndex) => {
+      while (col.length < maxLength) {
+        const fillIndex = Math.floor(seededRandom(seed + colIndex + col.length) * shuffled.length);
+        col.push(shuffled[fillIndex]);
+      }
+    });
+
+    return result;
+  }, [logos, columns]);
 
   useEffect(() => {
     const interval = setInterval(() => {

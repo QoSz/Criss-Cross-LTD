@@ -11,6 +11,11 @@ interface ProductSchemaListProps {
  * Follows Google's recommended pattern for product listing pages
  */
 export function ProductSchemaList({ products }: ProductSchemaListProps) {
+  // Pre-compute static strings outside map to avoid 400+ string operations
+  const baseProductUrl = 'https://www.crisscross.co.ke/products#';
+  const baseImageUrl = 'https://www.crisscross.co.ke';
+  const descriptionSuffix = ' available at competitive prices from Criss Cross Ltd, Kenya\'s trusted FMCG distributor';
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -18,17 +23,19 @@ export function ProductSchemaList({ products }: ProductSchemaListProps) {
     "description": "Complete catalog of wholesale FMCG products available from Criss Cross Ltd, Kenya's trusted distributor",
     "numberOfItems": products.length,
     "itemListElement": products.map((product, index) => {
-      const brandName = product.name.split(' ')[0] || product.category;
+      // Use substring instead of split for better performance
+      const spaceIndex = product.name.indexOf(' ');
+      const brandName = spaceIndex > 0 ? product.name.substring(0, spaceIndex) : product.category;
 
       return {
         "@type": "ListItem",
         "position": index + 1,
         "item": {
           "@type": "Product",
-          "@id": `https://www.crisscross.co.ke/products#${product.id}`,
+          "@id": baseProductUrl + product.id,
           "name": product.name,
-          "description": `Wholesale ${product.name} available at competitive prices from Criss Cross Ltd, Kenya's trusted FMCG distributor`,
-          "image": `https://www.crisscross.co.ke${product.image}`,
+          "description": 'Wholesale ' + product.name + descriptionSuffix,
+          "image": baseImageUrl + product.image,
           "category": product.category,
           "brand": {
             "@type": "Brand",

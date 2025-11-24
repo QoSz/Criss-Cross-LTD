@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Home, Package, Phone, ArrowRight } from 'lucide-react';
-import { GradientText } from '@/components/ui/gradient-text';
 import { createMetadata } from '@/lib/seo';
 
 export const metadata = createMetadata({
@@ -36,8 +35,8 @@ export default function NotFound() {
       <div className="w-full max-w-4xl mx-auto">
         <div className="text-center mb-12">
           {/* Large gradient 404 number */}
-          <h1 className="text-8xl sm:text-9xl font-bold mb-6 tracking-tight" aria-label="Error 404">
-            <GradientText variant="primary">404</GradientText>
+          <h1 className="text-8xl sm:text-9xl font-bold mb-6 tracking-tight bg-gradient-to-b from-blue-700 to-blue-400 text-transparent bg-clip-text dark:from-blue-400 dark:to-blue-600" aria-label="Error 404">
+            404
           </h1>
 
           {/* Professional messaging for B2B context */}

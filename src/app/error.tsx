@@ -1,6 +1,7 @@
 'use client';
 
 export default function Error({
+  error,
   reset,
 }: {
   error: Error & { digest?: string };
@@ -13,8 +14,13 @@ export default function Error({
           Something went wrong!
         </h2>
         <p className="text-gray-600 dark:text-gray-400 mb-6">
-          We encountered an unexpected error. Please try again.
+          {error.message || 'We encountered an unexpected error. Please try again.'}
         </p>
+        {process.env.NODE_ENV === 'development' && error.digest && (
+          <p className="text-xs text-gray-500 dark:text-gray-600 mb-4">
+            Error ID: {error.digest}
+          </p>
+        )}
         <button
           onClick={reset}
           className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors"

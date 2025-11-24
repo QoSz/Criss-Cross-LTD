@@ -36,6 +36,7 @@ const ProductCardDialog = React.memo<ProductCardDialogProps>(({ product }) => {
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               loading="lazy"
               onLoad={() => setCardImageLoaded(true)}
+              onError={() => setCardImageLoaded(true)}
             />
           </CardContent>
           <CardContent className="p-4 flex flex-col flex-1 justify-between">
@@ -64,6 +65,7 @@ const ProductCardDialog = React.memo<ProductCardDialogProps>(({ product }) => {
               sizes="(max-width: 768px) 80vw, 50vw"
               loading="eager"
               onLoad={() => setDialogImageLoaded(true)}
+              onError={() => setDialogImageLoaded(true)}
             />
           </div>
         </div>

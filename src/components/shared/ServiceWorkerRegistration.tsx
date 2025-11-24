@@ -32,10 +32,10 @@ export function ServiceWorkerRegistration() {
           };
           registration.addEventListener('updatefound', updateFoundHandler);
 
-          // Check for updates periodically
+          // Check for updates periodically (30 minutes for optimal balance)
           updateInterval = setInterval(() => {
             registration.update();
-          }, 60000); // Check every minute
+          }, 1800000); // Check every 30 minutes
 
         } catch {
           // Service worker registration failed silently in production

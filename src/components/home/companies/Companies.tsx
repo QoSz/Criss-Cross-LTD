@@ -5,9 +5,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { companyLogos } from "./company-logos-data";
 
 function Companies() {
-    const uniqueCompanyLogos = companyLogos.filter((logo, index, arr) =>
-        index === arr.findIndex(l => l.src === logo.src)
-    );
+    // O(n) duplicate removal using Set (optimized from O(n²))
+    const seen = new Set<string>();
+    const uniqueCompanyLogos = companyLogos.filter(logo => {
+        if (seen.has(logo.src)) {
+            return false;
+        }
+        seen.add(logo.src);
+        return true;
+    });
 
     return (
         <Card>

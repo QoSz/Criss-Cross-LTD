@@ -18,6 +18,7 @@ export default function AboutPage() {
       <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-900/50">
         {/* Hero Section */}
         <section className="relative isolate overflow-hidden px-4 pt-28 pb-16 md:pt-36 md:pb-24 min-h-[420px] md:min-h-[560px]">
+          {/* Decorative background image - no alt text needed as content is conveyed by text overlay */}
           <Image
             src="/images/about/about-hero.jpg"
             alt=""

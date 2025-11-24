@@ -133,11 +133,11 @@ export function Navbar() {
                                 <Button
                                     asChild
                                     className="bg-gradient-to-r from-blue-600 to-purple-600 text-white justify-start self-start dark:from-blue-600 dark:to-purple-500 hover:opacity-80 transition-opacity duration-200 rounded-[1.618rem]"
-                                    onClick={() => setIsOpen(false)}
                                 >
                                     <Link
                                         href="/contact"
                                         className="flex items-center space-x-2"
+                                        onClick={() => setIsOpen(false)}
                                     >
                                         <Phone className="h-4 w-4" />
                                         <span>Contact</span>
