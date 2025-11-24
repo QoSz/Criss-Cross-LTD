@@ -82,10 +82,6 @@ body {
   background-color: rgba(255, 100, 100, 0.3); /* Subtle red with some transparency */
 }
 
-.border-gradient-to-r {
-  border-image: linear-gradient(to right, var(--tw-gradient-from), var(--tw-gradient-to)) 1;
-}
-
 @layer base {
   * {
     @apply border-border;

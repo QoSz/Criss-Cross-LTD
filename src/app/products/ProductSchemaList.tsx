@@ -42,9 +42,10 @@ export function ProductSchemaList({ products }: ProductSchemaListProps) {
             "name": brandName
           },
           "offers": {
-            "@type": "Offer",
+            "@type": "AggregateOffer",
             "availability": "https://schema.org/InStock",
             "priceCurrency": "KES",
+            "offerCount": 1,
             "seller": {
               "@type": "Organization",
               "name": "Criss Cross Ltd",
@@ -54,7 +55,17 @@ export function ProductSchemaList({ products }: ProductSchemaListProps) {
             "eligibleQuantity": {
               "@type": "QuantitativeValue",
               "minValue": 1,
-              "unitText": "Bulk Orders"
+              "unitText": "Case"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "priceCurrency": "KES",
+              "valueAddedTaxIncluded": true,
+              "eligibleTransactionVolume": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "KES",
+                "description": "Wholesale pricing for bulk orders"
+              }
             }
           }
         }
