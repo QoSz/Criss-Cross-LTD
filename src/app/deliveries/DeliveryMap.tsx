@@ -133,12 +133,12 @@ export default function DeliveryMap({ deliveryAreas }: DeliveryMapProps) {
         })
 
         // Show popup on hover
-        marker.on('mouseover', function(this: L.Marker) {
-          this.openPopup()
+        marker.on('mouseover', () => {
+          marker.openPopup()
         })
-        
-        marker.on('mouseout', function(this: L.Marker) {
-          this.closePopup()
+
+        marker.on('mouseout', () => {
+          marker.closePopup()
         })
       }
     })

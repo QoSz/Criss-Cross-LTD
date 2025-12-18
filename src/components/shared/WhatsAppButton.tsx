@@ -1,5 +1,6 @@
 "use client";
 
+import type { JSX } from "react";
 import { env } from "@/lib/env";
 import { FloatingTooltip } from "@/components/ui/floating-tooltip";
 

@@ -149,7 +149,7 @@ export default function ProductSearchInput({
   const [localSearchTerm, setLocalSearchTerm] = useState(searchTerm);
   const [showSuggestionsList, setShowSuggestionsList] = useState(false);
   const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(-1);
-  const debounceRef = useRef<NodeJS.Timeout>();
+  const debounceRef = useRef<NodeJS.Timeout | undefined>(undefined);
   const inputRef = useRef<HTMLInputElement>(null);
   const suggestionsRef = useRef<HTMLDivElement>(null);
 
