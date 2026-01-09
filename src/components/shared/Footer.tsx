@@ -1,3 +1,5 @@
+'use client'
+
 import Link from "next/link"
 import { Phone, Mail, MapPin, User, Truck, Package } from "lucide-react"
 import Image from 'next/image'
