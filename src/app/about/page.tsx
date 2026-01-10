@@ -201,18 +201,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Quote Section */}
-        <section className="py-16 px-4 bg-white dark:bg-gray-900/70">
-          <div className="max-w-4xl mx-auto text-center">
-            <blockquote className="text-2xl md:text-3xl font-medium text-gray-900 dark:text-gray-100 mb-6 italic">
-              &ldquo;We didn&apos;t just weather the storm&mdash;we became the shelter for hundreds of retailers who needed a dependable partner.&rdquo;
-            </blockquote>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
-              This philosophy has guided every decision we&apos;ve made for over two decades.
-            </p>
-          </div>
-        </section>
-
         {/* Call to Action */}
         <section className="py-16 px-4 bg-blue-50 dark:bg-gray-800/50">
           <div className="max-w-4xl mx-auto text-center">
