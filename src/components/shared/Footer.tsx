@@ -1,8 +1,7 @@
-'use client'
-
 import Link from "next/link"
 import { Phone, Mail, MapPin, User, Truck, Package } from "lucide-react"
 import Image from 'next/image'
+import { CopyrightYear } from './CopyrightYear'
 
 export function Footer() {
     return (
@@ -76,7 +75,7 @@ export function Footer() {
                 {/* Copyright */}
                 <div className="border-t border-blue-200/40 dark:border-gray-800/40 px-4 py-4 mt-8">
                     <p className="text-center text-sm text-muted-foreground/70 dark:text-gray-500">
-                        © {new Date().getFullYear()} Criss Cross LTD. All rights reserved.
+                        © <CopyrightYear /> Criss Cross LTD. All rights reserved.
                     </p>
                 </div>
             </div>
