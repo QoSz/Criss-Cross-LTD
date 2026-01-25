@@ -21,6 +21,14 @@ interface LogoColumnProps {
   currentTime: number;
 }
 
+interface ResponsiveColumns {
+  default: number;
+  sm?: number;
+  md?: number;
+  lg?: number;
+  xl?: number;
+}
+
 function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
   const CYCLE_DURATION = 2000;
   const columnDelay = columnIndex * 200;
@@ -76,12 +84,48 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
   );
 }
 
+function useResponsiveColumns(responsiveColumns?: ResponsiveColumns, staticColumns?: number): number {
+  const [columns, setColumns] = useState(() => {
+    // Default to static columns or responsive default
+    if (staticColumns !== undefined) return staticColumns;
+    return responsiveColumns?.default ?? 2;
+  });
+
+  useEffect(() => {
+    // If using static columns, no responsive behavior needed
+    if (staticColumns !== undefined || !responsiveColumns) return;
+
+    const updateColumns = () => {
+      const width = window.innerWidth;
+      if (responsiveColumns.xl !== undefined && width >= 1280) {
+        setColumns(responsiveColumns.xl);
+      } else if (responsiveColumns.lg !== undefined && width >= 1024) {
+        setColumns(responsiveColumns.lg);
+      } else if (responsiveColumns.md !== undefined && width >= 768) {
+        setColumns(responsiveColumns.md);
+      } else if (responsiveColumns.sm !== undefined && width >= 640) {
+        setColumns(responsiveColumns.sm);
+      } else {
+        setColumns(responsiveColumns.default);
+      }
+    };
+
+    updateColumns();
+    window.addEventListener('resize', updateColumns);
+    return () => window.removeEventListener('resize', updateColumns);
+  }, [responsiveColumns, staticColumns]);
+
+  return columns;
+}
+
 interface LogoCarouselProps {
   columns?: number;
+  responsiveColumns?: ResponsiveColumns;
   logos: Logo[];
 }
 
-export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
+export function LogoCarousel({ columns: staticColumns, responsiveColumns, logos }: LogoCarouselProps) {
+  const columns = useResponsiveColumns(responsiveColumns, staticColumns);
   const [time, setTime] = useState(0);
 
   // Seeded random shuffle for deterministic behavior

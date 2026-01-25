@@ -1,31 +1,8 @@
-"use client";
-
 import { LogoCarousel } from "@/components/ui/logo-carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { companyLogos } from "./company-logos-data";
-import { useState, useEffect } from "react";
 
 function Companies() {
-    const [columns, setColumns] = useState(2);
-
-    useEffect(() => {
-        const updateColumns = () => {
-            if (window.innerWidth >= 1280) {
-                setColumns(4); // xl: 4 columns
-            } else if (window.innerWidth >= 1024) {
-                setColumns(3); // lg: 3 columns
-            } else if (window.innerWidth >= 768) {
-                setColumns(3); // md: 3 columns
-            } else {
-                setColumns(2); // sm: 2 columns
-            }
-        };
-
-        updateColumns();
-        window.addEventListener('resize', updateColumns);
-        return () => window.removeEventListener('resize', updateColumns);
-    }, []);
-
     // O(n) duplicate removal using Set (optimized from O(n²))
     const seen = new Set<string>();
     const uniqueCompanyLogos = companyLogos.filter(logo => {
@@ -48,7 +25,7 @@ function Companies() {
                     </h2>
                 </div>
                 <LogoCarousel
-                    columns={columns}
+                    responsiveColumns={{ default: 2, md: 3, lg: 3, xl: 4 }}
                     logos={uniqueCompanyLogos.map(logo => ({
                         ...logo,
                         className: `${logo.className || ''} w-[200px] h-[100px] sm:w-[250px] sm:h-[125px] md:w-[300px] md:h-[150px]`

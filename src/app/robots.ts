@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://www.crisscross.co.ke'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
 
   return {
     rules: [
@@ -14,7 +14,6 @@ export default function robots(): MetadataRoute.Robots {
           '/_next/',
           '/private/',
           '/thank-you', // Prevent indexing of thank you page
-          '/coming-soon', // Prevent indexing of coming soon page
         ],
       },
       {
@@ -32,7 +31,6 @@ export default function robots(): MetadataRoute.Robots {
           '/_next/',
           '/private/',
           '/thank-you',
-          '/coming-soon',
         ],
         crawlDelay: 1,
       },
@@ -51,7 +49,6 @@ export default function robots(): MetadataRoute.Robots {
           '/_next/',
           '/private/',
           '/thank-you',
-          '/coming-soon',
         ],
         crawlDelay: 1,
       },

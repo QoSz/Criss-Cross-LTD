@@ -16,7 +16,7 @@ export const companyLogos: CompanyLogo[] = [
     {
         id: 1,
         name: "PWANI OIL",
-        src: "/images/companies/Pwani.png",
+        src: "/images/companies/Pwani.webp",
         alt: "PWANI OIL Logo",
         width: logoWidth,
         height: logoHeight,
@@ -24,7 +24,7 @@ export const companyLogos: CompanyLogo[] = [
     {
         id: 2,
         name: "TRUFOODS",
-        src: "/images/companies/Truefoods.png",
+        src: "/images/companies/Truefoods.webp",
         alt: "TRUFOODS Logo",
         width: logoWidth,
         height: logoHeight,
@@ -32,7 +32,7 @@ export const companyLogos: CompanyLogo[] = [
     {
         id: 3,
         name: "KENYA SWEETS",
-        src: "/images/companies/Kenya-Sweets.png",
+        src: "/images/companies/Kenya-Sweets.webp",
         alt: "KENYA SWEETS Logo",
         width: logoWidth,
         height: logoHeight,
@@ -40,7 +40,7 @@ export const companyLogos: CompanyLogo[] = [
     {
         id: 4,
         name: "HIGHLANDS",
-        src: "/images/companies/Highlands.png",
+        src: "/images/companies/Highlands.webp",
         alt: "HIGHLANDS Logo",
         width: logoWidth,
         height: logoHeight,
@@ -48,7 +48,7 @@ export const companyLogos: CompanyLogo[] = [
     {
         id: 5,
         name: "KETEPA",
-        src: "/images/companies/Ketepa.png",
+        src: "/images/companies/Ketepa.webp",
         alt: "KETEPA Logo",
         width: logoWidth,
         height: logoHeight,
@@ -56,7 +56,7 @@ export const companyLogos: CompanyLogo[] = [
     {
         id: 6,
         name: "EXCEL",
-        src: "/images/companies/Excel.png",
+        src: "/images/companies/Excel.webp",
         alt: "EXCEL Logo",
         width: logoWidth,
         height: logoHeight,
@@ -64,7 +64,7 @@ export const companyLogos: CompanyLogo[] = [
     {
         id: 7,
         name: "TROPICAL",
-        src: "/images/companies/Tropical-Heat.png",
+        src: "/images/companies/Tropical-Heat.webp",
         alt: "TROPICAL Logo",
         width: logoWidth,
         height: logoHeight,
@@ -72,7 +72,7 @@ export const companyLogos: CompanyLogo[] = [
     {
         id: 8,
         name: "Chandaria Industries Ltd",
-        src: "/images/companies/Chandaria-Industries.png",
+        src: "/images/companies/Chandaria-Industries.webp",
         alt: "Chandaria Industries Ltd Logo",
         width: logoWidth,
         height: logoHeight,
@@ -80,7 +80,7 @@ export const companyLogos: CompanyLogo[] = [
     {
         id: 9,
         name: "CADBURY'S",
-        src: "/images/companies/Cadburys.png",
+        src: "/images/companies/Cadburys.webp",
         alt: "CADBURY'S Logo",
         width: logoWidth,
         height: logoHeight,
@@ -88,7 +88,7 @@ export const companyLogos: CompanyLogo[] = [
     {
         id: 10,
         name: "Manji",
-        src: "/images/companies/Manji.png",
+        src: "/images/companies/Manji.webp",
         alt: "MANJI Logo",
         width: logoWidth,
         height: logoHeight,
@@ -96,7 +96,7 @@ export const companyLogos: CompanyLogo[] = [
     {
         id: 11,
         name: "Melvins",
-        src: "/images/companies/Melvins.png",
+        src: "/images/companies/Melvins.webp",
         alt: "MELVINS Logo",
         width: logoWidth,
         height: logoHeight,
@@ -104,7 +104,7 @@ export const companyLogos: CompanyLogo[] = [
     {
         id: 12,
         name: "Sun Rice",
-        src: "/images/companies/Sunrice.png",
+        src: "/images/companies/Sunrice.webp",
         alt: "Sun Rice Logo",
         width: logoWidth,
         height: logoHeight,
@@ -112,7 +112,7 @@ export const companyLogos: CompanyLogo[] = [
     {
         id: 13,
         name: "Pure Mountain",
-        src: "/images/companies/Pure-Mountain.png",
+        src: "/images/companies/Pure-Mountain.webp",
         alt: "Pure Mountain Logo",
         width: logoWidth,
         height: logoHeight,

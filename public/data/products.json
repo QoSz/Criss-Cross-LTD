@@ -4,1512 +4,1996 @@
       {
         "id": "fresh-fri",
         "category": "cooking-oil",
-        "name": "Vegetable Cooking Oil",
-        "image": "/images/products/cooking-oil/FreshFri.png"
+        "company": "Fresh Fri",
+        "name": "Fresh Fri - Vegetable Cooking Oil",
+        "image": "/images/products/cooking-oil/FreshFri.webp",
+        "description": "Triple-refined cholesterol-free vegetable oil perfect for deep frying, chapati, and mandazi preparation. Vitamin A fortified and KEBS certified for quality assurance. Available wholesale in jerrycan sizes from 500ml to 20L for bulk buyers across Kenya."
       },
       {
         "id": "salit",
         "category": "cooking-oil",
-        "name": "Vegetable Cooking Oil",
-        "image": "/images/products/cooking-oil/Salit.jpeg"
+        "company": "Salit",
+        "name": "Salit - Vegetable Cooking Oil",
+        "image": "/images/products/cooking-oil/Salit.webp",
+        "description": "Vitamin A fortified cooking oil in the iconic lady-shaped jerrycan with easy-grip handle. Cholesterol-free and ideal for deep frying that can be reused multiple times. Wholesale Kenya suppliers stock 500ml to 20L jerrycan sizes."
       },
       {
         "id": "popco",
         "category": "cooking-oil",
-        "name": "Fortified Vegetable Oil",
-        "image": "/images/products/cooking-oil/Popco.png"
+        "company": "Popco",
+        "name": "Popco - Fortified Vegetable Oil",
+        "image": "/images/products/cooking-oil/Popco.webp",
+        "description": "Budget-friendly cholesterol-free cooking oil fortified with Vitamin A for everyday Kenyan cooking. KEBS certified and perfect for frying chapati, mandazi, and samosas. Available in 1L to 5L bottles for wholesale and retail."
       },
       {
         "id": "mpishi-poa",
         "category": "cooking-oil",
-        "name": "Vegetable Cooking Fat",
-        "image": "/images/products/cooking-oil/MpishiPoa.png"
+        "company": "Mpishi Poa",
+        "name": "Mpishi Poa - Vegetable Cooking Fat",
+        "image": "/images/products/cooking-oil/MpishiPoa.webp",
+        "description": "Vitamin A fortified white cooking fat specially formulated for soft, fluffy chapatis and golden mandazi. The smart box design with curved edges ensures zero waste. Wholesale cartons available in 500g to 2kg sizes for bakeries and hotels across Kenya."
       },
       {
         "id": "fry-mate",
         "category": "cooking-oil",
-        "name": "Vegetable Cooking Fat",
-        "image": "/images/products/cooking-oil/FryMate.png"
+        "company": "Fry Mate",
+        "name": "Fry Mate - Vegetable Cooking Fat",
+        "image": "/images/products/cooking-oil/FryMate.webp",
+        "description": "Premium cholesterol-free cooking fat fortified with Vitamins A and E for healthier deep frying. Creates authentic flaky chapatis and crispy mandazi that customers love. Bulk sizes from 500g to 10kg available for wholesale buyers in Kenya."
       },
       {
         "id": "pure-mountain-canola-oil",
         "category": "cooking-oil",
-        "name": "Canola Oil",
-        "image": "/images/products/cooking-oil/Canola.jpg"
+        "company": "Pure Mountain",
+        "name": "Pure Mountain - Canola Oil",
+        "image": "/images/products/cooking-oil/Canola.webp",
+        "description": "Cold-pressed Kenyan canola oil that is KEBS certified and naturally cholesterol-free with high omega-3 content. Excellent for health-conscious deep frying and everyday cooking. Wholesale jerrycan sizes from 1L to 20L for bulk orders."
       },
       {
         "id": "pure-mountain-megafry",
         "category": "cooking-oil",
-        "name": "Mega Fry",
-        "image": "/images/products/cooking-oil/Megafry.webp"
+        "company": "Pure Mountain",
+        "name": "Pure Mountain - Mega Fry",
+        "image": "/images/products/cooking-oil/Megafry.webp",
+        "description": "Locally-grown cholesterol-free canola oil with a high smoke point, ideal for commercial deep frying operations. KEBS certified with neutral taste that does not overpower food flavors. Available wholesale in 1L, 2L, and 5L for restaurants and hotels in Kenya."
       }
     ],
     "soaps-self-care": [
       {
         "id": "detrex-aloe-vera",
         "category": "soaps-self-care",
-        "name": "Aloe Vera Soap",
-        "image": "/images/products/soaps/Detrex-AloeVera.webp"
+        "company": "Detrex",
+        "name": "Detrex - Aloe Vera Soap",
+        "image": "/images/products/soaps/Detrex-AloeVera.webp",
+        "description": "Antibacterial medicated soap that kills 99.9% of germs while aloe vera keeps skin moisturizing and soft. Gentle on skin for the whole family and ideal for daily use. Available wholesale in 80g and 100g bars by the carton."
       },
       {
         "id": "detrex-cool-mint",
         "category": "soaps-self-care",
-        "name": "Cool Mint Soap",
-        "image": "/images/products/soaps/Detrex-CoolMint.webp"
+        "company": "Detrex",
+        "name": "Detrex - Cool Mint Soap",
+        "image": "/images/products/soaps/Detrex-CoolMint.webp",
+        "description": "Refreshing antibacterial soap that kills 99.9% of germs with a cooling mint sensation. Gentle on skin without the harsh chemical smell of typical medicated soaps. Bulk 100g bars available for wholesale Kenya distributors."
       },
       {
         "id": "detrex-citronella",
         "category": "soaps-self-care",
-        "name": "Citronella Oil Soap",
-        "image": "/images/products/soaps/Detrex-CitronellaOil.webp"
+        "company": "Detrex",
+        "name": "Detrex - Citronella Oil Soap",
+        "image": "/images/products/soaps/Detrex-CitronellaOil.webp",
+        "description": "Dual-action antibacterial soap that kills 99.9% of germs while citronella oil helps repel mosquitoes. Moisturizing formula leaves skin soft, making it ideal for families in malaria-prone regions. Wholesale 100g bars available."
       },
       {
         "id": "detrex-pine-drops",
         "category": "soaps-self-care",
-        "name": "Pine Drops Soap",
-        "image": "/images/products/soaps/Detrex-PineDrops.webp"
+        "company": "Detrex",
+        "name": "Detrex - Pine Drops Soap",
+        "image": "/images/products/soaps/Detrex-PineDrops.webp",
+        "description": "Antibacterial medicated soap with fresh pine scent that kills 99.9% of germs without harsh clinical odor. Gentle on skin for daily family bathing soap use. Wholesale cartons in 80g-100g bars."
       },
       {
         "id": "sawa-rose",
         "category": "soaps-self-care",
-        "name": "Rose Soap",
-        "image": "/images/products/soaps/Sawa-Rose.png"
+        "company": "Sawa",
+        "name": "Sawa - Rose Soap",
+        "image": "/images/products/soaps/Sawa-Rose.webp",
+        "description": "Trusted family bathing soap with luxurious rose fragrance from Pwani Oil. Glycerine-enriched formula creates rich, creamy lather while keeping skin moisturizing and soft. Available wholesale across Kenya."
       },
       {
         "id": "sawa-original",
         "category": "soaps-self-care",
-        "name": "Original Soap",
-        "image": "/images/products/soaps/Sawa-Original.png"
+        "company": "Sawa",
+        "name": "Sawa - Original Soap",
+        "image": "/images/products/soaps/Sawa-Original.webp",
+        "description": "Kenya's trusted family bathing soap for decades, gentle on skin and suitable for all skin types. Creates a rich, creamy lather that leaves skin moisturizing and fresh. Bulk cartons available for wholesale distribution."
       },
       {
         "id": "sawa-herbal",
         "category": "soaps-self-care",
-        "name": "Herbal Soap",
-        "image": "/images/products/soaps/Sawa-Herbal.png"
+        "company": "Sawa",
+        "name": "Sawa - Herbal Soap",
+        "image": "/images/products/soaps/Sawa-Herbal.webp",
+        "description": "Gentle herbal family bathing soap perfect for sensitive skin with the same creamy lather Kenyans trust. Moisturizing formula keeps skin soft after every wash. Wholesale cartons available for retailers."
       },
       {
         "id": "sawa-strawberry",
         "category": "soaps-self-care",
-        "name": "Strawberry Soap",
-        "image": "/images/products/soaps/Sawa-Strawberry.png"
+        "company": "Sawa",
+        "name": "Sawa - Strawberry Soap",
+        "image": "/images/products/soaps/Sawa-Strawberry.webp",
+        "description": "Sweet strawberry-scented family bathing soap that makes bath time fun for kids. Same gentle on skin formula parents trust with moisturizing properties. Bulk cartons perfect for wholesale Kenya buyers."
       },
       {
         "id": "sawa-lemon-honey",
         "category": "soaps-self-care",
-        "name": "Lemon Honey Soap",
-        "image": "/images/products/soaps/Sawa-Lemon-Honey.png"
+        "company": "Sawa",
+        "name": "Sawa - Lemon Honey Soap",
+        "image": "/images/products/soaps/Sawa-Lemon-Honey.webp",
+        "description": "Balanced family bathing soap combining lemon freshness with honey moisturizing benefits from Pwani Oil. Gentle on skin for daily use by the whole family. Available in wholesale quantities across Kenya."
       },
       {
         "id": "sawa-chocolate",
         "category": "soaps-self-care",
-        "name": "Chocolate Soap",
-        "image": "/images/products/soaps/Sawa-Chocolate.png"
+        "company": "Sawa",
+        "name": "Sawa - Chocolate Soap",
+        "image": "/images/products/soaps/Sawa-Chocolate.webp",
+        "description": "Africa's first mass-produced chocolate family bathing soap with rich cocoa fragrance and creamy lather. Gentle on skin with the same moisturizing formula Kenyans love. Wholesale 225g bars available by the carton."
       },
       {
         "id": "sawa-bubblegum",
         "category": "soaps-self-care",
-        "name": "Bubblegum Soap",
-        "image": "/images/products/soaps/Sawa-Bubblegum.png"
+        "company": "Sawa",
+        "name": "Sawa - Bubblegum Soap",
+        "image": "/images/products/soaps/Sawa-Bubblegum.webp",
+        "description": "Fun bubblegum-scented family bathing soap that children love, making bath time enjoyable. Gentle on skin with moisturizing properties safe for young skin. Wholesale cartons for retailers across Kenya."
       },
       {
         "id": "sawa-berry-splash",
         "category": "soaps-self-care",
-        "name": "Berry Splash Body Wash",
-        "image": "/images/products/soaps/Sawa-Berry-Splash.png"
+        "company": "Sawa",
+        "name": "Sawa - Berry Splash Body Wash",
+        "image": "/images/products/soaps/Sawa-Berry-Splash.webp",
+        "description": "Luxurious berry-scented body wash with plant extracts and vitamins for deep moisturizing cleanse. Gentle on skin formula perfect for the whole family. Wholesale 500ml bottles available for bulk buyers in Kenya."
       },
       {
         "id": "sawa-aloe-splash",
         "category": "soaps-self-care",
-        "name": "Aloe Splash Body Wash",
-        "image": "/images/products/soaps/Sawa-Aloe-Splash.png"
+        "company": "Sawa",
+        "name": "Sawa - Aloe Splash Body Wash",
+        "image": "/images/products/soaps/Sawa-Aloe-Splash.webp",
+        "description": "Aloe vera body wash that provides deep moisturizing cleansing for those who find bar soap too drying. Gentle on skin with natural hydrating properties. Wholesale 500ml bottles for retailers across Kenya."
       },
       {
         "id": "sawa-original-splash",
         "category": "soaps-self-care",
-        "name": "Original Splash Body Wash",
-        "image": "/images/products/soaps/Sawa-Original-Splash.png"
+        "company": "Sawa",
+        "name": "Sawa - Original Splash Body Wash",
+        "image": "/images/products/soaps/Sawa-Original-Splash.webp",
+        "description": "Classic Sawa scent in moisturizing body wash form with thick formula for less product waste. Gentle on skin for the whole family bathing routine. Bulk 500ml bottles available for wholesale distribution."
       },
       {
         "id": "sawa-strawberry-handwash",
         "category": "soaps-self-care",
-        "name": "Strawberry Handwash",
-        "image": "/images/products/soaps/Sawa-Strawberry-Handwash.png"
+        "company": "Sawa",
+        "name": "Sawa - Strawberry Handwash",
+        "image": "/images/products/soaps/Sawa-Strawberry-Handwash.webp",
+        "description": "Strawberry-scented liquid handwash with moisturizing formula that protects hands during frequent washing. Gentle on skin and kills germs effectively. Wholesale 500ml bottles for retailers and institutions."
       },
       {
         "id": "sawa-aloe-vera-handwash",
         "category": "soaps-self-care",
-        "name": "Aloe Vera Handwash",
-        "image": "/images/products/soaps/Sawa-Aloe-Vera-Handwash.png"
+        "company": "Sawa",
+        "name": "Sawa - Aloe Vera Handwash",
+        "image": "/images/products/soaps/Sawa-Aloe-Vera-Handwash.webp",
+        "description": "Aloe vera handwash with moisturizing properties that protect hands from drying during frequent washing. Thick formula means less waste and gentle on skin. Bulk 500ml bottles for wholesale Kenya buyers."
       },
       {
         "id": "sawa-original-handwash",
         "category": "soaps-self-care",
-        "name": "Original Handwash",
-        "image": "/images/products/soaps/Sawa-Original-Handwash.png"
+        "company": "Sawa",
+        "name": "Sawa - Original Handwash",
+        "image": "/images/products/soaps/Sawa-Original-Handwash.webp",
+        "description": "Classic Sawa handwash with added moisturizing agents that keep hands soft during frequent use. Gentle on skin formula trusted by Kenyan families. Wholesale 500ml bottles available by the carton."
       },
       {
         "id": "diva-milky-nuts",
         "category": "soaps-self-care",
-        "name": "Milky Nuts Soap",
-        "image": "/images/products/soaps/Diva-Milky-Nuts.png"
+        "company": "Diva",
+        "name": "Diva - Milky Nuts Soap",
+        "image": "/images/products/soaps/Diva-Milky-Nuts.webp",
+        "description": "Antibacterial beauty soap with glycerine and nut extracts that kills 99.9% of germs. Moisturizing formula leaves skin soft without feeling tight or dry. Wholesale cartons in 40g, 100g, and 200g sizes."
       },
       {
         "id": "diva-sunshine-fruit",
         "category": "soaps-self-care",
-        "name": "Sunshine Fruit Soap",
-        "image": "/images/products/soaps/Diva-Sunshine-Fruit.png"
+        "company": "Diva",
+        "name": "Diva - Sunshine Fruit Soap",
+        "image": "/images/products/soaps/Diva-Sunshine-Fruit.webp",
+        "description": "Fruity antibacterial soap with glycerine that kills 99.9% of germs while keeping skin soft and moisturizing. Gentle on skin for daily family use. Bulk 40g-200g sizes for wholesale Kenya distributors."
       },
       {
         "id": "diva-olive-n-tulip",
         "category": "soaps-self-care",
-        "name": "Olive n Tulip Soap",
-        "image": "/images/products/soaps/Diva-Olive-n-Tulip.png"
+        "company": "Diva",
+        "name": "Diva - Olive n Tulip Soap",
+        "image": "/images/products/soaps/Diva-Olive-n-Tulip.webp",
+        "description": "Antibacterial family bathing soap with olive extract antioxidants and tulip fragrance. Glycerine-based formula keeps skin moisturizing while killing 99.9% of germs. Wholesale cartons available."
       },
       {
         "id": "diva-mango-temptation",
         "category": "soaps-self-care",
-        "name": "Mango Temptation Soap",
-        "image": "/images/products/soaps/Diva-Mango-Temptation.png"
+        "company": "Diva",
+        "name": "Diva - Mango Temptation Soap",
+        "image": "/images/products/soaps/Diva-Mango-Temptation.webp",
+        "description": "Tropical mango-scented antibacterial soap that kills 99.9% of germs with glycerine moisturizing benefits. Gentle on skin for the whole family. Multiple sizes available for wholesale buyers across Kenya."
       },
       {
         "id": "diva-citrus-n-cream",
         "category": "soaps-self-care",
-        "name": "Citrus n Cream Soap",
-        "image": "/images/products/soaps/Diva-Citrus-n-Cream.png"
+        "company": "Diva",
+        "name": "Diva - Citrus n Cream Soap",
+        "image": "/images/products/soaps/Diva-Citrus-n-Cream.webp",
+        "description": "Lemon-fresh antibacterial soap with creamy glycerine base that kills 99.9% of germs without stripping skin. Moisturizing formula gentle on skin. Wholesale cartons in 40g-200g sizes."
       },
       {
         "id": "diva-aloe-vera",
         "category": "soaps-self-care",
-        "name": "Aloe Vera Soap",
-        "image": "/images/products/soaps/Diva-Aloe-Vera.png"
+        "company": "Diva",
+        "name": "Diva - Aloe Vera Soap",
+        "image": "/images/products/soaps/Diva-Aloe-Vera.webp",
+        "description": "Aloe antibacterial soap with glycerine base that kills 99.9% of germs while moisturizing dry or sensitive skin. Gentle on skin formula for daily family use. Bulk cartons for wholesale Kenya retailers."
       },
       {
         "id": "afrisense-skin-toning-bathing-bar",
         "category": "soaps-self-care",
-        "name": "Skin Toning Bathing Bar",
-        "image": "/images/products/soaps/Afrisense-Skin-Toning-Bathing-Bar.png"
+        "company": "Afrisense",
+        "name": "Afrisense - Skin Toning Bathing Bar",
+        "image": "/images/products/soaps/Afrisense-Skin-Toning-Bathing-Bar.webp",
+        "description": "Premium family bathing soap with Grape Seed and Kalahari Melon Seed Oil for even skin tone. Moisturizing African botanicals leave skin soft without that tight feeling. Wholesale 125g and 225g bars."
       },
       {
         "id": "afrisense-cleansing-&-moisturizing-bar",
         "category": "soaps-self-care",
-        "name": "Cleansing & Moisturizing Bar",
-        "image": "/images/products/soaps/Afrisense-Cleansing-&-Moisturizing-Bar.png"
+        "company": "Afrisense",
+        "name": "Afrisense - Cleansing & Moisturizing Bar",
+        "image": "/images/products/soaps/Afrisense-Cleansing-&-Moisturizing-Bar.webp",
+        "description": "Premium family bathing soap with African Shea Butter, Baobab Seed Oil, and Mafura Butter for deep cleansing and moisturizing. Gentle on skin with natural hydration. Wholesale 125g-225g bars by the carton."
       },
       {
         "id": "afrisense-nourishing-&-hydrating-bar",
         "category": "soaps-self-care",
-        "name": "Nourishing & Hydrating Bar",
-        "image": "/images/products/soaps/Afrisense-Nourishing-&-Hydrating-Bar.png"
+        "company": "Afrisense",
+        "name": "Afrisense - Nourishing & Hydrating Bar",
+        "image": "/images/products/soaps/Afrisense-Nourishing-&-Hydrating-Bar.webp",
+        "description": "Nourishing family bathing soap with African botanical extracts for dry and sensitive skin. Moisturizing formula gentle on skin without leaving it tight. Bulk 125g and 225g sizes for wholesale Kenya."
       }
     ],
     "wash-day-soaps": [
       {
         "id": "whitewash-white",
         "category": "wash-day-soaps",
-        "name": "White - Brilliant for all purposes",
-        "image": "/images/products/soaps/Whitewash-White.png"
+        "company": "Whitewash",
+        "name": "Whitewash - White (Brilliant for all purposes)",
+        "image": "/images/products/soaps/Whitewash-White.webp",
+        "description": "East Africa's only Grade I antibacterial multipurpose soap that kills germs on laundry, dishes, and surfaces. Long-lasting formula with rich foam, gentle on hands while tough on stains. Wholesale cartons available across Kenya."
       },
       {
         "id": "whitewash-blue",
         "category": "wash-day-soaps",
-        "name": "Blue - Colour Retainer",
-        "image": "/images/products/soaps/Whitewash-Blue.png"
+        "company": "Whitewash",
+        "name": "Whitewash - Blue (Colour Retainer)",
+        "image": "/images/products/soaps/Whitewash-Blue.webp",
+        "description": "Grade I multipurpose laundry soap that protects colors from fading while killing germs effectively. Long-lasting antibacterial formula gentle on hands and tough on stains. Bulk cartons for wholesale Kenya distributors."
       },
       {
         "id": "whitewash-green",
         "category": "wash-day-soaps",
-        "name": "Green - Antiseptic",
-        "image": "/images/products/soaps/Whitewash-Green.png"
+        "company": "Whitewash",
+        "name": "Whitewash - Green (Antiseptic)",
+        "image": "/images/products/soaps/Whitewash-Green.webp",
+        "description": "Antibacterial multipurpose soap that kills 99.9% of germs on laundry, dishes, and household surfaces. Grade I quality with efficient foam that is gentle on hands. Wholesale cartons available for bulk buyers."
       },
       {
         "id": "whitewash-cream",
         "category": "wash-day-soaps",
-        "name": "Cream - Gentle Multipurpose",
-        "image": "/images/products/soaps/Whitewash-Cream.png"
+        "company": "Whitewash",
+        "name": "Whitewash - Cream (Gentle Multipurpose)",
+        "image": "/images/products/soaps/Whitewash-Cream.webp",
+        "description": "Gentle multipurpose soap with moisturizing formula for delicate fabrics and sensitive hands. Kills germs effectively while being mild on skin. Wholesale cartons ideal for families and institutions across Kenya."
       },
       {
         "id": "whitewash-pink",
         "category": "wash-day-soaps",
-        "name": "Pink - Pure sensations",
-        "image": "/images/products/soaps/Whitewash-Pink.png"
+        "company": "Whitewash",
+        "name": "Whitewash - Pink (Pure sensations)",
+        "image": "/images/products/soaps/Whitewash-Pink.webp",
+        "description": "Fragrant multipurpose laundry soap with Grade I antibacterial cleaning power. Kills germs while leaving clothes and dishes fresh. Bulk cartons available for wholesale distribution across Kenya."
       },
       {
         "id": "whitewash-bar",
         "category": "wash-day-soaps",
-        "name": "Bar Soaps",
-        "image": "/images/products/soaps/Whitewash-Bar.png"
+        "company": "Whitewash",
+        "name": "Whitewash - Bar Soaps",
+        "image": "/images/products/soaps/Whitewash-Bar.webp",
+        "description": "Grade I quality antibacterial bar soap for laundry, dishes, and household cleaning. Long-lasting formula that kills germs and is gentle on hands. Wholesale cartons for retailers across Kenya."
       },
       {
         "id": "ushindi-blue",
         "category": "wash-day-soaps",
-        "name": "Blue Multi-Purpose Stain Remover",
-        "image": "/images/products/soaps/Ushindi-Blue.png"
+        "company": "Ushindi",
+        "name": "Ushindi - Blue Multi-Purpose Stain Remover",
+        "image": "/images/products/soaps/Ushindi-Blue.webp",
+        "description": "Enzyme-powered antibacterial stain remover soap with glycerine that is gentle on hands. Kills germs while tackling tough laundry stains effectively. Now 25% more durable formula available wholesale by the carton."
       },
       {
         "id": "ushindi-yellow",
         "category": "wash-day-soaps",
-        "name": "Yellow Lemon Fragrance",
-        "image": "/images/products/soaps/Ushindi-Yellow.png"
+        "company": "Ushindi",
+        "name": "Ushindi - Yellow Lemon Fragrance",
+        "image": "/images/products/soaps/Ushindi-Yellow.webp",
+        "description": "Fresh lemon-scented multipurpose soap with enzyme technology that kills germs and removes tough stains. Glycerine formula moisturizing and gentle on hands during laundry. Wholesale cartons for bulk buyers in Kenya."
       },
       {
         "id": "ushindi-white",
         "category": "wash-day-soaps",
-        "name": "White With Glycerin",
-        "image": "/images/products/soaps/Ushindi-White.png"
+        "company": "Ushindi",
+        "name": "Ushindi - White With Glycerin",
+        "image": "/images/products/soaps/Ushindi-White.webp",
+        "description": "Gentle antibacterial multipurpose soap with glycerine and enzyme technology for effective stain removal. Moisturizing formula that kills germs while being kind to hands. Bulk cartons available for wholesale Kenya retailers."
       },
       {
         "id": "ushindi-green-antiseptic-plus",
         "category": "wash-day-soaps",
-        "name": "Green Antiseptic Plus",
-        "image": "/images/products/soaps/Ushindi-Green.png"
+        "company": "Ushindi",
+        "name": "Ushindi - Green Antiseptic Plus",
+        "image": "/images/products/soaps/Ushindi-Green.webp",
+        "description": "Antiseptic multipurpose soap that kills 99.9% of germs on laundry and household surfaces with enzyme stain-fighting technology. Glycerine formula gentle on hands. Wholesale cartons for distributors across Kenya."
       },
       {
         "id": "ushindi-cream",
         "category": "wash-day-soaps",
-        "name": "Cream",
-        "image": "/images/products/soaps/Ushindi-Cream.png"
+        "company": "Ushindi",
+        "name": "Ushindi - Cream",
+        "image": "/images/products/soaps/Ushindi-Cream.webp",
+        "description": "Kenya's first enzyme-powered laundry soap that kills germs effectively on laundry, dishes, and even for bathing. Rich lather with pleasant fragrance and moisturizing properties. Bulk cartons for wholesale distribution."
       },
       {
         "id": "ushindi-bar-soap",
         "category": "wash-day-soaps",
-        "name": "Cream Bar Soap",
-        "image": "/images/products/soaps/Ushindi-Cream-Bar.png"
+        "company": "Ushindi",
+        "name": "Ushindi - Cream Bar Soap",
+        "image": "/images/products/soaps/Ushindi-Cream-Bar.webp",
+        "description": "Antibacterial multipurpose bar soap with enzyme technology and glycerine that kills germs while being gentle on hands. Available in 175g to 1kg sizes for households and commercial laundry. Wholesale Kenya cartons available."
       },
       {
         "id": "ushindi-washing-powder",
         "category": "wash-day-soaps",
-        "name": "Washing-Powder",
-        "image": "/images/products/soaps/Ushindi-Washing-Powder.png"
+        "company": "Ushindi",
+        "name": "Ushindi - Washing Powder",
+        "image": "/images/products/soaps/Ushindi-Washing-Powder.webp",
+        "description": "Powerful antibacterial washing powder that kills germs while cutting through dirt, grease, and grass stains. Leaves clothes fresh, bright, and germ-free. Bulk bags available for wholesale distribution across Kenya."
       },
       {
         "id": "ushindi-orange-dish-washing-liquid",
         "category": "wash-day-soaps",
-        "name": "Orange Dish Washing Liquid",
-        "image": "/images/products/soaps/Ushindi-Orange-DWL.png"
+        "company": "Ushindi",
+        "name": "Ushindi - Orange Dish Washing Liquid",
+        "image": "/images/products/soaps/Ushindi-Orange-DWL.webp",
+        "description": "Antibacterial dish washing liquid with refreshing orange scent that kills 99.9% of germs while cutting through tough grease. Moisturizing formula gentle on hands. Wholesale 800ml and bulk sizes for Kenya retailers."
       },
       {
         "id": "ushindi-lemon-dish-washing-liquid",
         "category": "wash-day-soaps",
-        "name": "Lemon Dish Washing Liquid",
-        "image": "/images/products/soaps/Ushindi-Lemon-DWL.png"
+        "company": "Ushindi",
+        "name": "Ushindi - Lemon Dish Washing Liquid",
+        "image": "/images/products/soaps/Ushindi-Lemon-DWL.webp",
+        "description": "Fresh lemon-scented antibacterial dish washing liquid that kills 99.9% of germs while being gentle on hands. Cuts through kitchen grease effectively. Wholesale 500ml to 1L bottles for bulk buyers across Kenya."
       },
       {
         "id": "ushindi-orange-dish-washing-paste",
         "category": "wash-day-soaps",
-        "name": "Orange Dish Washing Paste",
-        "image": "/images/products/soaps/Ushindi-Orange-DWP.png"
+        "company": "Ushindi",
+        "name": "Ushindi - Orange Dish Washing Paste",
+        "image": "/images/products/soaps/Ushindi-Orange-DWP.webp",
+        "description": "Concentrated antibacterial dish washing paste that kills 99.9% of germs and tackles tough kitchen grease. Lasts longer than liquid with refreshing orange scent. Wholesale 200g to 800g sizes for Kenya retailers."
       },
       {
         "id": "ushindi-lemon-dish-washing-paste",
         "category": "wash-day-soaps",
-        "name": "Lemon Dish Washing Paste",
-        "image": "/images/products/soaps/Ushindi-Lemon-DWP.png"
+        "company": "Ushindi",
+        "name": "Ushindi - Lemon Dish Washing Paste",
+        "image": "/images/products/soaps/Ushindi-Lemon-DWP.webp",
+        "description": "Powerful lemon antibacterial dish paste that kills 99.9% of germs while tackling stubborn kitchen grease. Long shelf life and gentle on hands. Bulk 400g and other sizes available for wholesale distribution."
       },
       {
         "id": "ushindi-multi-floor-cleaner",
         "category": "wash-day-soaps",
-        "name": "Multi-Floor Cleaner",
-        "image": "/images/products/soaps/Ushindi-Multi-Floor-Cleaner.png"
+        "company": "Ushindi",
+        "name": "Ushindi - Multi-Floor Cleaner",
+        "image": "/images/products/soaps/Ushindi-Multi-Floor-Cleaner.webp",
+        "description": "Biodegradable antibacterial floor cleaner that kills 99.9% of germs with citronella oil to repel insects. Safe for all floor types using 30ml per 5L water. Wholesale 500ml and 1L bottles for Kenya retailers."
       },
       {
         "id": "ushindi-mfc-jerrican",
         "category": "wash-day-soaps",
-        "name": "Multi-Floor Cleaner Jerrican",
-        "image": "/images/products/soaps/Ushindi-MFC-Jerrican.png"
+        "company": "Ushindi",
+        "name": "Ushindi - Multi-Floor Cleaner Jerrican",
+        "image": "/images/products/soaps/Ushindi-MFC-Jerrican.webp",
+        "description": "Commercial-grade antibacterial floor cleaner in bulk jerrycan that kills 99.9% of germs with citronella insect repellent. Better cost per liter for hotels, schools, and institutions. Wholesale Kenya bulk pricing available."
       },
       {
         "id": "ndume-white-laundry-soap",
         "category": "wash-day-soaps",
-        "name": "White Laundry Soap",
-        "image": "/images/products/soaps/Ndume-White-Laundry-Soap.png"
+        "company": "Ndume",
+        "name": "Ndume - White Laundry Soap",
+        "image": "/images/products/soaps/Ndume-White-Laundry-Soap.webp",
+        "description": "Heavy-duty 1kg antibacterial laundry bar soap that kills germs while removing tough stains from collars, cuffs, oil marks, and children's clothes. Glycerine formula gentle on hands. Wholesale cartons of 10 for Kenya retailers."
       },
       {
         "id": "ndume-cream-laundry-soap",
         "category": "wash-day-soaps",
-        "name": "Cream Laundry Soap",
-        "image": "/images/products/soaps/Ndume-Cream-Laundry-Soap.png"
+        "company": "Ndume",
+        "name": "Ndume - Cream Laundry Soap",
+        "image": "/images/products/soaps/Ndume-Cream-Laundry-Soap.webp",
+        "description": "Multipurpose 1kg antibacterial laundry bar that kills germs while tackling tough stains on collars, cuffs, and children's clothes. Moisturizing formula gentler on skin than harsh stain removers. Bulk cartons for wholesale Kenya."
       },
       {
         "id": "nudume-herbal-laundry-soap",
         "category": "wash-day-soaps",
-        "name": "Herbal Laundry Soap",
-        "image": "/images/products/soaps/Ndume-Herbal-Laundry-Soap.png"
+        "company": "Ndume",
+        "name": "Ndume - Herbal Laundry Soap",
+        "image": "/images/products/soaps/Ndume-Herbal-Laundry-Soap.webp",
+        "description": "Natural 1kg herbal antibacterial laundry bar that kills germs while removing oil and blood stains effectively. Plant-based formula gentle on skin for eco-conscious families. Wholesale cartons available across Kenya."
       }
     ],
     "sauces": [
       {
         "id": "zesta-tomato-sauce",
         "category": "sauces",
-        "name": "Tomato Sauce",
-        "image": "/images/products/sauces/Zesta-Tomato-Sauce.png"
+        "company": "Zesta",
+        "name": "Zesta - Tomato Sauce",
+        "image": "/images/products/sauces/Zesta-Tomato-Sauce.webp",
+        "description": "Zesta Tomato Sauce is made from 100% real tomatoes and fortified with Vitamin E, providing 20% of your daily requirement per serving. This trusted Kenyan brand from Trufoods has been a household favourite for nearly 60 years, perfect for enhancing chips, nyama choma, and everyday meals. Available in multiple sizes including convenient 1kg packs for wholesale in Kenya."
       },
       {
         "id": "zesta-chilli-sauce",
         "category": "sauces",
-        "name": "Chilli Sauce",
-        "image": "/images/products/sauces/Zesta-Chilli-Sauce.png"
+        "company": "Zesta",
+        "name": "Zesta - Chilli Sauce",
+        "image": "/images/products/sauces/Zesta-Chilli-Sauce.webp",
+        "description": "Zesta Chilli Sauce brings the perfect kick of heat using selected chilli peppers, vinegar, and aromatic spices, all fortified with Vitamin E. Ideal for samosas, chips masala, and grilled meats like nyama choma, this trusted Kenyan sauce has been a favourite across East and Central Africa for generations."
       },
       {
         "id": "zesta-hot-sweet-sauce",
         "category": "sauces",
-        "name": "Hot & Sweet Sauce",
-        "image": "/images/products/sauces/Zesta-Hot-&-Sweet-Sauce.png"
+        "company": "Zesta",
+        "name": "Zesta - Hot & Sweet Sauce",
+        "image": "/images/products/sauces/Zesta-Hot-&-Sweet-Sauce.webp",
+        "description": "Zesta Hot & Sweet Sauce delivers the perfect balance of spicy and sweet flavours, making it an irresistible dipping sauce for snacks and street foods. Made with natural colours and vitamin enrichment by Trufoods Kenya, it comes in a convenient 400g format ideal for both home use and food service."
       },
       {
         "id": "zesta-tomato-ketchup",
         "category": "sauces",
-        "name": "Tomato Ketchup",
-        "image": "/images/products/sauces/Zesta-Tomato-Ketchup.png"
+        "company": "Zesta",
+        "name": "Zesta - Tomato Ketchup",
+        "image": "/images/products/sauces/Zesta-Tomato-Ketchup.webp",
+        "description": "Zesta Tomato Ketchup is a classic favourite enriched with Vitamin E and made using only natural colours. As Kenya's trusted ketchup brand for over six decades, it pairs perfectly with chips, burgers, and all your favourite snacks. Available wholesale across Kenya for retailers and food businesses."
       },
       {
         "id": "zesta-choma-sauce",
         "category": "sauces",
-        "name": "Choma Sauce",
-        "image": "/images/products/sauces/Zesta-Choma-Sauce.png"
+        "company": "Zesta",
+        "name": "Zesta - Choma Sauce",
+        "image": "/images/products/sauces/Zesta-Choma-Sauce.webp",
+        "description": "Zesta Choma Sauce captures the authentic smoky flavour of nyama choma, blending ripe tomatoes with spices, garlic, and lemon notes. This BBQ-inspired sauce from Trufoods Kenya is perfect for grilled meats, burgers, and hotdogs, available in 250g and 400g sizes for both retail and wholesale."
       },
       {
         "id": "zesta-tomato-garlic-sauce",
         "category": "sauces",
-        "name": "Tomato Garlic Sauce",
-        "image": "/images/products/sauces/Zesta-Tomato-Garlic-Sauce.png"
+        "company": "Zesta",
+        "name": "Zesta - Tomato Garlic Sauce",
+        "image": "/images/products/sauces/Zesta-Tomato-Garlic-Sauce.webp",
+        "description": "Zesta Tomato Garlic Sauce combines rich tomato flavour with aromatic garlic, creating a versatile sauce for pasta, pizza, and traditional Kenyan dishes. Made by Trufoods, this kitchen essential adds depth and flavour to both everyday cooking and special meals."
       },
       {
         "id": "zesta-chilli-garlic-sauce",
         "category": "sauces",
-        "name": "Chilli Garlic Sauce",
-        "image": "/images/products/sauces/Zesta-Chilli-Garlic-Sauce.png"
+        "company": "Zesta",
+        "name": "Zesta - Chilli Garlic Sauce",
+        "image": "/images/products/sauces/Zesta-Chilli-Garlic-Sauce.webp",
+        "description": "Zesta Chilli Garlic Sauce pairs fiery chilli heat with pungent garlic for a bold flavour profile. Perfect for Asian-inspired stir-fries, marinades, and local Kenyan favourites, this versatile sauce from Trufoods Kenya elevates any dish that needs an extra kick."
       },
       {
         "id": "zesta-mayonnaise",
         "category": "sauces",
-        "name": "Mayonnaise",
-        "image": "/images/products/sauces/Zesta-Mayonnaise.png"
+        "company": "Zesta",
+        "name": "Zesta - Mayonnaise",
+        "image": "/images/products/sauces/Zesta-Mayonnaise.webp",
+        "description": "Zesta Mayonnaise is a creamy, eggless formula suitable for vegetarians and those with egg allergies. This trusted Kenyan mayonnaise is perfect for sandwiches, salads, and chips, available in 12x340g cartons for wholesale distribution across Kenya."
       },
       {
         "id": "zesta-mayocue",
         "category": "sauces",
-        "name": "Mayocue",
-        "image": "/images/products/sauces/Zesta-Mayocue-Sauce.png"
+        "company": "Zesta",
+        "name": "Zesta - Mayocue",
+        "image": "/images/products/sauces/Zesta-Mayocue-Sauce.webp",
+        "description": "Zesta Mayocue blends creamy mayonnaise with smoky BBQ sauce in one convenient bottle. Perfect for burgers, chips, and grilled foods, this Trufoods Kenya innovation saves time without compromising on that classic mayo-barbecue combination Kenyans love."
       },
       {
         "id": "zesta-yellow-mustard",
         "category": "sauces",
-        "name": "Yellow Mustard",
-        "image": "/images/products/sauces/Zesta-Yellow-Mustard.png"
+        "company": "Zesta",
+        "name": "Zesta - Yellow Mustard",
+        "image": "/images/products/sauces/Zesta-Yellow-Mustard.webp",
+        "description": "Zesta Yellow Mustard delivers classic tangy flavour that brightens sandwiches, hotdogs, and salad dressings. Made by Trufoods Kenya, this kitchen essential brings authentic mustard taste to your favourite foods at home or in food service."
       },
       {
         "id": "zesta-chilli-tamarind-sauce",
         "category": "sauces",
-        "name": "Chilli Tamarind Sauce",
-        "image": "/images/products/sauces/Zesta-Chilli-Tamarind-Sauce.png"
+        "company": "Zesta",
+        "name": "Zesta - Chilli Tamarind Sauce",
+        "image": "/images/products/sauces/Zesta-Chilli-Tamarind-Sauce.webp",
+        "description": "Zesta Chilli Tamarind Sauce combines sweet-sour tamarind with chilli heat, creating the perfect accompaniment for bhajias, samosas, and street food. This nostalgic Kenyan flavour from Trufoods has been a beloved taste many grew up enjoying with family."
       },
       {
         "id": "zesta-fruit-spicy-sauce",
         "category": "sauces",
-        "name": "Fruit Spicy Sauce",
-        "image": "/images/products/sauces/Zesta-Fruit-Spicy-Sauce.png"
+        "company": "Zesta",
+        "name": "Zesta - Fruit Spicy Sauce",
+        "image": "/images/products/sauces/Zesta-Fruit-Spicy-Sauce.webp",
+        "description": "Zesta Fruit Spicy Sauce blends fruity sweetness with aromatic spices for a unique flavour profile. This versatile sauce from Trufoods Kenya works beautifully on grilled meats, snacks, and fusion dishes, adding a distinctive sweet-spicy accent."
       },
       {
         "id": "zesta-mango-chutney",
         "category": "sauces",
-        "name": "Mango Chutney",
-        "image": "/images/products/sauces/Zesta-Mango-Chutney.png"
+        "company": "Zesta",
+        "name": "Zesta - Mango Chutney",
+        "image": "/images/products/sauces/Zesta-Mango-Chutney.webp",
+        "description": "Zesta Mango Chutney features ripe mangoes blended with sugar and spices, creating the classic Kenyan accompaniment for bhajias, curries, and grilled meats. Available in 450g jars, this Trufoods favourite brings authentic taste to every meal."
       },
       {
         "id": "zesta-fruit-chutney",
         "category": "sauces",
-        "name": "Fruit Chutney",
-        "image": "/images/products/sauces/Zesta-Fruit-Chutney.png"
+        "company": "Zesta",
+        "name": "Zesta - Fruit Chutney",
+        "image": "/images/products/sauces/Zesta-Fruit-Chutney.webp",
+        "description": "Zesta Fruit Chutney offers a delightful sweet and tangy blend of mixed fruits, perfect for pairing with sandwiches, nyama choma, and snacks. Made by Trufoods Kenya, this versatile chutney adds a fruity accent to both everyday and special occasions."
       }
     ],
     "condiments": [
       {
         "id": "zesta-gravy-browning",
         "category": "condiments",
-        "name": "Gravy Browning",
-        "image": "/images/products/condiments/Zesta-Gravy-Browning.png"
+        "company": "Zesta",
+        "name": "Zesta - Gravy Browning",
+        "image": "/images/products/condiments/Zesta-Gravy-Browning.webp",
+        "description": "Zesta Gravy Browning is a KEBS quality kitchen essential that adds rich colour and depth to soups, stews, gravies, and sauces. Available in 700ml bottles, this trusted Trufoods Kenya product has been helping Kenyan cooks create visually appealing dishes for decades."
       },
       {
         "id": "zesta-soy-sauce",
         "category": "condiments",
-        "name": "Soy Sauce",
-        "image": "/images/products/condiments/Zesta-Soy-Sauce.png"
+        "company": "Zesta",
+        "name": "Zesta - Soy Sauce",
+        "image": "/images/products/condiments/Zesta-Soy-Sauce.webp",
+        "description": "Zesta Soy Sauce is a versatile cooking essential perfect for stir-fries, marinades, and dipping sauces. This KEBS quality product from Trufoods Kenya comes in convenient 12x700ml cases, ideal for wholesale distribution to restaurants and retailers across Kenya."
       },
       {
         "id": "zesta-vanilla-essence",
         "category": "condiments",
-        "name": "Vanilla Essence",
-        "image": "/images/products/condiments/Zesta-Vanilla-Essence.png"
+        "company": "Zesta",
+        "name": "Zesta - Vanilla Essence",
+        "image": "/images/products/condiments/Zesta-Vanilla-Essence.webp",
+        "description": "Zesta Vanilla Essence is a concentrated baking essential that adds authentic vanilla flavour to cakes, cookies, and custards. This KEBS quality product from Trufoods Kenya comes in 500ml bottles, perfect for home bakers and commercial bakeries alike."
       }
     ],
     "powders": [
       {
         "id": "zesta-baking-powder",
         "category": "powders",
-        "name": "Baking Powder",
-        "image": "/images/products/powders/Zesta-Baking-Powder.png"
+        "company": "Zesta",
+        "name": "Zesta - Baking Powder",
+        "image": "/images/products/powders/Zesta-Baking-Powder.webp",
+        "description": "Zesta Baking Powder features double action rising, activating during both mixing and baking for perfectly fluffy results. Free from sodium aluminium sulfate, this KEBS quality kitchen essential from Trufoods Kenya comes in 500g packs and 12x500g cartons for wholesale baking supplies."
       },
       {
         "id": "bi-carbonate-soda",
         "category": "powders",
-        "name": "Bi Carbonate Soda",
-        "image": "/images/products/powders/Zesta-Bi-Carbonate-Soda.png"
+        "company": "Zesta",
+        "name": "Zesta - Bi Carbonate Soda",
+        "image": "/images/products/powders/Zesta-Bi-Carbonate-Soda.webp",
+        "description": "Zesta Bicarbonate Soda is a versatile baking essential and raising agent for gingerbread, cookies, mandazi, and soda bread. This KEBS quality product from Trufoods Kenya also works for household cleaning, available in convenient 100g packs."
       },
       {
         "id": "caster-sugar",
         "category": "powders",
-        "name": "Caster Sugar",
-        "image": "/images/products/powders/Zesta-Caster-Sugar.png"
+        "company": "Zesta",
+        "name": "Zesta - Caster Sugar",
+        "image": "/images/products/powders/Zesta-Caster-Sugar.webp",
+        "description": "Zesta Caster Sugar dissolves quickly in batters and meringues, delivering better results in delicate baking recipes. This fine-textured cooking essential from Trufoods Kenya comes in 500g packs, ideal for cakes, cookies, and professional pastry work."
       },
       {
         "id": "corn-flour",
         "category": "powders",
-        "name": "Corn Flour",
-        "image": "/images/products/powders/Zesta-Corn-Flour.png"
+        "company": "Zesta",
+        "name": "Zesta - Corn Flour",
+        "image": "/images/products/powders/Zesta-Corn-Flour.webp",
+        "description": "Zesta Corn Flour is a fine starch kitchen essential for thickening sauces, gravies, and soups. This KEBS quality product from Trufoods Kenya is also perfect for baking and coating foods, making it a versatile staple for Kenyan kitchens."
       },
       {
         "id": "custard-powder",
         "category": "powders",
-        "name": "Custard Powder",
-        "image": "/images/products/powders/Zesta-Custard-Powder.png"
+        "company": "Zesta",
+        "name": "Zesta - Custard Powder",
+        "image": "/images/products/powders/Zesta-Custard-Powder.webp",
+        "description": "Zesta Custard Powder creates smooth, creamy custard without eggs, perfect for desserts and trifles. This cooking essential from Trufoods Kenya comes in 250g and 500g sizes, ideal for home kitchens and catering businesses across Kenya."
       },
       {
         "id": "icing-sugar",
         "category": "powders",
-        "name": "Icing Sugar",
-        "image": "/images/products/powders/Zesta-Icing-Sugar.png"
+        "company": "Zesta",
+        "name": "Zesta - Icing Sugar",
+        "image": "/images/products/powders/Zesta-Icing-Sugar.webp",
+        "description": "Zesta Icing Sugar is ultra-fine white sugar that mixes smooth for cake decorating, frostings, and glazes. This baking essential from Trufoods Kenya comes in 500g sachets, trusted by home bakers and professional pastry chefs alike."
       }
     ],
     "vinegar": [
       {
         "id": "zesta-white-vinegar",
         "category": "vinegar",
-        "name": "White Vinegar",
-        "image": "/images/products/vinegar/Zesta-White-Vinegar.png"
+        "company": "Zesta",
+        "name": "Zesta - White Vinegar",
+        "image": "/images/products/vinegar/Zesta-White-Vinegar.webp",
+        "description": "Zesta White Vinegar is a versatile cooking essential for salad dressings, marinades, pickling, and everyday cooking. This KEBS quality product from Trufoods Kenya is available in sizes from 300ml bottles to 5L containers, with 12x700ml wholesale cases for retailers."
       },
       {
         "id": "zesta-brown-vinegar",
         "category": "vinegar",
-        "name": "Brown Vinegar",
-        "image": "/images/products/vinegar/Zesta-Brown-Vinegar.png"
+        "company": "Zesta",
+        "name": "Zesta - Brown Vinegar",
+        "image": "/images/products/vinegar/Zesta-Brown-Vinegar.webp",
+        "description": "Zesta Brown Vinegar is made from fermented molasses, delivering a deeper colour and bolder taste than white vinegar. This kitchen essential from Trufoods Kenya is perfect for marinades, chutneys, and pickling, available in 700ml bottles for home and commercial use."
       }
     ],
     "jams": [
       {
         "id": "zesta-gooseberry-jam",
         "category": "jams",
-        "name": "Gooseberry Jam",
-        "image": "/images/products/jams/Zesta-Gooseberry-Jam.png"
+        "company": "Zesta",
+        "name": "Zesta - Gooseberry Jam",
+        "image": "/images/products/jams/Zesta-Gooseberry-Jam.webp",
+        "description": "Zesta Gooseberry Jam delivers a tangy-sweet natural fruit flavour with no artificial preservatives. Trufoods Kenya has been crafting quality jams for over 50 years, and this delicious breakfast spread comes in easy-to-open tins and glass jars for wholesale in Kenya."
       },
       {
         "id": "zesta-raspberry-jam",
         "category": "jams",
-        "name": "Raspberry Jam",
-        "image": "/images/products/jams/Zesta-Raspberry-Jam.png"
+        "company": "Zesta",
+        "name": "Zesta - Raspberry Jam",
+        "image": "/images/products/jams/Zesta-Raspberry-Jam.webp",
+        "description": "Zesta Raspberry Jam is made with real natural fruit and no preservatives, delivering authentic raspberry flavour in every spoonful. Perfect as a breakfast spread on toast, chapati, or in baking, this trusted Kenyan jam from Trufoods has been a family favourite for generations."
       },
       {
         "id": "zesta-very-berry-jam",
         "category": "jams",
-        "name": "Very Berry Jam",
-        "image": "/images/products/jams/Zesta-Very-Berry-Jam.png"
+        "company": "Zesta",
+        "name": "Zesta - Very Berry Jam",
+        "image": "/images/products/jams/Zesta-Very-Berry-Jam.webp",
+        "description": "Zesta Very Berry Jam combines multiple natural fruit varieties for a rich, complex berry flavour with no preservatives. This delicious breakfast spread from Trufoods Kenya is perfect on toast, in baking, or as a filling for cakes and pastries."
       },
       {
         "id": "zesta-apricot-jam",
         "category": "jams",
-        "name": "Apricot Jam",
-        "image": "/images/products/jams/Zesta-Apricot-Jam.png"
+        "company": "Zesta",
+        "name": "Zesta - Apricot Jam",
+        "image": "/images/products/jams/Zesta-Apricot-Jam.webp",
+        "description": "Zesta Apricot Jam offers smooth, naturally sweet apricot flavour trusted by Kenya's hotels and bakeries for over five decades. Made with no artificial preservatives, this premium breakfast spread comes in easy-to-open tin packaging, available wholesale across Kenya."
       },
       {
         "id": "zesta-mango-jam",
         "category": "jams",
-        "name": "Mango Jam",
-        "image": "/images/products/jams/Zesta-Mango-Jam.png"
+        "company": "Zesta",
+        "name": "Zesta - Mango Jam",
+        "image": "/images/products/jams/Zesta-Mango-Jam.webp",
+        "description": "Zesta Mango Jam captures authentic tropical mango flavour using natural fruit with no preservatives or artificial flavours. This Kenyan favourite from Trufoods makes a delicious breakfast spread on toast, mandazi, or chapati, loved by families across the country."
       },
       {
         "id": "zesta-mixed-fruit-jam",
         "category": "jams",
-        "name": "Mixed Fruit Jam",
-        "image": "/images/products/jams/Zesta-Mixed-Fruit-Jam.png"
+        "company": "Zesta",
+        "name": "Zesta - Mixed Fruit Jam",
+        "image": "/images/products/jams/Zesta-Mixed-Fruit-Jam.webp",
+        "description": "Zesta Mixed Fruit Jam is Kenya's most popular jam variety, blending multiple natural fruits for a balanced, delicious breakfast spread. Available in 300g, 500g, 900g, and 1kg sizes from Trufoods Kenya, this jam is perfect for wholesale distribution to retailers and catering businesses."
       },
       {
         "id": "zesta-orange-marmalade-jam",
         "category": "jams",
-        "name": "Orange Marmalade Jam",
-        "image": "/images/products/jams/Zesta-Orange-Marmalade-Jam.png"
+        "company": "Zesta",
+        "name": "Zesta - Orange Marmalade Jam",
+        "image": "/images/products/jams/Zesta-Orange-Marmalade-Jam.webp",
+        "description": "Zesta Orange Marmalade features classic citrus flavour with authentic orange peel texture, made with no artificial preservatives. This traditional breakfast spread from Trufoods Kenya pairs perfectly with toast, scones, and morning tea."
       },
       {
         "id": "zesta-pineapple-jam",
         "category": "jams",
-        "name": "Pineapple Jam",
-        "image": "/images/products/jams/Zesta-Pineapple-Jam.png"
+        "company": "Zesta",
+        "name": "Zesta - Pineapple Jam",
+        "image": "/images/products/jams/Zesta-Pineapple-Jam.webp",
+        "description": "Zesta Pineapple Jam delivers tropical sweetness using real natural fruit with no preservatives. This delicious breakfast spread from Trufoods Kenya brings authentic pineapple flavour to toast, chapati, and baked goods."
       },
       {
         "id": "zesta-red-plum-jam",
         "category": "jams",
-        "name": "Red Plum Jam",
-        "image": "/images/products/jams/Zesta-Red-Plum-Jam.png"
+        "company": "Zesta",
+        "name": "Zesta - Red Plum Jam",
+        "image": "/images/products/jams/Zesta-Red-Plum-Jam.webp",
+        "description": "Zesta Red Plum Jam offers rich, full-bodied natural fruit flavour made with real plums and no artificial ingredients. This premium breakfast spread from Trufoods Kenya comes in easy-to-open tins and glass jars, ideal for wholesale distribution across Kenya."
       },
       {
         "id": "zesta-strawberry-jam",
         "category": "jams",
-        "name": "Strawberry Jam",
-        "image": "/images/products/jams/Zesta-Strawberry-Jam.png"
+        "company": "Zesta",
+        "name": "Zesta - Strawberry Jam",
+        "image": "/images/products/jams/Zesta-Strawberry-Jam.webp",
+        "description": "Zesta Strawberry Jam is one of Kenya's best-selling breakfast spreads, made with real strawberries and zero preservatives. Available in 300g to 1kg sizes from Trufoods Kenya, this natural fruit jam is perfect for toast, baking, and wholesale distribution."
       }
     ],
     "canned-food": [
       {
         "id": "kenylon-beans-in-tomato-sauce",
         "category": "canned-food",
-        "name": "Beans in Tomato Sauce",
-        "image": "/images/products/canned-food/Beans-in-Tomato-Sauce.png"
+        "company": "Kenylon",
+        "name": "Kenylon - Beans in Tomato Sauce",
+        "image": "/images/products/canned-food/Beans-in-Tomato-Sauce.webp",
+        "description": "Kenylon baked beans in rich tomato sauce offer a convenient meal solution for busy Kenyan households. High in fiber and protein, these slow-cooked beans are perfect for breakfast, quick lunches, or as a side dish. Available in 300g and 420g cans from Kenya's trusted canning brand since 1949."
       },
       {
         "id": "kenylon-butter-beans",
         "category": "canned-food",
-        "name": "Butter Beans",
-        "image": "/images/products/canned-food/Butter-Beans.png"
+        "company": "Kenylon",
+        "name": "Kenylon - Butter Beans",
+        "image": "/images/products/canned-food/Butter-Beans.webp",
+        "description": "Ready-to-use Kenylon butter beans save hours of cooking time for quick and convenient meals. Ideal for stews, salads, and traditional Kenyan dishes, these premium canned vegetables come in 420g tins. Over 70 years of canning expertise ensures consistent quality."
       },
       {
         "id": "kenylon-chick-peas",
         "category": "canned-food",
-        "name": "Chick Peas",
-        "image": "/images/products/canned-food/Chick-Peas.png"
+        "company": "Kenylon",
+        "name": "Kenylon - Chick Peas",
+        "image": "/images/products/canned-food/Chick-Peas.webp",
+        "description": "Kenylon chickpeas are a versatile pantry staple for hummus, curries, and fresh salads. These convenient canned vegetables eliminate soaking and long cooking times, making healthy meal prep effortless. Made in Kenya since 1949 with consistent quality you can trust."
       },
       {
         "id": "kenylon-corn-off-the-cob",
         "category": "canned-food",
-        "name": "Corn Off the Cob",
-        "image": "/images/products/canned-food/Corn-Off-the-Cob.png"
+        "company": "Kenylon",
+        "name": "Kenylon - Corn Off the Cob",
+        "image": "/images/products/canned-food/Corn-Off-the-Cob.webp",
+        "description": "Sweet corn kernels ready to add to your favourite recipes, from quick salads to hearty stews. Kenylon's convenient canned vegetables maintain freshness and flavour while saving valuable prep time. Seven decades of food processing experience in every tin."
       },
       {
         "id": "kenylon-crushed-tomatoes",
         "category": "canned-food",
-        "name": "Crushed Tomatoes",
-        "image": "/images/products/canned-food/Crushed-tomatoes.png"
+        "company": "Kenylon",
+        "name": "Kenylon - Crushed Tomatoes",
+        "image": "/images/products/canned-food/Crushed-tomatoes.webp",
+        "description": "Kenylon crushed tomatoes are a kitchen essential for sauces, stews, and cooking bases, delivering consistent flavour and texture. These convenient canned tomatoes are perfect for busy cooks preparing quick meals without compromising on taste. Quality you can trust since 1949."
       },
       {
         "id": "kenylon-garden-peas",
         "category": "canned-food",
-        "name": "Garden Peas",
-        "image": "/images/products/canned-food/Garden-Peas.png"
+        "company": "Kenylon",
+        "name": "Kenylon - Garden Peas",
+        "image": "/images/products/canned-food/Garden-Peas.webp",
+        "description": "Tender Kenylon garden peas are ready to serve as a nutritious side dish or add to your favourite recipes. These convenient canned vegetables are perfect for quick family meals, from rice dishes to shepherd's pie. From Kenya's established canning brand."
       },
       {
         "id": "kenylon-githeri",
         "category": "canned-food",
-        "name": "Githeri",
-        "image": "/images/products/canned-food/Githeri.png"
+        "company": "Kenylon",
+        "name": "Kenylon - Githeri",
+        "image": "/images/products/canned-food/Githeri.webp",
+        "description": "Kenya's beloved traditional githeri made convenient in a can. Pre-cooked maize and beans are ready to heat and season for a quick, nutritious meal that honours Kenyan culinary heritage. Just add your favourite spices and serve. Available in 420g cans."
       },
       {
         "id": "kenylon-processed-peas",
         "category": "canned-food",
-        "name": "Processed Peas",
-        "image": "/images/products/canned-food/Processed-Peas.png"
+        "company": "Kenylon",
+        "name": "Kenylon - Processed Peas",
+        "image": "/images/products/canned-food/Processed-Peas.webp",
+        "description": "Kenylon processed peas offer convenient meal solutions for time-pressed households. Perfect for adding to rice, stews, or serving as a simple side dish, these ready-to-use canned vegetables deliver consistent quality. Made in Kenya since 1949."
       },
       {
         "id": "kenylon-whole-peeled-tomatoes",
         "category": "canned-food",
-        "name": "Whole Peeled Tomatoes",
-        "image": "/images/products/canned-food/Whole-Peeled-Tomatoes.png"
+        "company": "Kenylon",
+        "name": "Kenylon - Whole Peeled Tomatoes",
+        "image": "/images/products/canned-food/Whole-Peeled-Tomatoes.webp",
+        "description": "Premium Kenylon whole peeled tomatoes are perfect for authentic sauces, stews, and slow-cooked dishes. These convenient canned tomatoes maintain excellent texture and consistent flavour, making them a reliable choice for home cooks and caterers alike."
       }
     ],
     "choco-drinks": [
       {
         "id": "choco-primio",
         "category": "choco-drinks",
-        "name": "Choco Primio",
-        "image": "/images/products/choco-drinks/Choco-Primio.png"
+        "company": "Choco Primo",
+        "name": "Choco Primo - Drinking Chocolate",
+        "image": "/images/products/choco-drinks/Choco-Primio.webp",
+        "description": "Cocoa Primo drinking chocolate from Trufoods Kenya delivers rich, semi-sweet flavour made with real cocoa butter and no artificial ingredients. Perfect for cosy evenings or a comforting hot chocolate at breakfast. Available in convenient 20g and 100g sachets plus family-sized jars."
       },
       {
         "id": "cocoa-primo",
         "category": "choco-drinks",
-        "name": "Cocoa Primo",
-        "image": "/images/products/choco-drinks/Cocoa-Primo.png"
+        "company": "Choco Primo",
+        "name": "Choco Primo - Cocoa Powder",
+        "image": "/images/products/choco-drinks/Cocoa-Primo.webp",
+        "description": "Pure Cocoa Primo cocoa powder for baking cakes, brownies, and making premium hot chocolate beverages. This natural cocoa powder from Trufoods Kenya adds rich chocolate flavour to your favourite recipes. A pantry essential for home bakers."
       },
       {
         "id": "choco-burst",
         "category": "choco-drinks",
-        "name": "Choco Burst",
-        "image": "/images/products/choco-drinks/Choco-Burst.png"
+        "company": "Choco Primo",
+        "name": "Choco Primo - Choco Burst",
+        "image": "/images/products/choco-drinks/Choco-Burst.webp",
+        "description": "Cocoa Primo Choco Burst is a nutritious chocolate drink powder with 372 kcal and 7.28g protein per 100g serving. From Trufoods Kenya, this hot chocolate mix is ideal for active families seeking a delicious, energy-boosting beverage. Available in 20g to 225g sizes."
       },
       {
         "id": "raha-drinking-chocolate",
         "category": "choco-drinks",
-        "name": "Drinking Chocolate",
-        "image": "/images/products/choco-drinks/Raha-Drinking-Chocolate.webp"
+        "company": "Raha",
+        "name": "Raha - Drinking Chocolate",
+        "image": "/images/products/choco-drinks/Raha-Drinking-Chocolate.webp",
+        "description": "Raha drinking chocolate delivers rich cocoa flavour that works perfectly hot or cold. From Excel Chemicals with over 40 years of expertise, this smooth hot chocolate is a Kenyan household favourite. Available from 10g sachets to economical 3kg bulk packs for wholesale buyers."
       },
       {
         "id": "raha-cocoa",
         "category": "choco-drinks",
-        "name": "Cocoa",
-        "image": "/images/products/choco-drinks/Raha-Cocoa.webp"
+        "company": "Raha",
+        "name": "Raha - Cocoa",
+        "image": "/images/products/choco-drinks/Raha-Cocoa.webp",
+        "description": "Premium Raha cocoa powder crafted from finest quality cocoa beans for beverages, desserts, and baking. This versatile cocoa powder Kenya trusts is perfect for homemade hot chocolate or chocolate cakes. Available in 80g retail to 3kg wholesale sizes."
       }
     ],
     "rice": [
       {
         "id": "basmati-rice",
         "category": "rice",
-        "name": "Basmati Rice",
-        "image": "/images/products/rice/Basmati.png"
+        "company": "Sunrice",
+        "name": "Sunrice - Basmati Rice",
+        "image": "/images/products/rice/Basmati.webp",
+        "description": "Sunrice premium basmati rice features long, white, fluffy grains nurtured by Himalayan waters. The characteristic aroma and delicate texture make this the perfect pilau rice for special occasions and everyday meals. From Kenya's leading rice producer since 1954."
       },
       {
         "id": "biryani-rice",
         "category": "rice",
-        "name": "Biryani Rice",
-        "image": "/images/products/rice/Biryani.png"
+        "company": "Sunrice",
+        "name": "Sunrice - Biryani Rice",
+        "image": "/images/products/rice/Biryani.webp",
+        "description": "Sunrice biryani rice is Kenya's top choice for authentic biryani dishes, featuring long, slender grains with excellent aroma. This premium Kenya rice absorbs spices beautifully, delivering restaurant-quality biryani at home. Specially selected for perfect texture every time."
       },
       {
         "id": "pishori-rice",
         "category": "rice",
-        "name": "Pishori Rice",
-        "image": "/images/products/rice/Pishori.png"
+        "company": "Sunrice",
+        "name": "Sunrice - Pishori Rice",
+        "image": "/images/products/rice/Pishori.webp",
+        "description": "Authentic pishori rice grown in the Mwea Region by the Tana River, renowned for its natural sweetness and distinctive aroma. This premium Kenya rice is a local favourite, perfect for everyday meals from simple wali to celebratory pilau. A true taste of Kenya."
       }
     ],
     "sweets": [
       {
         "id": "tropical-mints",
         "category": "sweets",
-        "name": "Tropical Mints",
-        "image": "/images/products/sweets/Tropical-Mints.png"
+        "company": "KSL",
+        "name": "KSL - Tropical Mints",
+        "image": "/images/products/sweets/Tropical-Mints.webp",
+        "description": "Tropical Mints from Kenya Sweets Limited have been Kenya's iconic breath freshener since 1954. The unique sweet-minty flavour, crafted for East African tastes, also aids digestion. From East Africa's oldest confectionery established in 1943, a true generational favourite."
       },
       {
         "id": "white-mints",
         "category": "sweets",
-        "name": "White Mints",
-        "image": "/images/products/sweets/White-Mints.png"
+        "company": "KSL",
+        "name": "KSL - White Mints",
+        "image": "/images/products/sweets/White-Mints.webp",
+        "description": "Classic White Mints offer refreshing breath freshening with a clean, cool taste Kenyans have loved for over 80 years. These traditional mints also support healthy digestion. A timeless confectionery from Kenya Sweets Limited's heritage collection."
       },
       {
         "id": "cough-drops",
         "category": "sweets",
-        "name": "Cough Drops",
-        "image": "/images/products/sweets/Cough-Drops.png"
+        "company": "KSL",
+        "name": "KSL - Cough Drops",
+        "image": "/images/products/sweets/Cough-Drops.webp",
+        "description": "KSL Cough Drops provide soothing throat relief when you need it most. Made by Kenya Sweets Limited with the same quality standards behind their 80-year confectionery legacy. Keep a pack handy during cold seasons for the whole family."
       },
       {
         "id": "ok-fruit-drops",
         "category": "sweets",
-        "name": "OK Fruit Drops",
-        "image": "/images/products/sweets/OK-Fruit-Drops.png"
+        "company": "KSL",
+        "name": "KSL - OK Fruit Drops",
+        "image": "/images/products/sweets/OK-Fruit-Drops.webp",
+        "description": "OK Fruit Drops offer assorted fruity flavours from East Africa's oldest sweet maker. These colourful confections have delighted generations alongside the famous Tropical Mints. A nostalgic treat perfect for sharing with family and friends."
       },
       {
         "id": "orange-fruit-drops",
         "category": "sweets",
-        "name": "Orange Fruit Drops",
-        "image": "/images/products/sweets/Orange-Fruit-Drops.png"
+        "company": "KSL",
+        "name": "KSL - Orange Fruit Drops",
+        "image": "/images/products/sweets/Orange-Fruit-Drops.webp",
+        "description": "Orange Fruit Drops deliver real citrus taste in every sweet. From Kenya Sweets Limited, a confectionery brand trusted since 1943, these tangy treats are perfect for satisfying sweet cravings with a burst of orange flavour."
       }
     ],
     "drinks": [
       {
         "id": "water",
         "category": "drinks",
-        "name": "Water",
-        "image": "/images/products/drinks/Water.webp"
+        "company": "Highlands",
+        "name": "Highlands - Water",
+        "image": "/images/products/drinks/Water.webp",
+        "description": "Highlands bottled water is sourced from Nyeri's pristine high-altitude springs, ensuring exceptional purity and taste. With 70 years of beverage expertise, Highlands delivers hydration you can trust. Available from 500ml PET bottles to 20L jumbo containers for homes and offices."
       },
       {
         "id": "orange-cordial",
         "category": "drinks",
-        "name": "Orange Cordial",
-        "image": "/images/products/drinks/Orange-Cordial.webp"
+        "company": "Highlands",
+        "name": "Highlands - Orange Cordial",
+        "image": "/images/products/drinks/Orange-Cordial.webp",
+        "description": "Highlands Orange Cordial has been a Kenyan household favourite since 1986, offering pure fruit concentrate with excellent mixing ratios. Perfect for family gatherings, kids' parties, or everyday refreshment. Available in economical 1L, 2L, 3L, and 5L sizes."
       },
       {
         "id": "mango-cordial",
         "category": "drinks",
-        "name": "Mango Cordial",
-        "image": "/images/products/drinks/Mango-Cordial.webp"
+        "company": "Highlands",
+        "name": "Highlands - Mango Cordial",
+        "image": "/images/products/drinks/Mango-Cordial.webp",
+        "description": "Highlands Mango Cordial contains 20% Mango Pulp Concentrate plus premium Alphonso Mango Pulp for rich tropical flavour. This concentrated cordial delivers authentic mango taste backed by 70 years of beverage expertise. Available in 1L to 5L family sizes."
       },
       {
         "id": "tropical-cordial",
         "category": "drinks",
-        "name": "Tropical Cordial",
-        "image": "/images/products/drinks/Tropical-Cordial.webp"
+        "company": "Highlands",
+        "name": "Highlands - Tropical Cordial",
+        "image": "/images/products/drinks/Tropical-Cordial.webp",
+        "description": "Highlands Tropical Cordial blends 35% fruit concentrate from pineapple, papaya, kiwi, mango, guava, passion fruit, orange, and banana. A household favourite for decades, perfect for breakfast, parties, and everyday refreshment. Available in 1L to 5L sizes."
       },
       {
         "id": "pineapple-cordial",
         "category": "drinks",
-        "name": "Pineapple Cordial",
-        "image": "/images/products/drinks/Pineapple-Cordial.webp"
+        "company": "Highlands",
+        "name": "Highlands - Pineapple Cordial",
+        "image": "/images/products/drinks/Pineapple-Cordial.webp",
+        "description": "Highlands Pineapple Cordial delivers refreshing pineapple flavour made with Nyeri's high-quality water since 1954. This concentrated juice is perfect for family gatherings and everyday refreshment. Available in sizes up to 5L for economical value."
       },
       {
         "id": "cola",
         "category": "drinks",
-        "name": "Cola",
-        "image": "/images/products/drinks/Cola.webp"
+        "company": "Club",
+        "name": "Club - Cola",
+        "image": "/images/products/drinks/Cola.webp",
+        "description": "Club Cola is a locally-produced Kenyan cola from Highlands Drinks, offering familiar refreshment with local pride since 2014. Perfect for meals, parties, and everyday enjoyment. Available in 350ml, 500ml, 1.25L, and 2L bottles."
       },
       {
         "id": "orange",
         "category": "drinks",
-        "name": "Orange",
-        "image": "/images/products/drinks/Orange.webp"
+        "company": "Club",
+        "name": "Club - Orange",
+        "image": "/images/products/drinks/Orange.webp",
+        "description": "Club Orange soda brings citrus refreshment backed by Highlands' 70 years of beverage expertise. Launched in 2014, this locally-made orange soda is perfect for family meals and social gatherings. Available in multiple convenient bottle sizes."
       },
       {
         "id": "tangawizi",
         "category": "drinks",
-        "name": "Tangawizi",
-        "image": "/images/products/drinks/Tangawizi.webp"
+        "company": "Club",
+        "name": "Club - Tangawizi",
+        "image": "/images/products/drinks/Tangawizi.webp",
+        "description": "Club Tangawizi delivers distinctly African ginger soda flavour from Highlands Drinks. This spicy-sweet refreshment is perfect for those who love bold, traditional tastes. Available in 350ml to 2L formats for personal enjoyment or sharing."
       },
       {
         "id": "lemonade-bountyful",
         "category": "drinks",
-        "name": "Lemonade",
-        "image": "/images/products/drinks/Lemonaid.png"
+        "company": "Bountyful",
+        "name": "Bountyful - Lemonade",
+        "image": "/images/products/drinks/Lemonaid.webp",
+        "description": "Bountyful Lemonade offers refreshing citrus taste from a proudly Kenyan brand. This crisp lemonade is perfect for hot days, family meals, or as a mixer for entertaining guests."
       },
       {
         "id": "lemon-lime",
         "category": "drinks",
-        "name": "Lemon Lime",
-        "image": "/images/products/drinks/Lemon-Lime.webp"
+        "company": "Club",
+        "name": "Club - Lemon Lime",
+        "image": "/images/products/drinks/Lemon-Lime.webp",
+        "description": "Club Lemon Lime has been delivering crisp citrus refreshment since its 2014 launch, backed by Highlands' 70 years of beverage expertise. Perfect as a standalone drink or versatile mixer. Available in 350ml to 2L bottles."
       },
       {
         "id": "lemonade",
         "category": "drinks",
-        "name": "Lemonade",
-        "image": "/images/products/drinks/Lemonade.webp"
+        "company": "Club",
+        "name": "Club - Lemonade",
+        "image": "/images/products/drinks/Lemonade.webp",
+        "description": "Club Lemonade has become a Kenyan favourite both as a refreshing drink and a popular mixer for entertaining. The perfect balance of sweet and citrus from Highlands Drinks. Available in standard Club packaging sizes."
       },
       {
         "id": "blackcurrant",
         "category": "drinks",
-        "name": "Blackcurrant",
-        "image": "/images/products/drinks/Blackcurrant.webp"
+        "company": "Club",
+        "name": "Club - Blackcurrant",
+        "image": "/images/products/drinks/Blackcurrant.webp",
+        "description": "Club Blackcurrant joined the Club range in 2016, offering bold fruity flavour with its distinctive purple colour. A refreshing choice for those seeking something different. Available in 350ml, 500ml, 1.25L, and 2L bottles."
       },
       {
         "id": "energy",
         "category": "drinks",
-        "name": "Energy",
-        "image": "/images/products/drinks/Energy.webp"
+        "company": "Bazuu",
+        "name": "Bazuu - Energy",
+        "image": "/images/products/drinks/Energy.webp",
+        "description": "Bazuu Energy drink from Highlands is made specifically for the Kenyan market, delivering the boost you need for busy days. Available in 265ml and 500ml bottles, sold in convenient 12-bottle cartons for wholesale buyers."
       },
       {
         "id": "club-lemonade",
         "category": "drinks",
-        "name": "Club Lemonade",
-        "image": "/images/products/drinks/Club-Lemonade.webp"
+        "company": "Club",
+        "name": "Club - Club Lemonade",
+        "image": "/images/products/drinks/Club-Lemonade.webp",
+        "description": "Club Lemonade offers zesty refreshment from Highlands Drinks, equally enjoyable on its own or as a versatile mixer for social occasions. Backed by 70 years of Kenyan beverage manufacturing experience."
       }
     ],
     "tea": [
       {
         "id": "ketepa-pride",
         "category": "tea",
-        "name": "Ketepa Pride",
-        "image": "/images/products/tea/Ketepa-Pride.png"
+        "company": "Ketepa",
+        "name": "Ketepa - Pride",
+        "image": "/images/products/tea/Ketepa-Pride.webp",
+        "description": "Ketepa Pride features finer granules for full, fast infusion from select gardens across Kenya's Green Rift Valley. This premium Kenyan tea has been trusted since 1978 for authentic chai time. Available in loose tea, tagged and untagged tea bags, and catering packs."
       },
       {
         "id": "safari-pure-tea",
         "category": "tea",
-        "name": "Safari Pure Tea",
-        "image": "/images/products/tea/Safari-Pure-Tea.png"
+        "company": "Safari",
+        "name": "Safari - Pure Tea",
+        "image": "/images/products/tea/Safari-Pure-Tea.webp",
+        "description": "Safari Pure Tea represents Ketepa's finest blend, with top quality leaves handpicked from Kenya's best highland tea gardens. Over 35 years of expert blending delivers exceptional flavour in every cup. Available in 250g, 500g, 1kg loose tea and 100-count tea bags."
       },
       {
         "id": "melvins-ginger-tea",
         "category": "tea",
-        "name": "Melvins Ginger Tea",
-        "image": "/images/products/tea/Melvins-Ginger-Tea.webp"
+        "company": "Melvins",
+        "name": "Melvins - Ginger Tea",
+        "image": "/images/products/tea/Melvins-Ginger-Tea.webp",
+        "description": "Melvins Ginger Tea combines premium Kenyan black tea with natural ginger for a warming, aromatic brew. Perfect for morning chai time or soothing evening refreshment. Available in both loose leaf and convenient tea bag formats."
       },
       {
         "id": "melvins-masala-tea",
         "category": "tea",
-        "name": "Melvins Masala Tea",
-        "image": "/images/products/tea/Melvins-Masala-Tea.webp"
+        "company": "Melvins",
+        "name": "Melvins - Masala Tea",
+        "image": "/images/products/tea/Melvins-Masala-Tea.webp",
+        "description": "Melvins Masala Tea blends premium Kenyan black tea with ginger, cinnamon, cloves, and cardamom for authentic masala chai flavour. This aromatic fusion of Kenyan highland tea and traditional Indian spices is perfect for chai lovers. Available in loose leaf and tea bags."
       },
       {
         "id": "fahari-black-tea",
         "category": "tea",
-        "name": "Fahari Black Tea",
-        "image": "/images/products/tea/Fahari-Black-Tea.png"
+        "company": "Fahari",
+        "name": "Fahari - Black Tea",
+        "image": "/images/products/tea/Fahari-Black-Tea.webp",
+        "description": "Fahari ya Kenya is Kenya's number one trusted tea brand from Ketepa, winner of multiple awards from 2022-2025. Blended from East and West Rift Valley highland tea gardens, this premium Kenyan tea is rich in antioxidants and theanine for a superior chai experience."
       },
       {
         "id": "ginger-tea",
         "category": "tea",
-        "name": "Ginger Tea",
-        "image": "/images/products/tea/Ginger-Tea.png"
+        "company": "Ketepa",
+        "name": "Ketepa - Ginger Tea",
+        "image": "/images/products/tea/Ginger-Tea.webp",
+        "description": "Ketepa Ginger Tea combines premium Kenyan black tea with natural ginger for a warming brew with digestive benefits. Part of Ketepa's popular flavoured range, perfect for cold mornings or soothing evening chai time."
       },
       {
         "id": "masala-tea",
         "category": "tea",
-        "name": "Masala Tea",
-        "image": "/images/products/tea/Masala-Tea.png"
+        "company": "Ketepa",
+        "name": "Ketepa - Masala Tea",
+        "image": "/images/products/tea/Masala-Tea.webp",
+        "description": "Ketepa Masala Tea delivers authentic chai flavour with premium Kenyan black tea infused with cardamom, cinnamon, ginger, and cloves. This ISO certified masala tea brings the classic Kenyan chai experience to your cup every time."
       },
       {
         "id": "lemon-green-tea",
         "category": "tea",
-        "name": "Lemon Green Tea",
-        "image": "/images/products/tea/Lemon-Green-Tea.png"
+        "company": "Ketepa",
+        "name": "Ketepa - Lemon Green Tea",
+        "image": "/images/products/tea/Lemon-Green-Tea.webp",
+        "description": "Ketepa Lemon Green Tea offers a lighter alternative to black tea with natural lemon flavour and antioxidant benefits. Perfect for health-conscious tea lovers seeking refreshing variety from Kenya's leading tea brand."
       },
       {
         "id": "flavoured-hexagonal-pack",
         "category": "tea",
-        "name": "Flavoured Hexagonal Pack",
-        "image": "/images/products/tea/Flavoured-Hexagonal-Pack.png"
+        "company": "Ketepa",
+        "name": "Ketepa - Flavoured Hexagonal Pack",
+        "image": "/images/products/tea/Flavoured-Hexagonal-Pack.webp",
+        "description": "Ketepa's Flavoured Hexagonal Pack is the perfect tea gift set featuring 11 varieties: Lemon, Ginger, Masala, Forest Fruit, Cinnamon, Caramel, Mint, Mango, Orange, Earl Grey, and Jasmine. Each tea bag is individually enveloped for freshness."
       }
     ],
     "toilet-paper": [
       {
         "id": "velvex",
         "category": "toilet-paper",
+        "company": "Velvex",
         "name": "Velvex",
-        "image": "/images/products/toilet-paper/Velvex.png"
+        "image": "/images/products/toilet-paper/Velvex.webp",
+        "description": "Velvex soft tissue is made from 100% virgin pulp by Chandaria Industries with advanced 2-ply laminated technology and absorbent gel layer. This premium toilet paper is 100% biodegradable, combining luxury softness with environmental responsibility. Over 50 years of trusted manufacturing."
       },
       {
         "id": "nice-soft",
         "category": "toilet-paper",
+        "company": "Nice & Soft",
         "name": "Nice & Soft",
-        "image": "/images/products/toilet-paper/Nice-Soft.png"
+        "image": "/images/products/toilet-paper/Nice-Soft.webp",
+        "description": "Nice and Soft is East Africa's number one toilet tissue, crafted from 100% virgin pulp by Chandaria Industries. Known for exceptional strength, softness, and absorbency, this 2-ply tissue delivers premium comfort for the whole family."
       },
       {
         "id": "toilex",
         "category": "toilet-paper",
+        "company": "Toilex",
         "name": "Toilex",
-        "image": "/images/products/toilet-paper/Toilex.png"
+        "image": "/images/products/toilet-paper/Toilex.webp",
+        "description": "Toilex is Kenya's most popular tissue brand, made from 100% recycled paper for eco-conscious households. This soft tissue offers the perfect balance of softness, strength, and absorbency while being 100% biodegradable. Wholesale Kenya trusted from Chandaria Industries."
       },
       {
         "id": "rosy",
         "category": "toilet-paper",
+        "company": "Rosy",
         "name": "Rosy",
-        "image": "/images/products/toilet-paper/Rosy.png"
+        "image": "/images/products/toilet-paper/Rosy.webp",
+        "description": "Rosy is Kenya's first toilet tissue brand with over 50 years of heritage. Made from 100% recycled paper waste, this affordable family pack option delivers extra strength without compromising value. From Chandaria Industries, Kenya's tissue pioneers."
       }
     ],
     "pure-spices": [
       {
         "id": "black-pepper",
         "category": "pure-spices",
-        "name": "Black Pepper",
-        "image": "/images/products/pure-spices/Black-Pepper.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Black Pepper",
+        "image": "/images/products/pure-spices/Black-Pepper.webp",
+        "description": "Tropical Heat pure black pepper brings bold, aromatic heat to your nyama choma, stews, and marinades. This authentic Kenyan spice contains no additives and is ISO 22000:2005 certified for quality you can trust in every dish."
       },
       {
         "id": "cardamoms",
         "category": "pure-spices",
-        "name": "Cardamoms",
-        "image": "/images/products/pure-spices/Cardamoms.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Cardamoms",
+        "image": "/images/products/pure-spices/Cardamoms.webp",
+        "description": "Known as the Queen of Spices, Tropical Heat cardamom pods deliver the aromatic complexity essential for authentic chai, biryani, and homemade garam masala. These pure spices with no additives create that traditional recipe flavor Kenyans love."
       },
       {
         "id": "cayenne-pepper",
         "category": "pure-spices",
-        "name": "Cayenne Pepper",
-        "image": "/images/products/pure-spices/Cayenne-Pepper.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Cayenne Pepper",
+        "image": "/images/products/pure-spices/Cayenne-Pepper.webp",
+        "description": "Tropical Heat cayenne pepper delivers concentrated heat and vibrant color to your curries, sauces, and nyama choma marinades. This pure spice contains no additives, just authentic Kenyan quality for recipes that demand real fire."
       },
       {
         "id": "chilli-flakes",
         "category": "pure-spices",
-        "name": "Chilli Flakes",
-        "image": "/images/products/pure-spices/Chilli-Flakes.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Chilli Flakes",
+        "image": "/images/products/pure-spices/Chilli-Flakes.webp",
+        "description": "Tropical Heat chilli flakes give you control over the heat in your pilau, pizza, and pasta dishes. Sprinkle these aromatic crushed chilies as a finishing touch or work them into marinades for that perfect kick."
       },
       {
         "id": "chillies",
         "category": "pure-spices",
-        "name": "Chillies",
-        "image": "/images/products/pure-spices/Chillies.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Chillies",
+        "image": "/images/products/pure-spices/Chillies.webp",
+        "description": "Tropical Heat ground chillies are roasted and finely ground for consistent heat and deep red color in your traditional recipes. These pure spices contain no fillers, delivering authentic Kenyan flavor to curries and stews."
       },
       {
         "id": "cinnamon",
         "category": "pure-spices",
-        "name": "Cinnamon",
-        "image": "/images/products/pure-spices/Cinnamon.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Cinnamon",
+        "image": "/images/products/pure-spices/Cinnamon.webp",
+        "description": "Tropical Heat cinnamon adds sweet, warming notes to your chai, pilau, and biryani dishes. This pure spice with no additives is essential for authentic Kenyan spice blends and traditional recipes that call for aromatic warmth."
       },
       {
         "id": "cloves",
         "category": "pure-spices",
-        "name": "Cloves",
-        "image": "/images/products/pure-spices/Cloves.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Cloves",
+        "image": "/images/products/pure-spices/Cloves.webp",
+        "description": "Tropical Heat cloves are intensely aromatic, perfect for pilau, biryani, chai masala, and homemade garam masala. These pure spices bring authentic East African depth to your traditional recipes with natural preservative properties."
       },
       {
         "id": "coriander",
         "category": "pure-spices",
-        "name": "Coriander",
-        "image": "/images/products/pure-spices/Coriander.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Coriander",
+        "image": "/images/products/pure-spices/Coriander.webp",
+        "description": "Tropical Heat roasted coriander offers citrusy, slightly sweet notes that form the backbone of curry powder and pilau masala blends. This 100% natural pure spice is essential for authentic Kenyan curries and marinades."
       },
       {
         "id": "cumin",
         "category": "pure-spices",
-        "name": "Cumin",
-        "image": "/images/products/pure-spices/Cumin.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Cumin",
+        "image": "/images/products/pure-spices/Cumin.webp",
+        "description": "Tropical Heat cumin delivers warm, earthy depth to your pilau, biryani, and meat preparations. This pure spice with no additives is fundamental to authentic Kenyan cooking and essential for traditional recipe masala blends."
       },
       {
         "id": "garlic-powder",
         "category": "pure-spices",
-        "name": "Garlic Powder",
-        "image": "/images/products/pure-spices/Garlic-Powder.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Garlic Powder",
+        "image": "/images/products/pure-spices/Garlic-Powder.webp",
+        "description": "Tropical Heat garlic powder dissolves easily into marinades and nyama choma rubs when fresh garlic is not practical. This 100% pure spice delivers consistent aromatic flavor to your seasoning blends and traditional recipes."
       },
       {
         "id": "ginger",
         "category": "pure-spices",
-        "name": "Ginger",
-        "image": "/images/products/pure-spices/Ginger.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Ginger",
+        "image": "/images/products/pure-spices/Ginger.webp",
+        "description": "Tropical Heat ground ginger brings warming, aromatic depth to your chai, curries, and baking. This pure spice contains no additives and adds authentic Kenyan flavor with natural anti-inflammatory benefits."
       },
       {
         "id": "nutmeg",
         "category": "pure-spices",
-        "name": "Nutmeg",
-        "image": "/images/products/pure-spices/Nutmeg.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Nutmeg",
+        "image": "/images/products/pure-spices/Nutmeg.webp",
+        "description": "Tropical Heat nutmeg offers warm, sweet notes perfect for chai masala, desserts, and aromatic spice blends. This pure spice with no additives adds sophistication to both sweet and savory traditional recipes."
       },
       {
         "id": "onion-powder",
         "category": "pure-spices",
-        "name": "Onion Powder",
-        "image": "/images/products/pure-spices/Onion-Powder.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Onion Powder",
+        "image": "/images/products/pure-spices/Onion-Powder.webp",
+        "description": "Tropical Heat onion powder provides concentrated savory flavor for rubs, seasonings, and quick weeknight cooking. This 100% pure spice is perfect when you need that aromatic onion depth without the prep time."
       },
       {
         "id": "paprika",
         "category": "pure-spices",
-        "name": "Paprika",
-        "image": "/images/products/pure-spices/Paprika.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Paprika",
+        "image": "/images/products/pure-spices/Paprika.webp",
+        "description": "Tropical Heat paprika adds mild, sweet pepper flavor and rich red color to stews, rice dishes, and grilled meats. This pure spice with no additives is a versatile addition to your authentic Kenyan kitchen."
       },
       {
         "id": "turmeric",
         "category": "pure-spices",
-        "name": "Turmeric",
-        "image": "/images/products/pure-spices/Turmeric.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Turmeric",
+        "image": "/images/products/pure-spices/Turmeric.webp",
+        "description": "Tropical Heat turmeric brings golden color and earthy depth to your curries, pilau, and biryani. This pure spice contains no additives and is rich in natural curcumin for authentic Kenyan recipes with health benefits."
       },
       {
         "id": "white-pepper",
         "category": "pure-spices",
-        "name": "White Pepper",
-        "image": "/images/products/pure-spices/White-Pepper.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - White Pepper",
+        "image": "/images/products/pure-spices/White-Pepper.webp",
+        "description": "Tropical Heat white pepper delivers subtle heat without dark specks, ideal for light-colored sauces, soups, and seafood dishes. This 100% pure spice is a refined choice for traditional recipes requiring delicate seasoning."
       }
     ],
     "seasonings": [
       {
         "id": "seasonings-biryani-masala",
         "category": "seasonings",
-        "name": "Biryani Masala",
-        "image": "/images/products/seasonings/Biryani-Masala.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Biryani Masala",
+        "image": "/images/products/seasonings/Biryani-Masala.webp",
+        "description": "Tropical Heat biryani masala blends cardamom, cloves, cinnamon, and aromatic spices for authentic layered rice dishes. This traditional recipe seasoning brings the rich, fragrant flavor of restaurant-quality biryani to your home kitchen."
       },
       {
         "id": "seasonings-chilli-lemon",
         "category": "seasonings",
-        "name": "Chilli Lemon",
-        "image": "/images/products/seasonings/Chilli-Lemon.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Chilli Lemon",
+        "image": "/images/products/seasonings/Chilli-Lemon.webp",
+        "description": "Tropical Heat chilli lemon seasoning pairs tangy citrus with spicy heat for grilled meats, nyama choma, and roasted vegetables. This versatile blend also transforms chips, popcorn, and salads into bold, flavorful snacks."
       },
       {
         "id": "seasonings-dhana-jeera",
         "category": "seasonings",
-        "name": "Dhana Jeera",
-        "image": "/images/products/seasonings/Dhana-Jeera.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Dhana Jeera",
+        "image": "/images/products/seasonings/Dhana-Jeera.webp",
+        "description": "Tropical Heat dhana jeera combines roasted coriander and cumin in traditional proportions used across Kenyan and Indian kitchens. This aromatic foundation blend creates authentic curry powder depth for vegetable dishes and lentils."
       },
       {
         "id": "seasonings-garam-masala",
         "category": "seasonings",
-        "name": "Garam Masala",
-        "image": "/images/products/seasonings/Garam-Masala.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Garam Masala",
+        "image": "/images/products/seasonings/Garam-Masala.webp",
+        "description": "Tropical Heat garam masala blends cloves, cinnamon, cardamom, and warming spices for that authentic finishing touch. Add this aromatic seasoning at the end of cooking to bring traditional recipe depth to your curries and meat dishes."
       },
       {
         "id": "seasonings-mixed-spices",
         "category": "seasonings",
-        "name": "Mixed Spices",
-        "image": "/images/products/seasonings/Mixed-Spices.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Mixed Spices",
+        "image": "/images/products/seasonings/Mixed-Spices.webp",
+        "description": "Tropical Heat mixed spices is an all-purpose blend for everyday Kenyan cooking. This aromatic seasoning saves time on measuring while delivering consistent flavor to your meats, stews, rice dishes, and soups."
       },
       {
         "id": "seasonings-mixed-spices-for-wet-and-dry",
         "category": "seasonings",
-        "name": "Mixed Spices for Wet and Dry",
-        "image": "/images/products/seasonings/Mixed-Spices-for-Wet-and-Dry.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Mixed Spices for Wet and Dry",
+        "image": "/images/products/seasonings/Mixed-Spices-for-Wet-and-Dry.webp",
+        "description": "Tropical Heat mixed spices for wet and dry works equally well in curries and stews as it does in dry rubs for nyama choma. This versatile aromatic blend simplifies your spice rack while delivering authentic Kenyan flavor across cooking methods."
       },
       {
         "id": "seasonings-peri-peri",
         "category": "seasonings",
-        "name": "Peri Peri",
-        "image": "/images/products/seasonings/Peri-Peri.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Peri Peri",
+        "image": "/images/products/seasonings/Peri-Peri.webp",
+        "description": "Tropical Heat peri peri brings the fiery, tangy flavor of African-Portuguese cooking to your kitchen. This aromatic blend of Bird's Eye chili, garlic, and lemon transforms chicken, nyama choma, and grilled vegetables into bold, memorable dishes."
       },
       {
         "id": "seasonings-pilau-masala",
         "category": "seasonings",
-        "name": "Pilau Masala",
-        "image": "/images/products/seasonings/Pilau-Masala.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Pilau Masala",
+        "image": "/images/products/seasonings/Pilau-Masala.webp",
+        "description": "Tropical Heat pilau masala is the authentic Kenyan spice blend that makes perfect pilau every time. This aromatic mix of cumin, cardamom, cloves, and black pepper contains no preservatives, just pure traditional recipe flavor."
       },
       {
         "id": "seasonings-salad-seasoning",
         "category": "seasonings",
-        "name": "Salad Seasoning",
-        "image": "/images/products/seasonings/Salad-Seasoning.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Salad Seasoning",
+        "image": "/images/products/seasonings/Salad-Seasoning.webp",
+        "description": "Tropical Heat salad seasoning blends herbs, sesame seeds, and savory spices for fresh, vibrant dishes. This aromatic mix elevates salads, grilled vegetables, and light meals with balanced, restaurant-quality flavor."
       },
       {
         "id": "seasonings-tea-masala",
         "category": "seasonings",
-        "name": "Tea Masala",
-        "image": "/images/products/seasonings/Tea-Masala.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Tea Masala",
+        "image": "/images/products/seasonings/Tea-Masala.webp",
+        "description": "Tropical Heat tea masala blends cardamom, ginger, cinnamon, and cloves for authentic masala chai. Simply add this aromatic mix to your black tea for that traditional recipe warmth Kenyans have loved for generations."
       }
     ],
     "salts": [
       {
         "id": "citric-acid",
         "category": "salts",
-        "name": "Citric Acid",
-        "image": "/images/products/salts/Citric-Acid.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Citric Acid",
+        "image": "/images/products/salts/Citric-Acid.webp",
+        "description": "Tropical Heat citric acid is a food-grade crystalline powder for preserving, baking, and enhancing flavor. This versatile kitchen essential prevents browning in fruits, activates baking soda, and extends shelf life in home canning."
       },
       {
         "id": "meat-tenderiser",
         "category": "salts",
-        "name": "Meat Tenderiser",
-        "image": "/images/products/salts/Meat-Tenderizer.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Meat Tenderiser",
+        "image": "/images/products/salts/Meat-Tenderizer.webp",
+        "description": "Tropical Heat meat tenderiser uses natural enzymes to transform economical cuts into tender, flavorful dishes. Apply as a dry rub or mix into your nyama choma marinades to break down tough fibers before grilling."
       }
     ],
     "herbs": [
       {
         "id": "basil",
         "category": "herbs",
-        "name": "Basil",
-        "image": "/images/products/herbs/Basil.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Basil",
+        "image": "/images/products/herbs/Basil.webp",
+        "description": "Tropical Heat dried basil brings aromatic, slightly sweet flavor to your Italian herbs collection. This essential cooking herb elevates tomato-based sauces, pizza, and pasta with that authentic Mediterranean taste."
       },
       {
         "id": "bay-leaves",
         "category": "herbs",
-        "name": "Bay Leaves",
-        "image": "/images/products/herbs/Bay-Leaves.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Bay Leaves",
+        "image": "/images/products/herbs/Bay-Leaves.webp",
+        "description": "Tropical Heat bay leaves release their herbal-floral aroma gradually into your pilau, stews, and slow-cooked dishes. These dried herbs are essential for building depth in stocks, braises, and traditional Kenyan rice preparations."
       },
       {
         "id": "marjoram",
         "category": "herbs",
-        "name": "Marjoram",
-        "image": "/images/products/herbs/Marjoram.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Marjoram",
+        "image": "/images/products/herbs/Marjoram.webp",
+        "description": "Tropical Heat marjoram offers a delicate, sweet flavor that is milder than oregano. This dried herb pairs beautifully with poultry, vegetables, and tomato sauces for subtle Mediterranean-inspired cooking."
       },
       {
         "id": "mint",
         "category": "herbs",
-        "name": "Mint",
-        "image": "/images/products/herbs/Mint.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Mint",
+        "image": "/images/products/herbs/Mint.webp",
+        "description": "Tropical Heat dried mint delivers refreshing, cooling flavor to teas, yogurt sauces, and lamb dishes. This versatile cooking herb is perfect for Middle Eastern recipes and adds brightness to salads and traditional beverages."
       },
       {
         "id": "mixed-herbs",
         "category": "herbs",
-        "name": "Mixed Herbs",
-        "image": "/images/products/herbs/Mixed-Herbs.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Mixed Herbs",
+        "image": "/images/products/herbs/Mixed-Herbs.webp",
+        "description": "Tropical Heat mixed herbs combines oregano, basil, thyme, marjoram, and sage in one convenient Italian herbs blend. This aromatic mix simplifies your spice rack while delivering authentic flavor to pasta, pizza, and roasted meats."
       },
       {
         "id": "oregano",
         "category": "herbs",
-        "name": "Oregano",
-        "image": "/images/products/herbs/Oregano.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Oregano",
+        "image": "/images/products/herbs/Oregano.webp",
+        "description": "Tropical Heat oregano delivers robust, slightly peppery flavor that defines Italian and Mediterranean cuisine. This essential dried herb is more concentrated than fresh, making it perfect for tomato sauces, pizza, and grilled meats."
       },
       {
         "id": "parsley",
         "category": "herbs",
-        "name": "Parsley",
-        "image": "/images/products/herbs/Parsley.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Parsley",
+        "image": "/images/products/herbs/Parsley.webp",
+        "description": "Tropical Heat parsley adds mild, fresh flavor and vibrant green color to finished dishes. This versatile dried herb brightens soups, stews, and meat preparations while providing essential vitamins for healthy cooking."
       },
       {
         "id": "rosemary-leaves",
         "category": "herbs",
-        "name": "Rosemary Leaves",
-        "image": "/images/products/herbs/Rosemary-Leaves.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Rosemary Leaves",
+        "image": "/images/products/herbs/Rosemary-Leaves.webp",
+        "description": "Tropical Heat rosemary leaves offer intense, piney-aromatic flavor that transforms roasted lamb, beef, and potatoes. This potent dried herb pairs perfectly with grilled vegetables and brings depth to nyama choma marinades."
       },
       {
         "id": "sage",
         "category": "herbs",
-        "name": "Sage",
-        "image": "/images/products/herbs/Sage.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Sage",
+        "image": "/images/products/herbs/Sage.webp",
+        "description": "Tropical Heat sage delivers warm, earthy notes traditional in poultry stuffing, sausages, and pork dishes. This aromatic dried herb elevates brown butter sauces and brings classic European flavor to your cooking."
       },
       {
         "id": "thyme",
         "category": "herbs",
-        "name": "Thyme",
-        "image": "/images/products/herbs/Thyme.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Thyme",
+        "image": "/images/products/herbs/Thyme.webp",
+        "description": "Tropical Heat thyme brings subtle, earthy-minty flavor essential for Mediterranean cooking and French bouquet garni. This dried herb holds up through long cooking, making it perfect for roasted meats, vegetables, and stocks."
       }
     ],
     "masalas": [
       {
         "id": "beef-masala",
         "category": "masalas",
-        "name": "Beef Masala",
-        "image": "/images/products/masalas/Beef-Masala.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Beef Masala",
+        "image": "/images/products/masalas/Beef-Masala.webp",
+        "description": "Tropical Heat beef masala brings authentic Kenyan flavor to your beef curries and stews with coriander, cumin, and aromatic herbs. This pure spice blend contains no MSG and is FSSC 22000 certified for quality. Available in 100g jars."
       },
       {
         "id": "chicken-masala",
         "category": "masalas",
-        "name": "Chicken Masala",
-        "image": "/images/products/masalas/Chicken-Masala.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Chicken Masala",
+        "image": "/images/products/masalas/Chicken-Masala.webp",
+        "description": "Tropical Heat chicken masala combines coriander, cumin, turmeric, and aromatic spices for flavorful chicken dishes and marinades. This authentic Kenyan blend contains no MSG or artificial additives and is FSSC 22000 certified."
       },
       {
         "id": "chips-masala",
         "category": "masalas",
-        "name": "Chips Masala",
-        "image": "/images/products/masalas/Chips-Masala.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Chips Masala",
+        "image": "/images/products/masalas/Chips-Masala.webp",
+        "description": "Tropical Heat chips masala is Kenya's favorite fries seasoning, delivering that authentic street-food taste from Kenyan eateries. This aromatic blend of chili, cumin, and coriander transforms ordinary chips into a traditional Kenyan snack."
       },
       {
         "id": "curry-powder",
         "category": "masalas",
-        "name": "Curry Powder",
-        "image": "/images/products/masalas/Curry-Powder.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Curry Powder",
+        "image": "/images/products/masalas/Curry-Powder.webp",
+        "description": "Tropical Heat curry powder blends turmeric, coriander, cumin, and fenugreek for authentic Kenyan curries. This 100% natural spice mix contains no MSG or preservatives and is FSSC 22000 certified for trusted quality."
       },
       {
         "id": "fish-masala",
         "category": "masalas",
-        "name": "Fish Masala",
-        "image": "/images/products/masalas/Fish-Masala.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Fish Masala",
+        "image": "/images/products/masalas/Fish-Masala.webp",
+        "description": "Tropical Heat fish masala balances coriander, cumin, turmeric, and coastal spices to enhance seafood without overpowering it. This MSG-free blend is perfect for traditional Kenyan fish dishes and is FSSC 22000 certified."
       },
       {
         "id": "githeri-masala",
         "category": "masalas",
-        "name": "Githeri Masala",
-        "image": "/images/products/masalas/Githeri-Masala.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Githeri Masala",
+        "image": "/images/products/masalas/Githeri-Masala.webp",
+        "description": "Tropical Heat githeri masala is crafted specifically for Kenya's beloved traditional beans and maize dish. This all-natural blend of coriander, cumin, turmeric, and aromatic spices contains no artificial additives."
       }
     ],
     "grinders": [
       {
         "id": "black-peppercorn",
         "category": "grinders",
-        "name": "Black Peppercorn",
-        "image": "/images/products/grinders/Black-Peppercorn.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Black Peppercorn",
+        "image": "/images/products/grinders/Black-Peppercorn.webp",
+        "description": "Tropical Heat black peppercorn grinder delivers fresh-ground pepper with superior aromatic flavor for your nyama choma and everyday cooking. This 100ml refillable grinder with adjustable settings keeps your pure spices at peak freshness."
       },
       {
         "id": "fireball",
         "category": "grinders",
-        "name": "Fireball",
-        "image": "/images/products/grinders/Fireball.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Fireball",
+        "image": "/images/products/grinders/Fireball.webp",
+        "description": "Tropical Heat Fireball grinder combines black peppercorns, white peppercorns, chillies, and ginger for intense heat with complex flavor. This aromatic blend in a convenient 100ml grinder is perfect for those who love bold, spicy dishes."
       },
       {
         "id": "himalayan-pink-salt",
         "category": "grinders",
-        "name": "Himalayan Pink Salt",
-        "image": "/images/products/grinders/Himalayan-Pink-Salt.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Himalayan Pink Salt",
+        "image": "/images/products/grinders/Himalayan-Pink-Salt.webp",
+        "description": "Tropical Heat Himalayan pink salt grinder features mineral-rich salt from ancient sea deposits with subtle flavor complexity. This 100ml refillable grinder delivers pure, natural seasoning as a finishing touch to your dishes."
       },
       {
         "id": "mixed-spice-whole",
         "category": "grinders",
-        "name": "Mixed Spice Whole",
-        "image": "/images/products/grinders/Mixed-Spice-Whole.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Mixed Spice Whole",
+        "image": "/images/products/grinders/Mixed-Spice-Whole.webp",
+        "description": "Tropical Heat mixed spice whole grinder combines sea salt, sesame seeds, black pepper, and aromatic spices in one convenient 100ml grinder. Perfect for adding traditional recipe flavor to meats, stews, soups, and curries."
       },
       {
         "id": "pepper-medley-whole",
         "category": "grinders",
-        "name": "Pepper Medley Whole",
-        "image": "/images/products/grinders/Pepper-Medley-Whole.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Pepper Medley Whole",
+        "image": "/images/products/grinders/Pepper-Medley-Whole.webp",
+        "description": "Tropical Heat pepper medley grinder blends black peppercorns, white peppercorns, coriander seeds, and allspice for multi-dimensional flavor. This 100ml aromatic grinder elevates steaks, roasts, and grilled nyama choma."
       },
       {
         "id": "sea-salt-whole",
         "category": "grinders",
-        "name": "Sea Salt Whole",
-        "image": "/images/products/grinders/Sea-Salt-Whole.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Sea Salt Whole",
+        "image": "/images/products/grinders/Sea-Salt-Whole.webp",
+        "description": "Tropical Heat sea salt grinder contains pure sea salt with trace minerals from evaporated seawater for cleaner flavor than processed table salt. This 100ml refillable grinder offers adjustable coarseness for versatile cooking."
       }
     ],
     "pops": [
       {
         "id": "popped-nachos-salted",
         "category": "pops",
-        "name": "Popped Nachos Salted",
-        "image": "/images/products/pops/Popped-Nachos-Salted.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Popped Nachos Salted",
+        "image": "/images/products/pops/Popped-Nachos-Salted.webp",
+        "description": "Tropical Heat Popped Nachos deliver satisfying crunch with zero cholesterol, air-popped from rice and corn with premium Himalayan pink salt. These light, crunchy snacks are perfect for health-conscious snacking at the office or school. Available in convenient 22g and sharing 120g sizes."
       },
       {
         "id": "popped-nachos-tomato",
         "category": "pops",
-        "name": "Popped Nachos Tomato",
-        "image": "/images/products/pops/Popped-Nachos-Tomato.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Popped Nachos Tomato",
+        "image": "/images/products/pops/Popped-Nachos-Tomato.webp",
+        "description": "Enjoy the tangy tomato burst of Tropical Heat air-popped nachos, a cholesterol-free alternative to traditional fried snacks. These Kenyan crisps offer bold flavour with less oil, making them ideal party snacks or everyday treats. Available in 22g pocket packs and 120g family formats."
       },
       {
         "id": "popped-nachos-cheese",
         "category": "pops",
-        "name": "Popped Nachos Cheese",
-        "image": "/images/products/pops/Popped-Nachos-Cheese.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Popped Nachos Cheese",
+        "image": "/images/products/pops/Popped-Nachos-Cheese.webp",
+        "description": "Tropical Heat Cheese Popped Nachos combine rich cheese flavour with air-popped lightness for guilt-free crunchy snacks. Perfect for kids lunchboxes, office breaks, or movie nights without the heaviness of fried chips. Available in 22g and 120g sizes for individual or sharing occasions."
       },
       {
         "id": "popped-nachos-chilli-lime",
         "category": "pops",
-        "name": "Popped Nachos Chilli Lime",
-        "image": "/images/products/pops/Popped-Nachos-Chilli-Lime.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Popped Nachos Chilli Lime",
+        "image": "/images/products/pops/Popped-Nachos-Chilli-Lime.webp",
+        "description": "Experience the zesty kick of Tropical Heat Chilli Lime Popped Nachos, combining tangy citrus with spicy heat on cholesterol-free air-popped corn and rice. These crunchy snacks bring bold East African flavour to parties, picnics, and everyday snacking. Available in 22g and 120g packs."
       }
     ],
     "banana-crips": [
       {
         "id": "banana-crips-salted",
         "category": "banana-crips",
-        "name": "Salted",
-        "image": "/images/products/banana-crips/Banana-Crips-Salted.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Banana Crips Salted",
+        "image": "/images/products/banana-crips/Banana-Crips-Salted.webp",
+        "description": "Tropical Heat Banana Crips showcase hand-picked Kenyan Matoke bananas, gently fried to create uniquely crunchy snacks with natural sweetness and light salt. These authentic Kenyan crisps support local farmers while delivering delicious party snacks everyone loves. Available in convenient 40g packs."
       },
       {
         "id": "banana-crips-chilli-lemon",
         "category": "banana-crips",
-        "name": "Chilli Lemon",
-        "image": "/images/products/banana-crips/Banana-Crips-Chilli-Lemon.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Banana Crips Chilli Lemon",
+        "image": "/images/products/banana-crips/Banana-Crips-Chilli-Lemon.webp",
+        "description": "Tropical Heat Chilli Lemon Banana Crips blend Kenyan Matoke bananas with zesty lemon, fiery chilli, and aromatic turmeric for an unforgettable flavour experience. Made with no added preservatives, these crunchy snacks offer a wholesome alternative to ordinary party snacks."
       },
       {
         "id": "banana-crips-chilli-salted",
         "category": "banana-crips",
-        "name": "Chilli Salted",
-        "image": "/images/products/banana-crips/Banana-Crips-Chilli-Salted.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Banana Crips Chilli Salted",
+        "image": "/images/products/banana-crips/Banana-Crips-Chilli-Salted.webp",
+        "description": "Discover the perfect balance of natural Matoke banana sweetness and fiery chilli heat in Tropical Heat Banana Crips. Hand-picked from Kenyan farms, these cholesterol-free crunchy snacks support local agriculture while satisfying your craving for bold, spicy party snacks. 40g packs available."
       }
     ],
     "heroes": [
       {
         "id": "heroes-chilli-cheese",
         "category": "heroes",
-        "name": "Chilli Cheese",
-        "image": "/images/products/heroes/Chilli-Cheese.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Heroes Chilli Cheese",
+        "image": "/images/products/heroes/Chilli-Cheese.webp",
+        "description": "Tropical Heat Heroes Chilli Cheese combines creamy cheese with fiery heat on hand-picked Kenyan potatoes, gently fried for the perfect crunch. These premium Kenyan crisps come in 110g sharing packs, ideal for parties and gatherings. Every purchase supports vital community initiatives across Kenya."
       },
       {
         "id": "heroes-salted",
         "category": "heroes",
-        "name": "Salted",
-        "image": "/images/products/heroes/Classic-Salted.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Heroes Salted",
+        "image": "/images/products/heroes/Classic-Salted.webp",
+        "description": "Tropical Heat Heroes Classic Salted showcases 47 years of crisp-making expertise with hand-picked Kenyan potatoes and just the right amount of salt. These golden, crunchy snacks are perfect for any occasion, from school lunches to party platters. 110g packs support six community pillars."
       },
       {
         "id": "heroes-sweet-chilli",
         "category": "heroes",
-        "name": "Sweet Chilli",
-        "image": "/images/products/heroes/Sweet-Chilli.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Heroes Sweet Chilli",
+        "image": "/images/products/heroes/Sweet-Chilli.webp",
+        "description": "Tropical Heat Heroes Sweet Chilli delivers the perfect harmony of heat and sweetness on premium Kenyan potato crisps. These crunchy snacks are crowd favourites at parties and gatherings, with every 110g pack contributing to community development initiatives across Kenya."
       },
       {
         "id": "heroes-fruit-chutney",
         "category": "heroes",
-        "name": "Fruit Chutney",
-        "image": "/images/products/heroes/Fruit-Chutney.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Heroes Fruit Chutney",
+        "image": "/images/products/heroes/Fruit-Chutney.webp",
+        "description": "Experience authentic East African flavour with Tropical Heat Heroes Fruit Chutney, featuring sweet-tangy chutney on hand-picked Kenyan crisps. These uniquely flavoured crunchy snacks bring local taste to parties and celebrations. 110g sharing packs support community programmes."
       },
       {
         "id": "heroes-salt-and-vinegar",
         "category": "heroes",
-        "name": "Salt & Vinegar",
-        "image": "/images/products/heroes/Salt-and-Vinegar.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Heroes Salt & Vinegar",
+        "image": "/images/products/heroes/Salt-and-Vinegar.webp",
+        "description": "Tropical Heat Heroes Salt and Vinegar delivers bold, tangy flavour on premium Kenyan potato crisps, backed by 47 years of snack-making heritage. Perfect for those who love intense, crunchy snacks at parties or solo snacking. Wholesale cartons of 24 available for retailers."
       },
       {
         "id": "heroes-cheese-and-onion",
         "category": "heroes",
-        "name": "Cheese & Onion",
-        "image": "/images/products/heroes/Cheese-and-Onion.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Heroes Cheese & Onion",
+        "image": "/images/products/heroes/Cheese-and-Onion.webp",
+        "description": "Tropical Heat Heroes Cheese and Onion offers the classic combination on FSSC 22000 certified Kenyan crisps, ensuring premium quality in every bite. These beloved crunchy snacks are perfect for party platters, office gatherings, and everyday treats. 110g sharing packs available."
       },
       {
         "id": "heroes-tomato-ketchup",
         "category": "heroes",
-        "name": "Tomato Ketchup",
-        "image": "/images/products/heroes/Tomato-Ketchup.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Heroes Tomato Ketchup",
+        "image": "/images/products/heroes/Tomato-Ketchup.webp",
+        "description": "Tropical Heat Heroes Tomato Ketchup brings that beloved sweet-tangy ketchup taste to hand-picked Kenyan potato crisps. A favourite among kids and adults alike, these crunchy snacks are ideal for school lunches, parties, and snack time. 110g packs support community causes."
       }
     ],
     "waves": [
       {
         "id": "waves-fruit-chutney",
         "category": "waves",
-        "name": "Fruit Chutney",
-        "image": "/images/products/waves/Fruit-Chutney.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Waves Fruit Chutney",
+        "image": "/images/products/waves/Fruit-Chutney.webp",
+        "description": "Tropical Heat Waves Fruit Chutney features thick, ridged Kenyan crisps with authentic East African chutney flavour. These gluten-free, vegetarian crunchy snacks offer extra crunch perfect for dipping at parties. Available in 30g individual and 125g sharing packs."
       },
       {
         "id": "waves-salted",
         "category": "waves",
-        "name": "Salted",
-        "image": "/images/products/waves/Salted.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Waves Salted",
+        "image": "/images/products/waves/Salted.webp",
+        "description": "Tropical Heat Waves Salted delivers classic taste with extra crunch through thick, wavy ridges on premium Kenyan potato crisps. Gluten-free and vegetarian, these crunchy snacks are perfect for parties, picnics, and everyday munching. Available in 30g and 125g sizes."
       },
       {
         "id": "waves-salt-and-vinegar",
         "category": "waves",
-        "name": "Salt & Vinegar",
-        "image": "/images/products/waves/Salt-and-Vinegar.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Waves Salt & Vinegar",
+        "image": "/images/products/waves/Salt-and-Vinegar.webp",
+        "description": "Tropical Heat Waves Salt and Vinegar packs bold, tangy punch into thick ridged Kenyan crisps that hold their crunch. These gluten-free crunchy snacks satisfy intense flavour cravings at parties or solo snacking sessions. Available in 30g pocket and 125g sharing formats."
       },
       {
         "id": "waves-chilli-lemon",
         "category": "waves",
-        "name": "Chilli Lemon",
-        "image": "/images/products/waves/Chilli-Lemon.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Waves Chilli Lemon",
+        "image": "/images/products/waves/Chilli-Lemon.webp",
+        "description": "Tropical Heat Waves Chilli Lemon brings East Africa's favourite flavour combination to thick, wavy Kenyan crisps with satisfying crunch. Gluten-free and vegetarian, these zesty crunchy snacks are party favourites across Kenya. Available in 30g and 125g sizes."
       },
       {
         "id": "waves-tomato",
         "category": "waves",
-        "name": "Tomato",
-        "image": "/images/products/waves/Tomato.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Waves Tomato",
+        "image": "/images/products/waves/Tomato.webp",
+        "description": "Tropical Heat Waves Tomato offers savoury tomato goodness on thick, ridged Kenyan potato crisps with superior crunch. These gluten-free crunchy snacks are perfect for kids lunchboxes, office breaks, and party snack bowls. Available in 30g and 125g packs."
       }
     ],
     "potato-crisps": [
       {
         "id": "potato-crisps-sweet-paprika",
         "category": "potato-crisps",
-        "name": "Sweet Paprika",
-        "image": "/images/products/potato-crisps/Sweet-Paprika.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Potato Crisps Sweet Paprika",
+        "image": "/images/products/potato-crisps/Sweet-Paprika.webp",
+        "description": "Tropical Heat Sweet Paprika Potato Crisps bring mild, aromatic paprika to thin, crispy Kenyan chips backed by 50 years of snack expertise. These gluten-free, vegetarian crunchy snacks are perfect for parties and everyday enjoyment. Available from 50g to 400g sizes."
       },
       {
         "id": "potato-crisps-salted",
         "category": "potato-crisps",
-        "name": "Salted",
-        "image": "/images/products/potato-crisps/Salted.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Potato Crisps Salted",
+        "image": "/images/products/potato-crisps/Salted.webp",
+        "description": "Tropical Heat Classic Salted Potato Crisps represent the foundation of Kenya's favourite crisp brand, delivering timeless taste in every thin, crunchy bite. Perfect for parties, school lunches, and snack time. Wholesale cartons of 24-48 available in sizes from 50g to 400g."
       },
       {
         "id": "potato-crisps-cheese-and-onion",
         "category": "potato-crisps",
-        "name": "Cheese & Onion",
-        "image": "/images/products/potato-crisps/Cheese-and-Onion.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Potato Crisps Cheese & Onion",
+        "image": "/images/products/potato-crisps/Cheese-and-Onion.webp",
+        "description": "Tropical Heat Cheese and Onion Potato Crisps combine creamy cheese with savoury onion on thin, crispy Kenyan chips, crafted with 50 years of manufacturing excellence. These beloved crunchy snacks suit every occasion from office breaks to party platters. 50g to 400g sizes."
       },
       {
         "id": "potato-crisps-salt-and-vinegar",
         "category": "potato-crisps",
-        "name": "Salt & Vinegar",
-        "image": "/images/products/potato-crisps/Salt-and-Vinegar.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Potato Crisps Salt & Vinegar",
+        "image": "/images/products/potato-crisps/Salt-and-Vinegar.webp",
+        "description": "Tropical Heat Salt and Vinegar delivers bold, tangy flavour that has made it one of Kenya's top 3 local crisp brands. These thin, crunchy snacks satisfy intense flavour cravings at parties and snack time. Wholesale cartons of 24 in sizes from 25g to 400g."
       },
       {
         "id": "potato-crisps-chilli-lemon",
         "category": "potato-crisps",
-        "name": "Chilli Lemon",
-        "image": "/images/products/potato-crisps/Chilli-Lemon.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Potato Crisps Chilli Lemon",
+        "image": "/images/products/potato-crisps/Chilli-Lemon.webp",
+        "description": "Tropical Heat Chilli Lemon Potato Crisps capture East Africa's favourite flavour profile with zesty citrus and spicy kick on thin, gluten-free Kenyan crisps. These crunchy snacks are party favourites across the region. Available in sizes from 50g to 400g."
       },
       {
         "id": "potato-crisps-tomato",
         "category": "potato-crisps",
-        "name": "Tomato",
-        "image": "/images/products/potato-crisps/Tomato.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Potato Crisps Tomato",
+        "image": "/images/products/potato-crisps/Tomato.webp",
+        "description": "Tropical Heat Tomato Potato Crisps have been a customer favourite for decades, delivering savoury tomato taste on thin, crispy chips backed by 50 years of quality. Perfect crunchy snacks for kids, parties, and everyday enjoyment. 50g to 400g sizes available."
       },
       {
         "id": "potato-crisps-nyama-choma",
         "category": "potato-crisps",
-        "name": "Nyama Choma",
-        "image": "/images/products/potato-crisps/Nyama-Choma.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Potato Crisps Nyama Choma",
+        "image": "/images/products/potato-crisps/Nyama-Choma.webp",
+        "description": "Tropical Heat Nyama Choma Potato Crisps bring Kenya's beloved BBQ flavour to gluten-free, vegetarian thin crisps. These distinctly Kenyan crunchy snacks capture the taste of traditional grilled meat, perfect for parties and local flavour lovers. Wholesale cartons of 48x50g."
       },
       {
         "id": "potato-crisps-masala-sticks",
         "category": "potato-crisps",
-        "name": "Masala Sticks",
-        "image": "/images/products/potato-crisps/Masala-Sticks.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Masala Sticks",
+        "image": "/images/products/potato-crisps/Masala-Sticks.webp",
+        "description": "Tropical Heat Masala Sticks deliver Indian-inspired spice blends on crispy potato sticks, continuing a heritage that began as a cottage industry in 1973. These unique crunchy snacks stand out from regular Kenyan crisps, perfect for parties and ethnic food enthusiasts."
       }
     ],
     "tropnuts": [
       {
         "id": "masala-bhajia-peanuts",
         "category": "tropnuts",
-        "name": "Masala Bhajia Peanuts",
-        "image": "/images/products/tropnuts/Masala-Bhajia-Peanuts.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Masala Bhajia Peanuts",
+        "image": "/images/products/tropnuts/Masala-Bhajia-Peanuts.webp",
+        "description": "Tropical Heat Masala Bhajia Peanuts feature roasted karanga coated in aromatic bhajia-style masala with gram flour and spices, celebrating East African-Indian cuisine. These protein-packed crunchy snacks are gluten-free and perfect for parties or healthy office snacking. 50g and 150g sizes."
       },
       {
         "id": "fried-peanuts",
         "category": "tropnuts",
-        "name": "Fried Peanuts",
-        "image": "/images/products/tropnuts/Fried-Peanuts.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Fried Peanuts",
+        "image": "/images/products/tropnuts/Fried-Peanuts.webp",
+        "description": "Tropical Heat Fried Peanuts from the TropNuts range deliver classic roasted karanga with satisfying crunch and natural protein. These versatile snacks work perfectly for parties, office breaks, or anytime you need a wholesome protein snack. Multiple sizes available."
       },
       {
         "id": "chilli-lemon-peanuts",
         "category": "tropnuts",
-        "name": "Chilli Lemon Peanuts",
-        "image": "/images/products/tropnuts/Chilli-Lemon-Peanuts.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Chilli Lemon Peanuts",
+        "image": "/images/products/tropnuts/Chilli-Lemon-Peanuts.webp",
+        "description": "Tropical Heat Chilli Lemon Peanuts combine roasted karanga with East Africa's favourite tangy-spicy seasoning for irresistible crunchy snacks. These protein-rich roasted peanuts are perfect for parties, picnics, and bold flavour lovers. Available in 50g and 150g sizes."
       },
       {
         "id": "roasted-salted-peanuts",
         "category": "tropnuts",
-        "name": "Roasted Salted Peanuts",
-        "image": "/images/products/tropnuts/Roasted-Salted-Peanuts.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Roasted Salted Peanuts",
+        "image": "/images/products/tropnuts/Roasted-Salted-Peanuts.webp",
+        "description": "Tropical Heat Roasted Salted Peanuts offer quality karanga with light seasoning for classic taste and natural protein. These TropNuts favourites make excellent party snacks, office treats, or healthy between-meal protein snacks. Available in 50g and 150g sizes."
       },
       {
         "id": "fried-peas",
         "category": "tropnuts",
-        "name": "Fried Peas",
-        "image": "/images/products/tropnuts/Fried-Peas.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Fried Peas",
+        "image": "/images/products/tropnuts/Fried-Peas.webp",
+        "description": "Tropical Heat Fried Peas deliver satisfying crunch with higher protein than traditional potato snacks, making them a smart choice for health-conscious snackers. These crunchy green pea snacks from TropNuts are perfect for parties, office breaks, and nutritious munching."
       },
       {
         "id": "roasted-peanuts",
         "category": "tropnuts",
-        "name": "Roasted Peanuts",
-        "image": "/images/products/tropnuts/Roasted-Peanuts.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Roasted Peanuts",
+        "image": "/images/products/tropnuts/Roasted-Peanuts.webp",
+        "description": "Tropical Heat Dry Roasted Peanuts offer pure karanga flavour without added oil, delivering wholesome protein in every crunchy bite. These cholesterol-free TropNuts snacks are perfect for health-conscious consumers and natural peanut lovers. 150g packs available."
       },
       {
         "id": "exotic-nut-mix",
         "category": "tropnuts",
-        "name": "Exotic Nut Mix",
-        "image": "/images/products/tropnuts/Exotic-Nut-Mix.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Exotic Nut Mix",
+        "image": "/images/products/tropnuts/Exotic-Nut-Mix.webp",
+        "description": "Tropical Heat Exotic Nut Mix combines premium cashews, almonds, and select nuts for an upmarket protein snack experience. This sophisticated TropNuts blend is perfect for parties, corporate events, and those seeking quality crunchy snacks with superior nutrition."
       }
     ],
     "ethnic-snacks": [
       {
         "id": "chevda-original",
         "category": "ethnic-snacks",
-        "name": "Chevda Original",
-        "image": "/images/products/ethnic-snacks/Chevda-Original.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Chevda Original",
+        "image": "/images/products/ethnic-snacks/Chevda-Original.webp",
+        "description": "Tropical Heat Chevda Original blends Kenyan sweet potatoes, puffed rice, lentils, peanuts, and cashews in cholesterol-free corn oil with a secret spice blend. This authentic Indian snacks Kenya favourite supports local farmers and delivers irresistible crunch for parties and gatherings. 50g, 150g, and 340g sizes."
       },
       {
         "id": "chevda-hot",
         "category": "ethnic-snacks",
-        "name": "Chevda Hot",
-        "image": "/images/products/ethnic-snacks/Chevda-Hot.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Chevda Hot",
+        "image": "/images/products/ethnic-snacks/Chevda-Hot.webp",
+        "description": "Tropical Heat Chevda Hot brings bold chilli heat to the classic Indian snacks Kenya recipe featuring sweet potatoes, puffed rice, yellow gram, and premium nuts in cholesterol-free corn oil. These spicy crunchy snacks are party favourites for those who love heat. Multiple pack sizes."
       },
       {
         "id": "chevda-chilli-lemon",
         "category": "ethnic-snacks",
-        "name": "Chevda Chilli Lemon",
-        "image": "/images/products/ethnic-snacks/Chevda-Chilli-Lemon.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Chevda Chilli Lemon",
+        "image": "/images/products/ethnic-snacks/Chevda-Chilli-Lemon.webp",
+        "description": "Tropical Heat Chevda Chilli Lemon combines tangy citrus with spicy kick on the beloved Indian snacks Kenya mix of potatoes, puffed rice, lentils, and nuts. Fried in cholesterol-free corn oil, these crunchy snacks add zest to any party or gathering."
       },
       {
         "id": "chevda-no-sugar-added",
         "category": "ethnic-snacks",
-        "name": "Chevda No Sugar Added",
-        "image": "/images/products/ethnic-snacks/Chevda-No-Sugar-Added.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Chevda No Sugar Added",
+        "image": "/images/products/ethnic-snacks/Chevda-No-Sugar-Added.webp",
+        "description": "Tropical Heat Chevda No Sugar Added delivers the same beloved Indian snacks Kenya taste without added sugars, perfect for diabetic-friendly diets. Made with Kenyan potatoes, puffed rice, pulses, and nuts in cholesterol-free corn oil for health-conscious snacking."
       },
       {
         "id": "chevda-masala",
         "category": "ethnic-snacks",
-        "name": "Chevda Masala",
-        "image": "/images/products/ethnic-snacks/Chevda-Masala.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Chevda Masala",
+        "image": "/images/products/ethnic-snacks/Chevda-Masala.webp",
+        "description": "Tropical Heat Chevda Masala features authentic Indian snacks Kenya seasoning with curry leaves, cumin, and coriander on Kenyan potatoes, puffed rice, and nuts. These aromatic crunchy snacks are perfect for parties, Diwali celebrations, and everyday indulgence. Bulk formats available."
       },
       {
         "id": "chevda-mild",
         "category": "ethnic-snacks",
-        "name": "Chevda Mild",
-        "image": "/images/products/ethnic-snacks/Chevda-Mild.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Chevda Mild",
+        "image": "/images/products/ethnic-snacks/Chevda-Mild.webp",
+        "description": "Tropical Heat Chevda Mild offers gentle seasoning on the nutritious Indian snacks Kenya blend of potatoes, puffed rice, lentils, and cashews, perfect for kids and spice-sensitive eaters. These family-friendly crunchy snacks are ideal for school lunches and parties."
       },
       {
         "id": "chevda-sweet-tamu",
         "category": "ethnic-snacks",
-        "name": "Chevda Sweet Tamu",
-        "image": "/images/products/ethnic-snacks/Chevda-Sweet-Tamu.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Chevda Sweet Tamu",
+        "image": "/images/products/ethnic-snacks/Chevda-Sweet-Tamu.webp",
+        "description": "Tropical Heat Chevda Sweet Tamu celebrates the natural sweetness of Kenyan potatoes in this unique Indian snacks Kenya blend with puffed rice, pulses, and nuts. These sweet-savoury crunchy snacks offer a distinctive taste experience for parties and dessert alternatives."
       },
       {
         "id": "nairobi-mix-bhusu",
         "category": "ethnic-snacks",
-        "name": "Nairobi Mix Bhusu",
-        "image": "/images/products/ethnic-snacks/Nairobi-Mix-Bhusu.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Nairobi Mix Bhusu",
+        "image": "/images/products/ethnic-snacks/Nairobi-Mix-Bhusu.webp",
+        "description": "Tropical Heat Nairobi Mix Bhusu celebrates Kenya's diverse culinary heritage with green gram, masoor lentils, pressed rice, peas, and cashews in aromatic spices. This signature Indian snacks Kenya creation delivers authentic local flavour for parties and gatherings. 340g packages."
       }
     ],
     "safari-puffs": [
       {
         "id": "safari-puffs-chilli-lemon",
         "category": "safari-puffs",
-        "name": "Chilli Lemon",
-        "image": "/images/products/safari-puffs/Chilli-Lemon.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Safari Puffs Chilli Lemon",
+        "image": "/images/products/safari-puffs/Chilli-Lemon.webp",
+        "description": "Tropical Heat Safari Puffs Chilli Lemon feature fun animal paw shapes with zesty citrus-chilli flavour, baked not fried for only 108 calories per pack. These gluten-free, trans-fat-free crunchy snacks are perfect for kids lunchboxes and party treats. 18g to 100g sizes."
       },
       {
         "id": "safari-puffs-cheese",
         "category": "safari-puffs",
-        "name": "Cheese",
-        "image": "/images/products/safari-puffs/Cheese.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Safari Puffs Cheese",
+        "image": "/images/products/safari-puffs/Cheese.webp",
+        "description": "Tropical Heat Safari Puffs Cheese delight kids with fun animal paw shapes and rich cheese flavour, baked for just 108 calories per 20g serving. These gluten-free, trans-fat-free crunchy snacks are perfect for school lunches and party snack bowls. 18g to 100g sizes."
       },
       {
         "id": "safari-puffs-tomato",
         "category": "safari-puffs",
-        "name": "Tomato",
-        "image": "/images/products/safari-puffs/Tomato.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Safari Puffs Tomato",
+        "image": "/images/products/safari-puffs/Tomato.webp",
+        "description": "Tropical Heat Safari Puffs Tomato bring savoury tomato flavour to fun animal paw-shaped corn puffs, baked for only 108 calories per pack. These gluten-free crunchy snacks are kid-approved party favourites and lunchbox staples. Available in 18g to 100g sizes."
       },
       {
         "id": "safari-puffs-barbeque",
         "category": "safari-puffs",
-        "name": "Barbeque",
-        "image": "/images/products/safari-puffs/Barbeque.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Safari Puffs Barbeque",
+        "image": "/images/products/safari-puffs/Barbeque.webp",
+        "description": "Tropical Heat Safari Puffs Barbeque offer smoky BBQ flavour on fun animal paw shapes, baked not fried for just 108 calories per 20g. These gluten-free, trans-fat-free crunchy snacks are perfect for parties, picnics, and kids snack time. 18g to 100g sizes."
       }
     ],
     "rice-cakes": [
       {
         "id": "chocolate-rice-cakes",
         "category": "rice-cakes",
-        "name": "Chocolate Rice Cakes",
-        "image": "/images/products/rice-cakes/Chocolate-Rice-Cakes.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Chocolate Rice Cakes",
+        "image": "/images/products/rice-cakes/Chocolate-Rice-Cakes.webp",
+        "description": "Tropical Heat Chocolate Rice Cakes combine crispy whole grain rice with smooth milk chocolate coating for a healthy snacks treat under 100 calories. These gluten-free, trans-fat-free low calorie cakes satisfy sweet cravings guilt-free. 150g packages available."
       },
       {
         "id": "rice-cakes-unsalted",
         "category": "rice-cakes",
-        "name": "Rice Cakes Unsalted",
-        "image": "/images/products/rice-cakes/Rice-Cakes-Unsalted.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Rice Cakes Unsalted",
+        "image": "/images/products/rice-cakes/Rice-Cakes-Unsalted.webp",
+        "description": "Tropical Heat Unsalted Rice Cakes offer a perfect gluten-free alternative canvas at only 35 calories each, ideal for topping with nut butter, avocado, or hummus. These low calorie healthy snacks support mindful eating and creative recipes. 100g and 120g sizes."
       },
       {
         "id": "rice-cakes-salted",
         "category": "rice-cakes",
-        "name": "Rice Cakes Salted",
-        "image": "/images/products/rice-cakes/Rice-Cakes-Salted.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Rice Cakes Salted",
+        "image": "/images/products/rice-cakes/Rice-Cakes-Salted.webp",
+        "description": "Tropical Heat Salted Rice Cakes deliver satisfying crunch with just 35 calories per piece, packed with fibre, magnesium, and B vitamins. These gluten-free, trans-fat-free healthy snacks are the perfect low calorie alternative to chips. Multiple sizes available."
       },
       {
         "id": "rice-cakes-brown-rice",
         "category": "rice-cakes",
-        "name": "Rice Cakes Brown Rice",
-        "image": "/images/products/rice-cakes/Rice-Cakes-Brown-Rice.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Rice Cakes Brown Rice",
+        "image": "/images/products/rice-cakes/Rice-Cakes-Brown-Rice.webp",
+        "description": "Tropical Heat Brown Rice Cakes retain the bran and germ for maximum fibre and nutrients, making them superior healthy snacks for blood sugar management. At only 35 calories each, these gluten-free alternative cakes support wellness goals deliciously."
       },
       {
         "id": "rice-cakes-salt-and-vinegar",
         "category": "rice-cakes",
-        "name": "Rice Cakes Salt & Vinegar",
-        "image": "/images/products/rice-cakes/Rice-Cakes-Salt-and-Vinegar.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Rice Cakes Salt & Vinegar",
+        "image": "/images/products/rice-cakes/Rice-Cakes-Salt-and-Vinegar.webp",
+        "description": "Tropical Heat Salt and Vinegar Rice Cakes bring bold chip flavour to low calorie healthy snacks at just 35 calories per piece. These gluten-free, trans-fat-free cakes offer all the tangy taste without the guilt, perfect for mindful snacking."
       },
       {
         "id": "rice-cakes-cheese",
         "category": "rice-cakes",
-        "name": "Rice Cakes Cheese",
-        "image": "/images/products/rice-cakes/Rice-Cakes-Cheese.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Rice Cakes Cheese",
+        "image": "/images/products/rice-cakes/Rice-Cakes-Cheese.webp",
+        "description": "Tropical Heat Cheese Rice Cakes deliver savoury cheese satisfaction on whole grain healthy snacks at only 35 calories per cake. Gluten-free and vegetarian, these low calorie treats are perfect for office breaks and kids snacks. 165g packages of 12."
       },
       {
         "id": "rice-cakes-fruit-chutney",
         "category": "rice-cakes",
-        "name": "Rice Cakes Fruit Chutney",
-        "image": "/images/products/rice-cakes/Rice-Cakes-Fruit-Chutney.png"
+        "company": "Tropical Heat",
+        "name": "Tropical Heat - Rice Cakes Fruit Chutney",
+        "image": "/images/products/rice-cakes/Rice-Cakes-Fruit-Chutney.webp",
+        "description": "Tropical Heat Fruit Chutney Rice Cakes combine sweet-savoury tropical flavour with Kenyan heritage on gluten-free healthy snacks at just 35 calories each. These distinctly local low calorie cakes offer unique taste as a gluten-free alternative to traditional snacks."
       }
     ]
   },

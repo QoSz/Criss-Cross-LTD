@@ -1,39 +1,40 @@
 import { MetadataRoute } from 'next'
+import { getAllProducts } from '@/lib/products'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.crisscross.co.ke'
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
   const currentDate = new Date().toISOString()
 
   // Main pages
-  const mainPages = [
+  const mainPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: currentDate,
-      changeFrequency: 'daily' as const,
+      changeFrequency: 'daily',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
       lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/products`,
       lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
+      changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/deliveries`,
       lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
       lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'monthly',
       priority: 0.7,
     },
   ]
@@ -50,12 +51,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'Miscellaneous',
   ]
 
-  const categoryPages = categories.map(category => ({
+  const categoryPages: MetadataRoute.Sitemap = categories.map(category => ({
     url: `${baseUrl}/products?category=${encodeURIComponent(category)}`,
     lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
+    changeFrequency: 'weekly',
     priority: 0.6,
   }))
 
-  return [...mainPages, ...categoryPages]
+  // Individual product pages
+  const products = await getAllProducts()
+  const productPages: MetadataRoute.Sitemap = products.map(product => ({
+    url: `${baseUrl}/products/${product.id}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }))
+
+  return [...mainPages, ...categoryPages, ...productPages]
 }

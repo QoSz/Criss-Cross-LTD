@@ -4,6 +4,7 @@ const STATIC_CACHE_URLS = [
   '/products',
   '/about',
   '/contact',
+  '/deliveries',
   '/cc-logos/CC-Logo.png',
   '/cc-logos/manifest.json'
 ];
@@ -24,17 +25,8 @@ const CACHE_STRATEGIES = {
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('[SW] Caching static resources');
-        return cache.addAll(STATIC_CACHE_URLS);
-      })
-      .then(() => {
-        console.log('[SW] Installation complete');
-        return self.skipWaiting();
-      })
-      .catch(error => {
-        console.error('[SW] Installation failed:', error);
-      })
+      .then(cache => cache.addAll(STATIC_CACHE_URLS))
+      .then(() => self.skipWaiting())
   );
 });
 
@@ -44,18 +36,12 @@ self.addEventListener('activate', event => {
     caches.keys()
       .then(cacheNames => {
         return Promise.all(
-          cacheNames.map(cacheName => {
-            if (cacheName !== CACHE_NAME) {
-              console.log('[SW] Deleting old cache:', cacheName);
-              return caches.delete(cacheName);
-            }
-          })
+          cacheNames
+            .filter(cacheName => cacheName !== CACHE_NAME)
+            .map(cacheName => caches.delete(cacheName))
         );
       })
-      .then(() => {
-        console.log('[SW] Activation complete');
-        return self.clients.claim();
-      })
+      .then(() => self.clients.claim())
   );
 });
 
@@ -123,8 +109,7 @@ async function cacheFirst(request, cache) {
       cache.put(request, networkResponse.clone());
     }
     return networkResponse;
-  } catch (error) {
-    console.error('[SW] Cache first failed:', error);
+  } catch {
     return new Response('Offline', { status: 503 });
   }
 }
@@ -138,20 +123,19 @@ async function networkFirst(request, cache) {
     }
     return networkResponse;
   } catch {
-    console.log('[SW] Network failed, trying cache:', request.url);
     const cachedResponse = await cache.match(request);
     if (cachedResponse) {
       return cachedResponse;
     }
-    
+
     // Return offline page for navigation requests
     if (request.mode === 'navigate') {
-      return cache.match('/') || new Response('Offline', { 
+      return cache.match('/') || new Response('Offline', {
         status: 503,
         headers: { 'Content-Type': 'text/html' }
       });
     }
-    
+
     return new Response('Offline', { status: 503 });
   }
 }
@@ -159,15 +143,15 @@ async function networkFirst(request, cache) {
 // Stale while revalidate strategy
 async function staleWhileRevalidate(request, cache) {
   const cachedResponse = await cache.match(request);
-  
+
   const fetchPromise = fetch(request).then(networkResponse => {
     if (networkResponse.ok) {
       cache.put(request, networkResponse.clone());
     }
     return networkResponse;
   }).catch(() => {
-    console.log('[SW] Network failed for:', request.url);
-    return cachedResponse;
+    // Return cached response if available, otherwise return offline response
+    return cachedResponse || new Response('Offline', { status: 503 });
   });
 
   return cachedResponse || fetchPromise;
@@ -177,7 +161,6 @@ async function staleWhileRevalidate(request, cache) {
 if ('sync' in self.registration) {
   self.addEventListener('sync', event => {
     if (event.tag === 'background-sync') {
-      console.log('[SW] Background sync triggered');
       // Handle background sync logic here
     }
   });

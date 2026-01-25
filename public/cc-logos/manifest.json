@@ -54,8 +54,15 @@
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "/cc-logos/android-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
     }
   ],
+  "id": "/?source=pwa",
   "shortcuts": [
     {
       "name": "Browse Products",

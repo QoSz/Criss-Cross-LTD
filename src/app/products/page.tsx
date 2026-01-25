@@ -1,8 +1,7 @@
-import ProductsClient from './ProductsClient';
 import { createMetadata } from '@/lib/seo';
 import { BreadcrumbSchema } from '@/components/structured-data/OrganizationSchema';
 import { getProductsData } from '@/lib/products';
-import { ProductSchemaList } from './ProductSchemaList';
+import { ProductsSection, ProductSchemaList } from '@/components/products';
 
 export const metadata = createMetadata({
   title: 'Wholesale FMCG Products',
@@ -47,8 +46,7 @@ export default async function ProductsPage() {
       <BreadcrumbSchema items={breadcrumbItems} />
       {/* Structured data rendered server-side - not in client bundle */}
       <ProductSchemaList products={allProducts} />
-      {/* Pass products data as props to client component */}
-      <ProductsClient
+      <ProductsSection
         productsByCategory={productsByCategory}
         categoryTitles={categoryTitles}
       />

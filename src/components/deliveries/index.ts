@@ -1,0 +1,5 @@
+export { DeliveriesHero } from "./DeliveriesHero"
+export { DeliveriesStats } from "./DeliveriesStats"
+export { DeliveriesMap } from "./DeliveriesMap"
+export { DeliveriesAreasGrid } from "./DeliveriesAreasGrid"
+export { DeliveriesCTA } from "./DeliveriesCTA"

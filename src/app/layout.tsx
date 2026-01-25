@@ -58,6 +58,13 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${siteConfig.name} | Wholesale FMCG Distributor in Kenya`,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    creator: '@crisscrossltd',
+  },
   robots: {
     index: true,
     follow: true,
