@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { getAllProducts } from '@/lib/products'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+  const baseUrl = 'https://www.crisscross.co.ke'
   const currentDate = new Date().toISOString()
 
   // Main pages
