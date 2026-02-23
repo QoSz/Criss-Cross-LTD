@@ -4,7 +4,7 @@ import { ContactInfoCard } from "./info/ContactInfoCard";
 
 export function ContactInfoSection() {
   return (
-    <div className="space-y-6">
+    <section aria-label="Contact details" className="space-y-6">
       {contactInfoItems.map((item) => (
         <ContactInfoCard key={item.id} item={item} />
       ))}
@@ -16,6 +16,6 @@ export function ContactInfoSection() {
           collaborations, support, career opportunities, or just to say hello!
         </p>
       </Card>
-    </div>
+    </section>
   );
 }

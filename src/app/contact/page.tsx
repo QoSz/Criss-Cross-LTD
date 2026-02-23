@@ -16,10 +16,10 @@ export default function ContactPage() {
     <div className="mx-auto py-12 px-4 bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-900/50">
       <ContactHero />
 
-      <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+      <section aria-label="Contact details and location" className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
         <ContactInfoSection />
         <ContactMapSection />
-      </div>
+      </section>
 
       <ContactFormSection />
     </div>

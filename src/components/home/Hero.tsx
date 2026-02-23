@@ -3,7 +3,7 @@ import { ArrowRight, Phone } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <div className="relative flex flex-col min-h-screen items-center justify-center bg-gradient-to-br from-blue-50/50 via-indigo-50/40 to-purple-50/30 dark:from-blue-950/50 dark:via-indigo-950/40 dark:to-purple-950/30 text-slate-950 transition-colors w-full overflow-x-hidden">
+    <section aria-label="Hero" className="relative flex flex-col min-h-screen items-center justify-center bg-gradient-to-br from-blue-50/50 via-indigo-50/40 to-purple-50/30 dark:from-blue-950/50 dark:via-indigo-950/40 dark:to-purple-950/30 text-slate-950 transition-colors w-full overflow-x-hidden">
           <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="pt-16 pb-20 sm:pt-24 sm:pb-32">
         <div className="text-center max-w-4xl mx-auto px-4">
@@ -37,6 +37,6 @@ export default function Hero() {
         </div>
       </div>
     </div>
-    </div>
+    </section>
   )
 }

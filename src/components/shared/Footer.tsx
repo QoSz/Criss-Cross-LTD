@@ -9,7 +9,7 @@ export function Footer() {
             <div className="px-4 pt-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Company Info */}
-                    <div className="space-y-4">
+                    <section aria-label="Company information" className="space-y-4">
                         <Link href="/" className="flex items-center">
                             <div className="w-[50px] h-[50px] relative">
                                 <Image
@@ -27,12 +27,12 @@ export function Footer() {
                         <p className="text-muted-foreground/80 dark:text-gray-400 text-sm">
                             Delivering FMCG products at competitive wholesale prices with reliable service across Nairobi.
                         </p>
-                    </div>
+                    </section>
 
                     {/* Contact Info */}
-                    <div className="space-y-4">
+                    <section aria-label="Contact information" className="space-y-4">
                         <h3 className="font-semibold text-foreground/90 dark:text-gray-200">Contact Us</h3>
-                        <div className="space-y-3">
+                        <address className="space-y-3 not-italic">
                             <a href="tel:+254707451536" className="flex items-center space-x-2 text-muted-foreground/80 dark:text-gray-400 hover:text-primary text-sm">
                                 <Phone className="h-4 w-4" />
                                 <span>+254 707 451 536</span>
@@ -45,11 +45,11 @@ export function Footer() {
                                 <MapPin className="h-4 w-4" />
                                 <span>Duldul Godown, Phase 2, Mombasa Road, Nairobi</span>
                             </a>
-                        </div>
-                    </div>
+                        </address>
+                    </section>
 
                     {/* Quick Links */}
-                    <div className="space-y-4">
+                    <nav aria-label="Footer navigation" className="space-y-4">
                         <h3 className="font-semibold text-foreground/90 dark:text-gray-200">Quick Links</h3>
                         <div className="space-y-3">
                             <Link href="/about" className="flex items-center space-x-2 text-muted-foreground/80 dark:text-gray-400 hover:text-primary text-sm">
@@ -69,13 +69,24 @@ export function Footer() {
                                 <span>Products</span>
                             </Link>
                         </div>
-                    </div>
+                    </nav>
                 </div>
 
                 {/* Copyright */}
-                <div className="border-t border-blue-200/40 dark:border-gray-800/40 px-4 py-4 mt-8">
+                <div className="border-t border-blue-200/40 dark:border-gray-800/40 px-4 py-4 mt-8 flex flex-col items-center gap-3">
                     <p className="text-center text-sm text-muted-foreground/70 dark:text-gray-500">
                         © <CopyrightYear /> Criss Cross LTD. All rights reserved.
+                    </p>
+                    <p className="text-center text-sm text-gray-700 dark:text-gray-300">
+                        Website Managed By{" "}
+                        <a
+                            href="https://www.tekzuri.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-red-600 dark:text-red-500 hover:text-red-700 dark:hover:text-red-400 transition-colors"
+                        >
+                            TekZuri
+                        </a>
                     </p>
                 </div>
             </div>

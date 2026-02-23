@@ -12,7 +12,7 @@ export function Navbar() {
 
     return (
         <header className="sticky top-0 z-50 w-full border-b border-blue-200/40 bg-blue-50/30 backdrop-blur-sm supports-[backdrop-filter]:bg-blue-50/60 dark:bg-gray-900/30 dark:border-gray-800/40">
-            <div className="flex h-20 items-center justify-between px-4 w-full">
+            <div className="relative flex h-20 items-center justify-between px-4 w-full">
                 <div className="flex items-center">
                     <Link href="/" className="flex items-center">
                         <div className="w-[60px] h-[60px] relative">
@@ -29,29 +29,31 @@ export function Navbar() {
                             Criss Cross LTD
                         </span>
                     </Link>
+                </div>
+                <nav className="hidden md:flex items-center space-x-6 absolute left-1/2 -translate-x-1/2">
                     <Link
                         href="/deliveries"
-                        className="group relative hidden md:inline-flex items-center space-x-2 text-muted-foreground/80 ml-4 dark:text-gray-400 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:text-blue-600 dark:hover:text-blue-400 after:hover:w-full"
+                        className="group relative inline-flex items-center space-x-2 text-muted-foreground/80 dark:text-gray-400 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:text-blue-600 dark:hover:text-blue-400 after:hover:w-full"
                     >
                         <Truck className="h-4 w-4" />
                         <span>Deliveries</span>
                     </Link>
                     <Link
                         href="/about"
-                        className="group relative hidden md:inline-flex items-center space-x-2 text-muted-foreground/80 ml-4 dark:text-gray-400 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:text-blue-600 dark:hover:text-blue-400 after:hover:w-full"
+                        className="group relative inline-flex items-center space-x-2 text-muted-foreground/80 dark:text-gray-400 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:text-blue-600 dark:hover:text-blue-400 after:hover:w-full"
                     >
                         <User className="h-4 w-4" />
                         <span>About Us</span>
                     </Link>
                     <Link
                         href="/products"
-                        className="group relative hidden md:inline-flex items-center space-x-2 text-muted-foreground/80 ml-4 dark:text-gray-400 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:text-blue-600 dark:hover:text-blue-400 after:hover:w-full"
+                        className="group relative inline-flex items-center space-x-2 text-muted-foreground/80 dark:text-gray-400 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:text-blue-600 dark:hover:text-blue-400 after:hover:w-full"
                     >
                         <Package className="h-4 w-4" />
                         <span>Products</span>
                     </Link>
-                </div>
-                <nav className="hidden md:flex items-center space-x-6 text-base font-medium relative">
+                </nav>
+                <nav className="hidden md:flex items-center text-base font-medium">
                     <Button
                         asChild
                         className="bg-gradient-to-r from-blue-600 to-purple-600 text-white dark:from-blue-600 dark:to-purple-500 hover:opacity-80 transition-opacity duration-200 rounded-[1.618rem]"

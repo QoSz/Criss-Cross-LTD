@@ -174,7 +174,7 @@ export function LogoCarousel({ columns: staticColumns, responsiveColumns, logos 
   }, []);
 
   return (
-    <div className="flex justify-center gap-4 py-8">
+    <div role="region" aria-label="Partner company logos" className="flex justify-center gap-4 py-8">
       {logoColumns.map((columnLogos, index) => (
         <LogoColumn
           key={index}

@@ -5,11 +5,8 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   
-  // Next.js 15 experimental optimizations
   experimental: {
-    // Optimize CSS bundling
     optimizeCss: true,
-    // Package import optimizations for better tree shaking
     optimizePackageImports: [
       'lucide-react',
       '@radix-ui/react-dialog',
@@ -17,11 +14,6 @@ const nextConfig: NextConfig = {
       'framer-motion',
       'leaflet'
     ],
-    // Enable webpack build worker for faster builds
-    webpackBuildWorker: true,
-    // Better scroll restoration
-    scrollRestoration: true,
-    // Forward browser logs to terminal for debugging
     browserDebugInfoInTerminal: true,
   },
 

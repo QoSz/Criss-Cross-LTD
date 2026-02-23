@@ -19,7 +19,7 @@ export function ProductDetail({ product, categoryTitle }: ProductDetailProps) {
   const defaultDescription = `${product.name} from ${product.company}. Available for wholesale purchase from Criss Cross Ltd, Kenya's trusted FMCG distributor. Contact us for competitive bulk pricing and reliable delivery across Kenya.`;
 
   return (
-    <div className="w-full">
+    <article className="w-full">
       {/* Back Button */}
       <div className="mb-6">
         <Button
@@ -37,7 +37,7 @@ export function ProductDetail({ product, categoryTitle }: ProductDetailProps) {
       {/* Product Content */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
         {/* Image Section */}
-        <div className="relative aspect-square bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm">
+        <figure className="relative aspect-square bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm">
           {!imageLoaded && (
             <div className="absolute inset-0 bg-gray-100 dark:bg-gray-800 animate-pulse flex items-center justify-center">
               <div className="w-24 h-24 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse"></div>
@@ -55,7 +55,7 @@ export function ProductDetail({ product, categoryTitle }: ProductDetailProps) {
             onLoad={() => setImageLoaded(true)}
             onError={() => setImageLoaded(true)}
           />
-        </div>
+        </figure>
 
         {/* Content Section */}
         <div className="flex flex-col justify-center space-y-6">
@@ -93,6 +93,6 @@ export function ProductDetail({ product, categoryTitle }: ProductDetailProps) {
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }

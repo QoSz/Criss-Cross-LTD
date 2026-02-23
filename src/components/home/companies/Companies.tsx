@@ -14,13 +14,14 @@ function Companies() {
     });
 
     return (
+        <section aria-labelledby="principal-companies-heading">
         <Card>
             <CardContent className="pt-6 px-4 sm:px-6 lg:px-8">
                 <div className="text-center space-y-4 mb-4 sm:mb-4">
                     <p className="text-md font-medium tracking-widest text-muted-foreground">
                         DISTRIBUTING PRODUCTS FOR LEADING BRANDS IN KENYA
                     </p>
-                    <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-normal bg-gradient-to-b from-blue-700 to-blue-400 text-transparent bg-clip-text dark:from-blue-400 dark:to-blue-600">
+                    <h2 id="principal-companies-heading" className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-normal bg-gradient-to-b from-blue-700 to-blue-400 text-transparent bg-clip-text dark:from-blue-400 dark:to-blue-600">
                         Our Principal Companies
                     </h2>
                 </div>
@@ -33,6 +34,7 @@ function Companies() {
                 />
             </CardContent>
         </Card>
+        </section>
     );
 }
 

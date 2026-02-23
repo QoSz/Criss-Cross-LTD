@@ -5,7 +5,7 @@ const MAP_SRC =
 
 export function ContactMapSection() {
   return (
-    <div className="h-full w-full min-h-[450px]">
+    <section aria-label="Our location" className="h-full w-full min-h-[450px]">
       <Card className="p-2 h-full rounded-[1.618rem] overflow-hidden transition-all duration-300 hover:shadow-lg dark:hover:shadow-gray-800/50">
         <iframe
           src={MAP_SRC}
@@ -19,6 +19,6 @@ export function ContactMapSection() {
           title="Google Maps showing Criss Cross Ltd location at Duldul Godown, Phase 2, Mombasa Road, Nairobi"
         />
       </Card>
-    </div>
+    </section>
   );
 }
