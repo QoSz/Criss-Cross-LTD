@@ -87,6 +87,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         category={categoryTitle}
         brand={product.company}
         availability="InStock"
+        url={`${siteConfig.url}/products/${product.id}`}
       />
 
       <div className="min-h-screen bg-gradient-to-b from-gray-100/70 via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-900/50 dark:to-black">

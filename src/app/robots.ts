@@ -13,7 +13,6 @@ export default function robots(): MetadataRoute.Robots {
           '/api/',
           '/_next/',
           '/private/',
-          '/thank-you', // Prevent indexing of thank you page
         ],
       },
       {
@@ -30,7 +29,6 @@ export default function robots(): MetadataRoute.Robots {
           '/api/',
           '/_next/',
           '/private/',
-          '/thank-you',
         ],
         crawlDelay: 1,
       },
@@ -48,7 +46,6 @@ export default function robots(): MetadataRoute.Robots {
           '/api/',
           '/_next/',
           '/private/',
-          '/thank-you',
         ],
         crawlDelay: 1,
       },

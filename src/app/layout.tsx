@@ -18,6 +18,9 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  alternates: {
+    canonical: siteConfig.url,
+  },
   title: {
     default: `${siteConfig.name} | Wholesale FMCG Distributor in Kenya`,
     template: `%s | ${siteConfig.name}`,
@@ -101,7 +104,6 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#1d4ed8" />
         <meta name="color-scheme" content="light dark" />
-        <link rel="canonical" href={siteConfig.url} />
       </head>
       <body className={poppins.className}>
         <a

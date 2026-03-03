@@ -39,25 +39,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
-  // Product categories (from the old sitemap)
-  const categories = [
-    'Cooking Oil',
-    'Soaps & Self-Care',
-    'Rice & Grains',
-    'Sugar',
-    'Beverages',
-    'Juices',
-    'Household',
-    'Miscellaneous',
-  ]
-
-  const categoryPages: MetadataRoute.Sitemap = categories.map(category => ({
-    url: `${baseUrl}/products?category=${encodeURIComponent(category)}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly',
-    priority: 0.6,
-  }))
-
   // Individual product pages
   const products = await getAllProducts()
   const productPages: MetadataRoute.Sitemap = products.map(product => ({
@@ -67,5 +48,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }))
 
-  return [...mainPages, ...categoryPages, ...productPages]
+  return [...mainPages, ...productPages]
 }

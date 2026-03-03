@@ -32,6 +32,34 @@ const nextConfig: NextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
 
+  // 301 redirects for old URLs indexed by Google
+  async redirects() {
+    return [
+      {
+        source: '/about-us',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/contact-us',
+        destination: '/contact',
+        permanent: true,
+      },
+      {
+        source: '/coming-soon',
+        destination: '/',
+        permanent: true,
+      },
+      // Redirect legacy versioned favicon URL (webpack hash artifact) to canonical path
+      {
+        source: '/favicon.ico',
+        has: [{ type: 'query', key: 'favicon.c68f628a.ico' }],
+        destination: '/favicon.ico',
+        permanent: true,
+      },
+    ];
+  },
+
   // Headers for better caching and security
   async headers() {
     return [
@@ -58,6 +86,20 @@ const nextConfig: NextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()'
+          },
+        ],
+      },
+      // Prevent favicon.ico from being indexed as a page (binary resource, not HTML)
+      {
+        source: '/favicon.ico',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400',
           },
         ],
       },

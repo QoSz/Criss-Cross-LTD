@@ -207,14 +207,18 @@ interface ProductSchemaProps {
   category?: string;
   brand?: string;
   availability?: string;
+  lowPrice?: number;
+  highPrice?: number;
+  url?: string;
 }
 
-export function ProductSchema({ name, description, image, category, brand, availability = "InStock" }: ProductSchemaProps) {
+export function ProductSchema({ name, description, image, category, brand, availability = "InStock", lowPrice = 100, highPrice = 50000, url }: ProductSchemaProps) {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: name,
     description: description || `Wholesale ${name} available at competitive prices from Criss Cross Ltd, Kenya's trusted FMCG distributor`,
+    ...(url && { url }),
     image: image,
     category: category,
     brand: {
@@ -222,19 +226,16 @@ export function ProductSchema({ name, description, image, category, brand, avail
       name: brand || "Various Brands"
     },
     offers: {
-      "@type": "Offer",
+      "@type": "AggregateOffer",
       availability: `https://schema.org/${availability}`,
       priceCurrency: "KES",
+      lowPrice: lowPrice,
+      highPrice: highPrice,
+      offerCount: 1,
       seller: {
         "@type": "Organization",
         name: "Criss Cross Ltd",
         url: "https://www.crisscross.co.ke"
-      },
-      businessFunction: "http://purl.org/goodrelations/v1#Sell",
-      eligibleQuantity: {
-        "@type": "QuantitativeValue",
-        minValue: 1,
-        unitText: "Bulk Orders"
       }
     },
     manufacturer: {

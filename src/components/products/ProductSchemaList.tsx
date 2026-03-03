@@ -10,7 +10,7 @@ interface ProductSchemaListProps {
  * Reduces structured data size from ~120-200KB to ~2-3KB
  */
 export function ProductSchemaList({ products }: ProductSchemaListProps) {
-  const baseProductUrl = 'https://www.crisscross.co.ke/products#';
+  const baseProductUrl = 'https://www.crisscross.co.ke/products/';
   const baseImageUrl = 'https://www.crisscross.co.ke';
   const descriptionSuffix = ' available at competitive prices from Criss Cross Ltd, Kenya\'s trusted FMCG distributor';
 
@@ -42,27 +42,13 @@ export function ProductSchemaList({ products }: ProductSchemaListProps) {
             "@type": "AggregateOffer",
             "availability": "https://schema.org/InStock",
             "priceCurrency": "KES",
+            "lowPrice": 100,
+            "highPrice": 50000,
             "offerCount": 1,
             "seller": {
               "@type": "Organization",
               "name": "Criss Cross Ltd",
               "url": "https://www.crisscross.co.ke"
-            },
-            "businessFunction": "http://purl.org/goodrelations/v1#Sell",
-            "eligibleQuantity": {
-              "@type": "QuantitativeValue",
-              "minValue": 1,
-              "unitText": "Case"
-            },
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "priceCurrency": "KES",
-              "valueAddedTaxIncluded": true,
-              "eligibleTransactionVolume": {
-                "@type": "PriceSpecification",
-                "priceCurrency": "KES",
-                "description": "Wholesale pricing for bulk orders"
-              }
             }
           }
         }
